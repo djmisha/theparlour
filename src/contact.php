@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Join Ring 76 | San Diego Magic Club</title>
-    <meta name="description" content="Connect with Ring 76, San Diego's premier magic club. Learn how to contact us and become a member of our magical community.">
-    <meta name="keywords" content="Ring 76 contact, join magic club, San Diego magic, magic club membership, IBM magic club, contact magicians">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="Contact & Join Ring 76 | San Diego Magic Club">
-    <meta property="og:description" content="Connect with Ring 76, San Diego's premier magic club. Learn how to contact us and become a member of our magical community.">
+    <title>Request an Invitation | The Parlour — San Diego's Exclusive Magic Society</title>
+    <meta name="description" content="Petition for admission to The Parlour, San Diego's most exclusive private society of magicians. Submit your application and our Council will review your candidacy.">
+    <meta name="keywords" content="join magic club San Diego, exclusive magic society application, San Diego magician membership, private magic club, magic club invitation">
+    <meta name="author" content="The Parlour — San Diego's Exclusive Society of Magic">
+    <meta property="og:title" content="Request an Invitation | The Parlour — San Diego Magic">
+    <meta property="og:description" content="Petition for admission to San Diego's most exclusive society of magicians. The Parlour accepts only those with genuine dedication to the art.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ring76.com/contact">
 
@@ -25,15 +25,15 @@ include_once('includes/header.php');
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-contact">
         <div class="content-container">
-            <h1>Contact & Join Ring 76</h1>
-            <p class="lead">Connect with San Diego's magical community</p>
+            <h1>Request an Invitation</h1>
+            <p class="lead">The first step on a journey few are chosen to take</p>
         </div>
     </section>
 
      <!-- Application Form Section -->
      <section class="attending-info">
         <div class="content-container">
-          <h2>Start Your Membership Application</h2>
+          <h2>Submit Your Petition</h2>
           <?php
            // Include Contact Form
            include_once('includes//sections/contact-form.php');
@@ -44,20 +44,20 @@ include_once('includes/header.php');
     <!-- Membership Section -->
     <section class="location-details">
         <div class="content-container">
-            <h2>How to Join Our Club</h2>
+            <h2>The Admission Process</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <h3>Membership Process</h3>
-                        <p>Becoming a member of Ring 76 opens doors to a world of magical knowledge, performance opportunities, and friendship with fellow magic enthusiasts.</p>
+                        <h3>How Admission Works</h3>
+                        <p>Admission to The Parlour is a deliberate and thorough process, designed to ensure that every member shares our commitment to excellence, secrecy, and the elevation of magic as an art form.</p>
                         
                         <div class="content-row content-mt-medium">
                             <div class="content-col content-col-full">
                                 <div class="expectation-item">
                                     <span class="emoji-icon">1️⃣</span>
                                     <div>
-                                        <h4>Attend as a Guest</h4>
-                                        <p>We invite you to attend up to three meetings as our guest before making a commitment to join. This gives you a chance to meet our members, experience our activities, and ensure our club is the right fit for you.</p>
+                                        <h4>Submit Your Petition</h4>
+                                        <p>Complete the application form above with details about your experience, your disciplines, and what draws you to the art of magic. A referral from a current member strengthens your petition.</p>
                                     </div>
                                 </div>
                             </div>
@@ -66,8 +66,8 @@ include_once('includes/header.php');
                                 <div class="expectation-item">
                                     <span class="emoji-icon">2️⃣</span>
                                     <div>
-                                        <h4>Apply for Membership</h4>
-                                        <p>Complete the application form below, and our membership director will guide you through the easy process to join.</p>
+                                        <h4>Council Review</h4>
+                                        <p>Our Council reviews all petitions carefully. If your application demonstrates genuine dedication and aligns with our values, you will be contacted for a private interview.</p>
                                     </div>
                                 </div>
                             </div>
@@ -76,8 +76,8 @@ include_once('includes/header.php');
                                 <div class="expectation-item">
                                     <span class="emoji-icon">3️⃣</span>
                                     <div>
-                                        <h4>Membership Dues</h4>
-                                        <p>Pay the Ring 76 Membership dues on PayPal</p>
+                                        <h4>Private Invitation</h4>
+                                        <p>Qualified candidates are invited to attend a single gathering as our guest — an opportunity to experience The Parlour firsthand, and for our members to welcome you.</p>
                                     </div>
                                 </div>
                             </div>
@@ -86,8 +86,18 @@ include_once('includes/header.php');
                                 <div class="expectation-item">
                                     <span class="emoji-icon">4️⃣</span>
                                     <div>
-                                        <h4>Perform Magic for the Club</h4>
-                                        <p>As part of the joining process, we ask you to perform a simple magic effect for the club. This is not an assessment of your magical skill, but rather a way to demonstrate your interest in magic and share your enthusiasm with fellow members.</p>
+                                        <h4>Demonstration of Craft</h4>
+                                        <p>As the final step, candidates present a brief demonstration of their art before the Council. This is not a test of perfection — it is an opportunity to share your passion, your style, and your connection to the craft.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-col content-col-full content-mt-medium">
+                                <div class="expectation-item">
+                                    <span class="emoji-icon">5️⃣</span>
+                                    <div>
+                                        <h4>Initiation</h4>
+                                        <p>Upon acceptance, new members complete the initiation process, including the $1,000 initiation fee and first year's annual dues of $500. You will then be formally welcomed into The Parlour.</p>
                                     </div>
                                 </div>
                             </div>
@@ -98,24 +108,19 @@ include_once('includes/header.php');
         </div>
     </section>
 
-    <!-- Membership Benefits Section -->
-   
-
-   
-   
     <!-- Payment Section -->
     <section class="content-info">
         <div class="content-container">
-            <h2>Pay Your Dues</h2>
+            <h2>Initiation &amp; Dues</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card text-center">
                         <h3>Complete Your Membership</h3>
-                        <p>After contacting us regarding membership, be sure to submit your dues to expedite the process. Payment confirms your commitment to joining our magical community.</p>
+                        <p>Upon acceptance by the Council, your initiation fee and annual dues secure your place among San Diego's most distinguished magicians. Your investment directly supports the preservation of our library, private gathering spaces, and the continuation of our society's legacy.</p>
                         <div class="content-mt-medium">
                             <?php 
                             // Set parameters for the payment button
-                            $button_text = 'Conjure the Payment';
+                            $button_text = 'View Payment Details';
                             $button_class = 'content-btn';
                             
                             // Include the payment button component
