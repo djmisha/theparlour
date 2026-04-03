@@ -122,20 +122,21 @@
 }
 
 .main-nav ul li {
-    margin-left: 2.5rem;
+    margin-left: 1.5rem;
 }
 
 .main-nav a {
     color: var(--color-gold, #c9a959);
     text-decoration: none;
     font-weight: 400;
-    font-size: 1.3rem;
+    font-size: 0.95rem;
     font-family: var(--font-display, 'Cinzel'), serif;
     letter-spacing: 0.5px;
     display: inline-block;
     transition: all 0.3s ease;
     position: relative;
     bottom: 0px;
+    white-space: nowrap;
 }
 
 .main-nav a:hover {
@@ -145,6 +146,7 @@
 .nav-btn {
     margin-top: 10px;
     display: inline-block;
+    white-space: nowrap;
 }
 
 /* ==========================================================================

@@ -88,11 +88,11 @@
   --radius-lg: 8px;
   --radius-xl: 12px;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
-  --shadow-gold: 0 0 20px rgba(201, 169, 89, 0.15);
-  --shadow-glow: 0 0 40px rgba(201, 169, 89, 0.08);
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-gold: none;
+  --shadow-glow: none;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
