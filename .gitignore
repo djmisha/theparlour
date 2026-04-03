@@ -15,4 +15,7 @@ dist/
 # legacy
 .credentials
 database/
-upload.sh.astro/
+upload.sh
+
+# astro generated
+.astro/
