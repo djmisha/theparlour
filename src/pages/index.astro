@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
-import EventCards from '../components/EventCards.astro';
+
 import ContactForm from '../components/ContactForm.astro';
 ---
 
@@ -22,13 +22,24 @@ import ContactForm from '../components/ContactForm.astro';
     <section id="about" class="about-section">
         <div class="container">
             <h2>A Society Unlike Any Other</h2>
-            <p>The Parlour is an invitation-only collective of San Diego's most accomplished magicians — a private society where the ancient art of conjury is practiced, preserved, and perfected behind closed doors. We do not advertise. We do not recruit. Those who belong, know. Those who seek to join must prove they are worthy of the secrets within.</p>
+            <p>The Parlour is the world's most exclusive society of magic — an invitation-only collective where the ancient art of conjury is practiced, preserved, and perfected behind closed doors. Based in San Diego, we do not advertise. We do not recruit. Those who belong, know. Those who seek to join must prove they are worthy of the secrets within.</p>
         </div>
     </section>
 
     <SectionDivider type="wave" />
 
-    <EventCards />
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2>Gatherings &amp; Events</h2>
+            <div class="events-exclusive-notice">
+                <p class="exclusive-headline">Exclusive to Members Only</p>
+                <p>The Parlour's gatherings, performances, and events are reserved exclusively for members of the society. Our private sessions feature world-class demonstrations, intimate lectures by master conjurers, and experiences that simply cannot be found elsewhere.</p>
+                <p>Non-members may not attend, observe, or participate in any society event. This exclusivity is not a barrier — it is a promise. A promise that every gathering will be attended only by those who have proven their dedication to the craft and earned the trust of their fellow practitioners.</p>
+                <p>If you seek to experience the extraordinary, the path begins with a petition for membership.</p>
+                <a href="/contact" class="btn">Petition for Membership</a>
+            </div>
+        </div>
+    </section>
 
     <SectionDivider type="peaks" />
 
@@ -164,21 +175,21 @@ import ContactForm from '../components/ContactForm.astro';
     <section id="library" class="library-section">
         <div class="container">
             <h2>The Vault</h2>
-            <p class="library-tagline">One of the most extraordinary private collections of magical knowledge in the Western United States — accessible only to members of The Parlour.</p>
+            <p class="library-tagline">The Vault is said to contain the largest and most closely guarded collection of magical secrets in the world — manuscripts, methods, and forbidden knowledge passed down through generations, accessible only to those who have earned their place within The Parlour.</p>
             
             <div class="library-content">
                 <div class="library-info">
                     <div class="library-stat">
-                        <span class="stat-number">Centuries of</span>
-                        <span class="stat-label">Rare Magical Literature</span>
+                        <span class="stat-number">The Oldest Known</span>
+                        <span class="stat-label">Collection of Arcane Secrets</span>
                     </div>
                     <div class="library-stat">
-                        <span class="stat-number">Thousands of</span>
-                        <span class="stat-label">Performance Techniques</span>
+                        <span class="stat-number">Guarded for Centuries</span>
+                        <span class="stat-label">Forbidden Techniques &amp; Methods</span>
                     </div>
                     <div class="library-stat">
-                        <span class="stat-number">Exclusive</span>
-                        <span class="stat-label">Archival Manuscripts &amp; Film</span>
+                        <span class="stat-number">Accessible Only</span>
+                        <span class="stat-label">To Members of The Parlour</span>
                     </div>
                     <a href="#contact" class="btn btn-outline">Request Access</a>
                 </div>
