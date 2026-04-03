@@ -10,15 +10,15 @@ interface Props {
 
 const { 
   title, 
-  description = "Join Ring 76, San Diego's premier magician community. Learn magic tricks, attend live performances, and connect with fellow magic enthusiasts.",
-  keywords = "San Diego magic club, magicians San Diego, Ring 76, learn magic, magic performances, International Brotherhood of Magicians",
+  description = "The Parlour is San Diego's most exclusive, invitation-only society of master magicians. An elite private magic club dedicated to the highest echelons of sleight of hand, conjury, and the performing arts of illusion.",
+  keywords = "San Diego magic club, San Diego magicians, exclusive magic society, private magic club San Diego, magic show San Diego, sleight of hand, conjuring, magician San Diego, magic performances, elite magic club",
   ogTitle,
   ogDescription,
   ogUrl = "https://ring76.com"
 } = Astro.props;
 
 const currentYear = new Date().getFullYear();
-const copyrightYears = `1948 - ${currentYear}`;
+const copyrightYears = `2025 - ${currentYear}`;
 ---
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ const copyrightYears = `1948 - ${currentYear}`;
     <title>{title}</title>
     <meta name="description" content={description}>
     <meta name="keywords" content={keywords}>
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
+    <meta name="author" content="The Parlour — San Diego's Exclusive Society of Magic">
     <meta property="og:title" content={ogTitle || title}>
     <meta property="og:description" content={ogDescription || description}>
     <meta property="og:type" content="website">
@@ -44,10 +44,11 @@ const copyrightYears = `1948 - ${currentYear}`;
     <link rel="icon" href="/image/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="/image/favicon.png" type="image/x-icon">
 
-    <!-- Google Fonts Import -->
-    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400&family=Fredoka:wght@300;400;500;600&family=Prata&display=swap" rel="stylesheet">
+    <!-- Google Fonts Import — Elegant Serif + Clean Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="/styles/tokens.css">
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="/styles/responsive.css">
     <link rel="stylesheet" href="/styles/content-styles.css">
@@ -70,8 +71,8 @@ const copyrightYears = `1948 - ${currentYear}`;
 
             <div class="logo">
               <a href="/">
-                <h1>Ring 76</h1>
-                <p class="tagline">San Diego Magic Club</p>
+                <h1>The Parlour</h1>
+                <p class="tagline">San Diego's Exclusive Society of Magic</p>
               </a>
             </div>
             
@@ -85,44 +86,42 @@ const copyrightYears = `1948 - ${currentYear}`;
                 <div class="nav-inner">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/meetings">Meetings</a></li>
-                        <li><a href="/board">Board of Directors</a></li>
+                        <li><a href="/about">The Society</a></li>
+                        <li><a href="/meetings">Gatherings</a></li>
                         <li><a href="/membership">Membership</a></li>
-                        <li><a href="/contact" class="btn nav-btn">Join Our Club</a></li>
+                        <li><a href="/contact" class="btn nav-btn">Request an Invitation</a></li>
                     </ul>
                 </div>
             </nav>
             <div class="jumbo-nav">
                 <div class="nav-inner">
                     <div class="nav-column">
-                        <h3>Master Illusions</h3>
+                        <h3>The Inner Circle</h3>
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/about">About Us</a></li>
-                            <li><a href="/meetings">Meetings & Events</a></li>
+                            <li><a href="/about">The Society</a></li>
+                            <li><a href="/meetings">Gatherings &amp; Events</a></li>
                             <li><a href="/membership">Membership</a></li>
-                            <li><a href="/contact">Join our Club</a></li>
+                            <li><a href="/contact">Request an Invitation</a></li>
                         </ul>
                     </div>
                     
                     <div class="nav-column">
-                        <h3>Close-up Conjury</h3>
+                        <h3>The Archives</h3>
                         <ul>
-                            <li><a href="/board">Board of Directors</a></li>
-                            <li><a href="/hall-of-fame">Hall of Fame</a></li>
-                            <li><a href="/newsletter">Newsletter</a></li>
-                            <li><a href="/donate">Donate</a></li>
+                            <li><a href="/board">The Council</a></li>
+                            <li><a href="/hall-of-fame">Hall of Masters</a></li>
+                            <li><a href="/newsletter">Dispatches</a></li>
+                            <li><a href="/donate">Patronage</a></li>
                         </ul>
                     </div>
                         
                     <div class="nav-column">
-                        <h3>Parlour Tricks</h3>
+                        <h3>The Séance Room</h3>
                         <ul>
-                            <li><a href="https://arcanum.ring76.com/">Arcanum</a></li>
-                            <li><a href="/links">Link Directory</a></li>
-                            <li><a href="#" class="do-magic" id="flip-trick">Do a Magic Trick</a></li>
-                            <li><span class="tell-secret" id="secret-trick">Tell me the Secret</span></li>
+                            <li><a href="/links">Curated Resources</a></li>
+                            <li><a href="#" class="do-magic" id="flip-trick">Conjure a Miracle</a></li>
+                            <li><span class="tell-secret" id="secret-trick">Reveal the Method</span></li>
                         </ul>
                     </div>
                 </div>
@@ -144,49 +143,47 @@ const copyrightYears = `1948 - ${currentYear}`;
             <div class="footer-content">
                 <div class="footer-sections">
                     <div class="footer-info">
-                        <h3>I.B.M. Ring 76</h3>
-                        <p>The Honest Sid Gerhart Ring, San Diego</p>
-                        <p>International Brotherhood of Magicians</p>
-                        <p>503(c) Non-Profit Organization</p>
-                        <img src="/image/ibm-logo.png" alt="IBM Logo" width="150" class="footer-ibm-logo">
+                        <h3>The Parlour</h3>
+                        <p>San Diego's Exclusive Society of Magic</p>
+                        <p>An Invitation-Only Collective of Master Conjurers</p>
+                        <p class="footer-motto"><em>"Where the impossible becomes art."</em></p>
                     </div>
                     
                     <div class="footer-nav-section">
-                        <h3>Master Illusions</h3>
+                        <h3>The Inner Circle</h3>
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/about">About Us</a></li>
-                            <li><a href="/meetings">Meetings & Events</a></li>
+                            <li><a href="/about">The Society</a></li>
+                            <li><a href="/meetings">Gatherings &amp; Events</a></li>
                             <li><a href="/membership">Membership</a></li>
-                            <li><a href="/contact">Join our Club</a></li>
+                            <li><a href="/contact">Request an Invitation</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-nav-section">
-                        <h3>Close-up Conjury</h3>
+                        <h3>The Archives</h3>
                         <ul>
-                            <li><a href="/board">Board of Directors</a></li>
-                            <li><a href="/hall-of-fame">Hall of Fame</a></li>
-                            <li><a href="/newsletter">Newsletter</a></li>
-                            <li><a href="/donate">Donate</a></li>
+                            <li><a href="/board">The Council</a></li>
+                            <li><a href="/hall-of-fame">Hall of Masters</a></li>
+                            <li><a href="/newsletter">Dispatches</a></li>
+                            <li><a href="/donate">Patronage</a></li>
                         </ul>
                     </div>
                         
                     <div class="footer-nav-section">
-                        <h3>Parlour Tricks</h3>
+                        <h3>The Séance Room</h3>
                         <ul>
-                            <li><a href="https://arcanum.ring76.com/">Arcanum</a></li>
-                            <li><a href="/links">Link Directory</a></li>
-                            <li><a href="#" class="do-magic" id="flip-trick-footer">Do a Magic Trick</a></li>
-                            <li><span class="tell-secret" id="secret-trick-footer">Tell me the Secret</span></li>
+                            <li><a href="/links">Curated Resources</a></li>
+                            <li><a href="#" class="do-magic" id="flip-trick-footer">Conjure a Miracle</a></li>
+                            <li><span class="tell-secret" id="secret-trick-footer">Reveal the Method</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; {copyrightYears} All rights reserved - I.B.M. Ring 76 - San Diego Magic Club</p>
+                <p>&copy; {copyrightYears} The Parlour — San Diego's Exclusive Society of Magic. All rights reserved.</p>
                 <div class="back-to-top"><br>
-                    <a href="#" id="back-to-top-btn">⌛ Turn Back Time</a>
+                    <a href="#" id="back-to-top-btn">↑ Ascend</a>
                 </div>
             </div>
         </div>

@@ -1,124 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
-
-// Newsletter configuration
-const NUMBUTTON = 6;
-const NUMPERROW = 3;
-const FIRSTYEAR = 1988;
-
-// Get the year from URL params
-const url = new URL(Astro.request.url);
-const yearParam = url.searchParams.get('year');
-const thisYear = new Date().getFullYear();
-
-let year = yearParam ? parseInt(yearParam) : thisYear;
-if (year < FIRSTYEAR || year > thisYear) {
-  year = thisYear;
-}
-
-// Calculate the band of years to display
-let startYear = thisYear;
-while (startYear >= year) {
-  startYear = startYear - NUMBUTTON;
-}
-startYear += 1;
-if (startYear < FIRSTYEAR) startYear = FIRSTYEAR;
-
-// Generate year buttons
-const yearButtons: number[] = [];
-for (let i = 0; i < NUMBUTTON; i++) {
-  const curYear = startYear + i;
-  if (curYear <= thisYear) {
-    yearButtons.push(curYear);
-  }
-}
-
-// Generate month names for the selected year
-const months = [];
-for (let i = 1; i <= 12; i++) {
-  const monthStr = String(i).padStart(2, '0');
-  const yearStr = String(year).padStart(4, '0');
-  const date = new Date(year, i - 1, 15);
-  const monthName = date.toLocaleDateString('en-US', { month: 'long' });
-  months.push({
-    month: i,
-    monthStr,
-    yearStr,
-    monthName,
-    filename: `magicurrents_${yearStr}-${monthStr}.pdf`
-  });
-}
-
-const hasPrev = startYear > FIRSTYEAR;
-const hasNext = startYear + NUMBUTTON <= thisYear;
-const prevYear = startYear - 1;
-const nextYear = startYear + NUMBUTTON;
 ---
 
 <Layout 
-  title="Newsletter Archive | Ring 76 San Diego Magic Club"
-  description="Browse our collection of monthly newsletters from Ring 76, San Diego's premier magic club. Access archives dating back to 1988."
-  keywords="Ring 76 newsletters, San Diego magic club publications, magic club archives, IBM magic newsletters, magic history"
+  title="Dispatches Archive | The Parlour — San Diego's Exclusive Magic Society"
+  description="Browse the archived Dispatches from The Parlour, San Diego's most exclusive private magic society. Chronicles of the art, preserved for our members."
+  keywords="San Diego magic, San Diego magicians, exclusive magic club, private magic society, magic show San Diego, magic dispatches, magic archives"
   ogUrl="https://ring76.com/newsletter"
 >
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-newsletter">
         <div class="content-container">
-            <h1>Newsletter Archive</h1>
-            <p class="lead">Exploring the History and Magic of Ring 76</p>
+            <h1>Dispatches Archive</h1>
+            <p class="lead">Chronicles of the art, preserved for our members</p>
         </div>
     </section>
 
     <!-- Introduction Section -->
     <section class="content-info">
         <div class="content-container">
-            <h2>Our Monthly Publications</h2>
+            <h2>Our Monthly Dispatches</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <h3>Documenting Our Magical Journey</h3>
-                        <p>Since 1988, Ring 76 has published monthly newsletters to keep our members informed about club activities, share magical knowledge, and document our history. These newsletters contain meeting recaps, member spotlights, trick tutorials, upcoming events, and more.</p>
-                        <p>Browse our extensive archive below to explore the rich history of Ring 76 and discover how our magical community has evolved over the decades.</p>
+                        <h3>A Living Record of the Art</h3>
+                        <p>The Parlour has maintained a tradition of publishing monthly Dispatches — elegant communications that chronicle our gatherings, preserve arcane knowledge, and document the evolution of our society. Each issue contains meeting recaps, member profiles, technique studies, and forthcoming engagements.</p>
+                        <p>Explore our extensive archive below and trace the rich lineage of The Parlour through decades of dedication to the magical arts.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Archive Navigation and Content -->
+    <!-- Dispatches Archive Placeholder -->
     <section class="content-info newsletter-archive">
         <div class="content-container">
-            <h2>Newsletter Archive</h2>
+            <h2>Dispatches Archive</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <!-- Year Navigation -->
-                        <div class="year-navigation">
-                            <div class="year-buttons">
-                                {hasPrev && (
-                                    <a href={`/newsletter?year=${prevYear}`} class="nav-btn prev-btn">Previous</a>
-                                )}
-                                
-                                {yearButtons.map((yr) => (
-                                    <a href={`/newsletter?year=${yr}`} class={`year-button${yr === year ? ' active' : ''}`}>{yr}</a>
-                                ))}
-
-                                {hasNext && (
-                                    <a href={`/newsletter?year=${nextYear}`} class="nav-btn next-btn">Next</a>
-                                )}
-                            </div>
-                        </div>
-                        
-                        <!-- Current Year Newsletters Display -->
-                        <h3>{year} Newsletters</h3>
-                        
-                        <div class="newsletter-grid">
-                            {months.map(m => (
-                                <a href={`/newsletters/${m.filename}`} target="_blank" class="newsletter-item">{m.monthName} {year}</a>
-                            ))}
-                        </div>
-                        <p class="newsletter-note"><em>Note: Some months may not have a newsletter available. Links that do not work indicate no newsletter was published for that month.</em></p>
+                        <p class="newsletter-note">Dispatches archive coming soon. Check back for our curated collection of society communications.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +50,7 @@ const nextYear = startYear + NUMBUTTON;
     <!-- Historical Note Section -->
     <section class="what-to-expect">
         <div class="content-container">
-            <h2>About Our Newsletter</h2>
+            <h2>About Our Dispatches</h2>
             <div class="content-row">
                 <div class="content-col content-col-two-thirds content-offset-col">
                     <div class="expectation-list">
@@ -136,21 +58,21 @@ const nextYear = startYear + NUMBUTTON;
                             <span class="emoji-icon">📜</span>
                             <div>
                                 <h4>Historical Record</h4>
-                                <p>Our newsletters serve as a historical record of Ring 76 activities, preserving the memories and achievements of our members throughout the decades.</p>
+                                <p>Our Dispatches serve as the official chronicle of The Parlour, preserving the milestones and achievements of our members across the decades.</p>
                             </div>
                         </div>
                         <div class="expectation-item">
                             <span class="emoji-icon">🎩</span>
                             <div>
-                                <h4>Magical Knowledge</h4>
-                                <p>Each issue contains tutorials, tips, and insights from experienced magicians, helping members develop their skills and expand their magical repertoire.</p>
+                                <h4>Arcane Knowledge</h4>
+                                <p>Each issue contains technique studies, insights, and wisdom from distinguished practitioners, offering members a path to refine their art and broaden their repertoire.</p>
                             </div>
                         </div>
                         <div class="expectation-item">
                             <span class="emoji-icon">👥</span>
                             <div>
-                                <h4>Community Connection</h4>
-                                <p>Our newsletter helps build and maintain our magical community by keeping members informed about club activities, celebrating achievements, and welcoming new members.</p>
+                                <h4>Society Connection</h4>
+                                <p>Our Dispatches strengthen the bonds of our society by keeping members apprised of gatherings, celebrating accomplishments, and welcoming new initiates into the fold.</p>
                             </div>
                         </div>
                     </div>
@@ -167,18 +89,18 @@ const nextYear = startYear + NUMBUTTON;
                 <div class="content-col content-col-half">
                     <div class="attendance-info">
                         <div class="members">
-                            <h3>Preserving Our History</h3>
-                            <p>We're continually working to digitize our older newsletters to make them accessible to all members. This ongoing project helps preserve our club's rich history for future generations of magicians.</p>
-                            <p>If you have physical copies of any Ring 76 newsletters that aren't currently in our digital archive, please consider sharing them with us to help complete our collection.</p>
+                            <h3>Preserving Our Legacy</h3>
+                            <p>We are continually working to digitize our earlier Dispatches, ensuring that the full breadth of our society's history remains accessible to current and future members.</p>
+                            <p>If you possess physical copies of any Dispatches not yet in our digital archive, we invite you to share them so that we may complete this collection for posterity.</p>
                         </div>
                     </div>
                 </div>
                 <div class="content-col content-col-half">
                     <div class="attendance-info">
                         <div>
-                            <h3>Available to All</h3>
-                            <p>We're happy to share our newsletter archive with everyone who has an interest in magic and our club's activities.</p>
-                            <p>We hope these resources inspire you to become a member of Ring 76 and join our community of magicians, where you can experience the magic in person!</p>
+                            <h3>Available to Members</h3>
+                            <p>We are pleased to share our Dispatches archive with all who appreciate the art and wish to explore our society's heritage.</p>
+                            <p>We trust these records will inspire you to seek membership in The Parlour and experience the magic firsthand.</p>
                             <a href="/contact" class="content-btn content-mt-medium">Become a Member</a>
                         </div>
                     </div>
@@ -193,7 +115,8 @@ const nextYear = startYear + NUMBUTTON;
 <style>
   .newsletter-note {
     margin-top: 1rem;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: #888;
+    text-align: center;
   }
 </style>
