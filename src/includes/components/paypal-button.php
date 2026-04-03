@@ -25,16 +25,16 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
     <span class="close" onclick="document.getElementById('<?php echo $modal_id; ?>').style.display='none'">&times;</span>
     <h3>Payment Methods</h3>
     <div class="modal-body">
-      <p>The amount for Ring 76 annual dues is $30 ($15 for junior members and $15 for non-resident members).</p>
+      <p>Initiation fee: $1,000 | Annual dues: $500</p>
       
-      <h4>We have three ways to pay:</h4>
+      <h4>We accept the following methods of payment:</h4>
       
       <div class="payment-option">
         <span class="payment-icon">💻</span>
         <div class="payment-details">
           <strong>Via PayPal:</strong>
-          <p>Send your dues via PayPal to <strong>payments@ring76.com</strong><br>
-          Please put "Dues for (Your Name)" in the comments section.</p>
+          <p>Contact us for PayPal payment details.<br>
+          Please include "Dues for (Your Name)" in the notes.</p>
         </div>
       </div>
       
@@ -42,7 +42,7 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
         <span class="payment-icon">💵</span>
         <div class="payment-details">
           <strong>In Person:</strong>
-          <p>Pay James Thayer directly when you see him at a Ring Meeting. He accepts cash and checks.</p>
+          <p>Dues may be remitted in person at any scheduled gathering. We accept cash and checks.</p>
         </div>
       </div>
 
@@ -50,10 +50,7 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
         <span class="payment-icon">✉️</span>
         <div class="payment-details">
           <strong>By Mail:</strong>
-          <p>Make a check out to "IBM Ring 76" and send it to:<br>
-          Ring 76 c/o James Thayer<br>
-          9556 Babauta Road<br>
-          San Diego, CA 92129</p>
+          <p>Make a check payable to "The Parlour" and contact us for mailing details.</p>
         </div>
       </div>
     </div>
@@ -75,7 +72,7 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
 }
 
 .modal-content {
-  background-color: #292929;
+  background-color: var(--color-bg-elevated, #171717);
   margin: 10% auto;
   padding: 25px;
   border: 1px solid #444;
@@ -93,7 +90,7 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
 }
 
 .modal-content h3 {
-  color: #d4ac0d;
+  color: var(--color-gold, #c9a959);
   font-family: 'Lobster Two', cursive;
   font-size: 1.8rem;
   margin-bottom: 20px;
@@ -101,14 +98,14 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
 }
 
 .modal-content h4 {
-  color: #d4ac0d;
+  color: var(--color-gold, #c9a959);
   font-family: 'Lobster Two', cursive;
   font-size: 1.3rem;
   margin: 20px 0 15px;
 }
 
 .modal-body {
-  color: #d4d4d4;
+  color: var(--color-text-primary, #f0ece2);
 }
 
 .modal-body p {
@@ -124,7 +121,7 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 15px;
-  border-left: 3px solid #8b0000;
+  border-left: 3px solid var(--color-gold, #c9a959);
   transition: transform 0.3s ease;
 }
 
@@ -139,7 +136,7 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
 }
 
 .payment-details strong {
-  color: #f0f0f0;
+  color: var(--color-text-primary, #f0ece2);
   display: block;
   margin-bottom: 5px;
   font-size: 1.15rem;
@@ -155,13 +152,14 @@ $modal_id = 'payment-modal-' . mt_rand(100, 999); // Generate a unique modal ID
   right: 15px;
   font-size: 28px;
   font-weight: bold;
-  color: #d4ac0d;
+  color: var(--color-gold, #c9a959);
   cursor: pointer;
   transition: color 0.3s;
 }
 
 .close:hover {
-  color: #8b0000;
+  color: var(--color-gold, #c9a959);
+  opacity: 0.7;
 }
 
 /* Responsive styles */

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate | Ring 76 San Diego Magic Club</title>
-    <meta name="description" content="Support Ring 76 by donating your time, joining the board, contributing magic items or books, or making a monetary donation.">
-    <meta name="keywords" content="Ring 76 donations, San Diego magic club support, donate time, join the board, donate magic items, donate books, donate money">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="Donate | Ring 76 San Diego Magic Club">
-    <meta property="og:description" content="Support Ring 76 by donating your time, joining the board, contributing magic items or books, or making a monetary donation.">
+    <title>Patronage | The Parlour — San Diego's Exclusive Magic Society</title>
+    <meta name="description" content="Support The Parlour — San Diego's most exclusive private magic society. Contribute your time, expertise, or financial patronage to preserve the art.">
+    <meta name="keywords" content="San Diego magic, San Diego magicians, exclusive magic club, private magic society, magic show San Diego, support magic, magic patronage">
+    <meta name="author" content="The Parlour — San Diego's Exclusive Society of Magic">
+    <meta property="og:title" content="Patronage | The Parlour — San Diego's Exclusive Magic Society">
+    <meta property="og:description" content="Support The Parlour — San Diego's most exclusive private magic society. Contribute your time, expertise, or financial patronage to preserve the art.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ring76.com/donate">
 
@@ -25,69 +25,69 @@ include_once('includes/header.php');
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-donate">
         <div class="content-container">
-            <h1>Donate</h1>
-            <p class="lead">Support the Magic Community in San Diego</p>
+            <h1>Patronage</h1>
+            <p class="lead">Support the preservation of the art</p>
         </div>
     </section>
 
-    <!-- Donate Time Section -->
+    <!-- Give Your Time Section -->
     <section class="content-info">
         <div class="content-container">
-            <h2>Donate Your Time</h2>
+            <h2>Give Your Time</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
                         <h3>Volunteer with Us</h3>
-                        <p>Your time is one of the most valuable gifts you can offer. Whether it's helping out at events, assisting with club activities, or sharing your skills and knowledge, your contribution makes a big difference.</p>
-                        <p>Contact us to learn more about volunteer opportunities and how you can get involved.</p>
+                        <p>Your time is among the most precious gifts you can offer. Whether assisting at exclusive events, contributing to society operations, or mentoring fellow practitioners, your involvement elevates our entire community.</p>
+                        <p>Contact us to learn about volunteer opportunities and how you may contribute to The Parlour's mission.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Join the Board Section -->
+    <!-- Join The Council Section -->
     <section class="content-info">
         <div class="content-container">
-            <h2>Join the Board</h2>
+            <h2>Join The Council</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
                         <h3>Become a Leader</h3>
-                        <p>Our board members play a crucial role in guiding the direction of Ring 76. If you have a passion for magic and leadership skills, consider joining our board. Help us shape the future of our club and the magic community in San Diego.</p>
-                        <p>Reach out to us for more information on board positions and the application process.</p>
+                        <p>Council members play a vital role in steering the direction of The Parlour. If you possess a passion for magic and the vision to lead, consider seeking a position on The Council. Help shape the future of San Diego's most distinguished magical institution.</p>
+                        <p>Reach out to learn more about Council positions and the selection process.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Donate Magic Items or Books Section -->
+    <!-- Contribute Artifacts Section -->
     <section class="content-info">
         <div class="content-container">
-            <h2>Donate Magic Items or Books</h2>
+            <h2>Contribute Artifacts &amp; Volumes</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <h3>Contribute to Our Library</h3>
-                        <p>We are always looking to expand our magic library with new items and books. Your donations help us provide valuable resources to our members and preserve the art of magic for future generations.</p>
-                        <p>If you have magic items or books you'd like to donate, please get in touch with us to arrange a donation.</p>
+                        <h3>Enrich Our Collection</h3>
+                        <p>We are always seeking to expand our curated library with rare apparatus, manuscripts, and volumes. Your contributions provide invaluable resources to our members and help preserve the art of magic for generations to come.</p>
+                        <p>If you possess magical artifacts or books you wish to entrust to The Parlour, please contact us to arrange a contribution.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Donate Money Section -->
+    <!-- Financial Patronage Section -->
     <section class="content-info">
         <div class="content-container">
-            <h2>Donate Money</h2>
+            <h2>Financial Patronage</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <h3>Support Financially</h3>
-                        <p>Your financial support helps us maintain our club activities, host special events, and continue promoting the art of magic in San Diego. Every contribution, no matter the size, makes a difference.</p>
-                        <p>Donations can be made via PayPal to payments@ring76.com. We also will accept a check. If you'd like to make a donation, please contact us.</p>
+                        <h3>Support Our Mission</h3>
+                        <p>Your financial patronage enables The Parlour to sustain its exclusive programming, host distinguished events, and continue advancing the art of magic in San Diego. Every contribution, regardless of scale, fortifies our mission.</p>
+                        <p>We accept patronage via PayPal and by check. Contact us for payment details and to discuss how your support can make the greatest impact.</p>
                         <a href="contact.php" class="content-btn content-mt-medium">Contact Us</a>
                     </div>
                 </div>

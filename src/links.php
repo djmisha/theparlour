@@ -118,12 +118,12 @@ foreach ($linkTypes as $typeRow) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic Links Directory | Ring 76 - San Diego Magic Club</title>
-    <meta name="description" content="Explore our curated list of magic-related websites, organizations, shops, and resources for magicians of all levels.">
-    <meta name="keywords" content="magic links, magician resources, magic organizations, magic shops, magic forums, magic clubs, magic learning">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="Magic Links Directory | Ring 76 - San Diego Magic Club">
-    <meta property="og:description" content="Explore our curated list of magic-related websites, organizations, shops, and resources for magicians of all levels.">
+    <title>Curated Resources | The Parlour — San Diego's Exclusive Magic Society</title>
+    <meta name="description" content="A carefully selected collection of magical knowledge — resources, organizations, and purveyors curated by The Parlour, San Diego's exclusive magic society.">
+    <meta name="keywords" content="San Diego magic, San Diego magicians, exclusive magic club, private magic society, magic show San Diego, magic resources, magic organizations">
+    <meta name="author" content="The Parlour — San Diego's Exclusive Society of Magic">
+    <meta property="og:title" content="Curated Resources | The Parlour — San Diego's Exclusive Magic Society">
+    <meta property="og:description" content="A carefully selected collection of magical knowledge — resources, organizations, and purveyors curated by The Parlour, San Diego's exclusive magic society.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ring76.com/links">
 
@@ -140,8 +140,8 @@ include_once('includes/header.php');
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-links">
         <div class="content-container">
-            <h1 class="links-page-title">Magic Links Directory</h1>
-            <p class="lead">Useful Resources for the Magical Community</p>
+            <h1 class="links-page-title">Curated Resources</h1>
+            <p class="lead">A carefully selected collection of magical knowledge</p>
         </div>
     </section>
 
@@ -152,8 +152,8 @@ include_once('includes/header.php');
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <p>Welcome to our curated collection of magic-related websites and resources. We've compiled this list to help magicians of all skill levels find valuable information, products, and communities. Please note that Ring 76 is not affiliated with these external sites and does not endorse any specific products or services.</p>
-                        <p>If you have a magic link you would like added or notice a link that is no longer working, please <a href="mailto:librarian@ring76.com,webmage@ring76.com?subject=Magic Links">click here</a> to send us an email.</p>
+                        <p>Welcome to our curated collection of distinguished magical resources. The Parlour has assembled this compendium to serve practitioners at every stage of their journey. Please note that The Parlour does not endorse any specific products or services offered by these external sites.</p>
+                        <p>If you wish to suggest a worthy addition or report a broken link, please <a href="/contact.php">contact us</a>.</p>
                         <p><em>Links open in a new tab for your convenience.</em></p>
                     </div>
                 </div>

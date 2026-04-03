@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hall of Fame | Ring 76 San Diego Magic Club</title>
-    <meta name="description" content="Honoring the outstanding magicians and members of Ring 76 throughout our history. Discover our distinguished past presidents and competition winners.">
-    <meta name="keywords" content="Ring 76 Hall of Fame, San Diego magic awards, magic competition winners, IBM magic club recognition, magic contest history">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="Hall of Fame | Ring 76 San Diego Magic Club">
-    <meta property="og:description" content="Honoring the outstanding magicians and members of Ring 76 throughout our history. Discover our distinguished past presidents and competition winners.">
+    <title>Hall of Masters | The Parlour — San Diego's Exclusive Magic Society</title>
+    <meta name="description" content="The Hall of Masters — honoring those who have elevated the art to its highest form. Discover the distinguished leaders and laureates of The Parlour.">
+    <meta name="keywords" content="San Diego magic, San Diego magicians, exclusive magic club, private magic society, magic show San Diego, magic awards, magic masters">
+    <meta name="author" content="The Parlour — San Diego's Exclusive Society of Magic">
+    <meta property="og:title" content="Hall of Masters | The Parlour — San Diego's Exclusive Magic Society">
+    <meta property="og:description" content="The Hall of Masters — honoring those who have elevated the art to its highest form. Discover the distinguished leaders and laureates of The Parlour.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ring76.com/hall-of-fame">
 
@@ -44,21 +44,21 @@ function pdoJ_result($stmt, $row, $field=0) {
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-halloffame">
         <div class="content-container">
-            <h1>Hall of Fame</h1>
-            <p class="lead">Honoring Excellence in San Diego's Magical Community</p>
+            <h1>Hall of Masters</h1>
+            <p class="lead">Those who have elevated the art to its highest form</p>
         </div>
     </section>
 
     <!-- Introduction Section -->
     <section class="content-info">
         <div class="content-container">
-            <h2>Ring 76 Recognition</h2>
+            <h2>The Parlour — Recognition of Excellence</h2>
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <h3>Celebrating Magical Excellence</h3>
-                        <p>The Ring 76 Hall of Fame honors those who have made significant contributions to our club and the art of magic in San Diego. From dedicated leadership to exceptional performance skills, these individuals represent the best of our magical community.</p>
-                        <p>This page commemorates our past presidents who have guided our organization throughout its history, as well as the winners of our prestigious annual competitions and special recognitions.</p>
+                        <h3>Celebrating Mastery</h3>
+                        <p>The Hall of Masters honors those who have made exceptional contributions to our society and the art of magic in San Diego. From visionary leadership to extraordinary performance, these individuals represent the pinnacle of our craft.</p>
+                        <p>This page commemorates our past presidents who have guided our institution throughout its history, as well as the laureates of our prestigious annual competitions and special recognitions.</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ function pdoJ_result($stmt, $row, $field=0) {
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <p>Throughout our history, these dedicated leaders have guided Ring 76 with their vision, passion, and commitment to the magical arts. We honor their service and the lasting impact they've made on our community.</p>
+                        <p>Throughout our history, these distinguished leaders have guided The Parlour with their vision, passion, and unwavering commitment to the magical arts. We honor their service and the lasting legacy they have bestowed upon our society.</p>
                         
                         <div class="award-container">
                             <?php
@@ -166,7 +166,7 @@ function pdoJ_result($stmt, $row, $field=0) {
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <p>Each year, Ring 76 recognizes one outstanding member who has gone above and beyond in their contributions to our club. This prestigious award celebrates dedication, service, and commitment to advancing our magical community.</p>
+                        <p>Each year, The Parlour recognizes one exceptional member who has distinguished themselves through extraordinary contributions to our society. This coveted honor celebrates dedication, service, and commitment to advancing the art.</p>
                         
                         <div class="award-container">
                             <?php
