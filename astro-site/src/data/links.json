@@ -1,0 +1,86 @@
+[
+  {
+    "Name": "International Brotherhood of Magicians",
+    "Type": "Org",
+    "LinkURL": "https://www.magician.org",
+    "Description": "The world's largest organization dedicated to the art of magic"
+  },
+  {
+    "Name": "Society of American Magicians",
+    "Type": "Org",
+    "LinkURL": "https://www.magicsam.com",
+    "Description": "The oldest magic organization in the world"
+  },
+  {
+    "Name": "The Magic Castle",
+    "Type": "Org",
+    "LinkURL": "https://www.magiccastle.com",
+    "Description": "The Academy of Magical Arts in Hollywood"
+  },
+  {
+    "Name": "Penguin Magic",
+    "Type": "Vendor",
+    "LinkURL": "https://www.penguinmagic.com",
+    "Description": "World's largest magic shop"
+  },
+  {
+    "Name": "Murphy's Magic",
+    "Type": "Vendor",
+    "LinkURL": "https://www.murphysmagic.com",
+    "Description": "Magic distributor and retailer"
+  },
+  {
+    "Name": "Vanishing Inc.",
+    "Type": "Vendor",
+    "LinkURL": "https://www.vanishingincmagic.com",
+    "Description": "Magic retailer with curated selection"
+  },
+  {
+    "Name": "Theory11",
+    "Type": "Mfg",
+    "LinkURL": "https://www.theory11.com",
+    "Description": "Premium playing cards and magic"
+  },
+  {
+    "Name": "Ellusionist",
+    "Type": "Mfg",
+    "LinkURL": "https://www.ellusionist.com",
+    "Description": "Magic tricks, playing cards, and training"
+  },
+  {
+    "Name": "Genii Magazine",
+    "Type": "Resource",
+    "LinkURL": "https://www.geniimagazine.com",
+    "Description": "The Conjurors' Magazine - since 1936"
+  },
+  {
+    "Name": "The Linking Ring",
+    "Type": "Resource",
+    "LinkURL": "https://www.magician.org/linking-ring",
+    "Description": "Official magazine of the IBM"
+  },
+  {
+    "Name": "Magic Cafe",
+    "Type": "Resource",
+    "LinkURL": "https://www.themagiccafe.com",
+    "Description": "Popular magic discussion forum"
+  },
+  {
+    "Name": "David Copperfield",
+    "Type": "Magician",
+    "LinkURL": "https://www.davidcopperfield.com",
+    "Description": "Legendary illusionist and Las Vegas performer"
+  },
+  {
+    "Name": "Penn & Teller",
+    "Type": "Magician",
+    "LinkURL": "https://pennandteller.com",
+    "Description": "Las Vegas headliners and television stars"
+  },
+  {
+    "Name": "Dai Vernon Foundation",
+    "Type": "Other",
+    "LinkURL": "https://www.daivernon.com",
+    "Description": "Preserving the legacy of The Professor"
+  }
+]
