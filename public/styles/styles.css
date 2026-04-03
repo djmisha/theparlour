@@ -950,6 +950,7 @@ footer ul li {
     font-size: 36px;
     margin-bottom: 15px;
     transition: transform 0.3s ease;
+    color: var(--color-gold, #c9a959);
 }
 .art-form:hover .art-icon {
     transform: scale(1.2) translateX(10px);

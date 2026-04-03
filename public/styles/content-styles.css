@@ -302,8 +302,7 @@
 }
 
 .emoji-icon {
-    color: inherit;
-    font-size: 2.5rem;
+    color: var(--color-gold, #c9a959);
     flex-shrink: 0;
     margin-right: 5px;
     display: flex;
@@ -609,7 +608,6 @@
     
     .emoji-icon {
         margin-bottom: 10px;
-        font-size: 3rem;
     }
     
     .attendance-info h3::after {

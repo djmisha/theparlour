@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   buttonText?: string;
   buttonClass?: string;
@@ -23,7 +25,7 @@ const modalId = `payment-modal-${Math.floor(Math.random() * 900) + 100}`;
       <h4>We accept the following methods of payment:</h4>
       
       <div class="payment-option">
-        <span class="payment-icon">💻</span>
+        <span class="payment-icon"><Icon name="laptop" size={28} /></span>
         <div class="payment-details">
           <strong>Via PayPal:</strong>
           <p>Contact us for PayPal payment details.<br>
@@ -32,7 +34,7 @@ const modalId = `payment-modal-${Math.floor(Math.random() * 900) + 100}`;
       </div>
       
       <div class="payment-option">
-        <span class="payment-icon">💵</span>
+        <span class="payment-icon"><Icon name="cash" size={28} /></span>
         <div class="payment-details">
           <strong>In Person:</strong>
           <p>Dues may be remitted in person at any scheduled gathering. We accept cash and checks.</p>
@@ -40,7 +42,7 @@ const modalId = `payment-modal-${Math.floor(Math.random() * 900) + 100}`;
       </div>
 
       <div class="payment-option">
-        <span class="payment-icon">✉️</span>
+        <span class="payment-icon"><Icon name="envelope" size={28} /></span>
         <div class="payment-details">
           <strong>By Mail:</strong>
           <p>Make a check payable to "The Parlour" and contact us for mailing details.</p>
@@ -118,9 +120,11 @@ const modalId = `payment-modal-${Math.floor(Math.random() * 900) + 100}`;
 }
 
 .payment-icon {
-  font-size: 2rem;
   margin-right: 15px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: var(--color-gold, #c9a959);
 }
 
 .payment-details {
@@ -174,7 +178,6 @@ const modalId = `payment-modal-${Math.floor(Math.random() * 900) + 100}`;
   }
   
   .payment-icon {
-    font-size: 1.7rem;
     margin-right: 12px;
   }
   
