@@ -4,12 +4,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Set up particles container
   const setupParticlesContainer = () => {
-    // Check if container already exists
     if (document.getElementById("particles-js")) {
       return;
     }
 
-    // Create particles container
     const particlesContainer = document.createElement("div");
     particlesContainer.id = "particles-js";
     particlesContainer.style.position = "fixed";
@@ -17,35 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
     particlesContainer.style.left = "0";
     particlesContainer.style.width = "100%";
     particlesContainer.style.height = "100%";
-    particlesContainer.style.zIndex = "999"; // Keep particles on top
+    particlesContainer.style.zIndex = "999";
     particlesContainer.style.pointerEvents = "none";
     particlesContainer.style.display = "none";
     document.body.prepend(particlesContainer);
   };
 
-  // Define colorful particle configuration
+  // White sparkle particle configuration
   const particlesConfig = {
     particles: {
       number: {
-        value: 200,
+        value: 120,
         density: {
           enable: true,
           value_area: 800,
         },
       },
       color: {
-        value: [
-          "#FF0000", // Red
-          "#00FF00", // Green
-          "#0000FF", // Blue
-          "#FFFF00", // Yellow
-          "#FF00FF", // Magenta
-          "#00FFFF", // Cyan
-          "#FFA500", // Orange
-          "#800080", // Purple
-          "#008000", // Dark Green
-          "#FFC0CB", // Pink
-        ],
+        value: "#ffffff",
       },
       shape: {
         type: "circle",
@@ -53,40 +40,33 @@ document.addEventListener("DOMContentLoaded", function () {
           width: 0,
           color: "#000000",
         },
-        polygon: {
-          nb_sides: 5,
-        },
       },
       opacity: {
-        value: 0.7,
+        value: 0.8,
         random: true,
         anim: {
           enable: true,
-          speed: 1,
+          speed: 2,
           opacity_min: 0.1,
           sync: false,
         },
       },
       size: {
-        value: 8,
+        value: 3,
         random: true,
         anim: {
           enable: true,
-          speed: 5,
-          size_min: 1,
+          speed: 2,
+          size_min: 0.5,
           sync: false,
         },
       },
       line_linked: {
         enable: false,
-        distance: 150,
-        color: "#ffffff",
-        opacity: 0.4,
-        width: 1,
       },
       move: {
         enable: true,
-        speed: 4,
+        speed: 1.5,
         direction: "bottom",
         random: true,
         straight: false,
@@ -107,34 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
           mode: "bubble",
         },
         onclick: {
-          enable: true,
-          mode: "repulse",
+          enable: false,
         },
         resize: true,
       },
       modes: {
-        grab: {
-          distance: 400,
-          line_linked: {
-            opacity: 0.5,
-          },
-        },
         bubble: {
-          distance: 200,
-          size: 12,
-          duration: 0.3,
-          opacity: 0.8,
+          distance: 150,
+          size: 5,
+          duration: 0.5,
+          opacity: 1,
           speed: 3,
-        },
-        repulse: {
-          distance: 200,
-          duration: 0.4,
-        },
-        push: {
-          particles_nb: 4,
-        },
-        remove: {
-          particles_nb: 2,
         },
       },
     },
@@ -147,12 +110,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (particlesContainer.style.display === "none") {
       particlesContainer.style.display = "block";
-
-      // Initialize directly with the configuration object
       particlesJS("particles-js", particlesConfig);
-      console.log("Particles.js initialized with colorful configuration");
 
-      // Animate the magic eyes to indicate particles are active
       const magicEyes = document.querySelector(".magic-eyes");
       if (magicEyes) {
         magicEyes.classList.add("particles-active");
@@ -160,7 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       particlesContainer.style.display = "none";
 
-      // Remove the active class from magic eyes
       const magicEyes = document.querySelector(".magic-eyes");
       if (magicEyes) {
         magicEyes.classList.remove("particles-active");
@@ -177,17 +135,9 @@ document.addEventListener("DOMContentLoaded", function () {
     magicEyes.addEventListener("click", function (e) {
       e.preventDefault();
       initParticles();
-
-      // Add special cursor to indicate it's clickable
-      if (!magicEyes.style.cursor) {
-        magicEyes.style.cursor = "pointer";
-      }
     });
 
-    // Add cursor style to indicate the eyes are clickable
     magicEyes.style.cursor = "pointer";
-
-    // Add a title attribute for accessibility
-    magicEyes.setAttribute("title", "Toggle magical particles");
+    magicEyes.setAttribute("title", "Toggle magical sparkles");
   }
 });
