@@ -3,49 +3,47 @@
         <div class="footer-content">
             <div class="footer-sections">
                 <div class="footer-info">
-                    <h3>I.B.M. Ring 76</h3>
-                    <p>The Honest Sid Gerhart Ring, San Diego</p>
-                    <p>International Brotherhood of Magicians</p>
-                    <p>503(c) Non-Profit Organization</p>
-                    <img src="image/ibm-logo.png" alt="IBM Logo" width="150" class="footer-ibm-logo">
+                    <h3>The Parlour</h3>
+                    <p>San Diego's Exclusive Society of Magic</p>
+                    <p>An Invitation-Only Collective of Master Conjurers</p>
+                    <p class="footer-motto"><em>"Where the impossible becomes art."</em></p>
                 </div>
                 
                 <div class="footer-nav-section">
-                    <h3>Master Illusions</h3>
+                    <h3>The Inner Circle</h3>
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="meetings.php">Meetings & Events</a></li>
+                        <li><a href="about.php">The Society</a></li>
+                        <li><a href="meetings.php">Gatherings &amp; Events</a></li>
                         <li><a href="membership.php">Membership</a></li>
-                        <li><a href="contact.php">Join our Club</a></li>
+                        <li><a href="contact.php">Request an Invitation</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-nav-section">
-                    <h3>Close-up Conjury</h3>
+                    <h3>The Archives</h3>
                     <ul>
-                        <li><a href="board.php">Board of Directors</a></li>
-                        <li><a href="hall-of-fame.php">Hall of Fame</a></li>
-                        <li><a href="newsletter.php">Newsletter</a></li>
-                        <li><a href="donate.php">Donate</a></li>
+                        <li><a href="board.php">The Council</a></li>
+                        <li><a href="hall-of-fame.php">Hall of Masters</a></li>
+                        <li><a href="newsletter.php">Dispatches</a></li>
+                        <li><a href="donate.php">Patronage</a></li>
                       </ul>
                     </div>
                     
                     <div class="footer-nav-section">
-                      <h3>Parlour Tricks</h3>
+                      <h3>The Séance Room</h3>
                       <ul>
-                        <li><a href="https://arcanum.ring76.com/">Arcanum</a></li>
-                        <li><a href="links.php">Link Directory</a></li>
-                        <li><a href="#" class="do-magic" id="flip-trick">Do a Magic Trick</a></li>
-                        <li><span class="tell-secret" id="secret-trick">Tell me the Secret</span></li>
+                        <li><a href="links.php">Curated Resources</a></li>
+                        <li><a href="#" class="do-magic" id="flip-trick">Conjure a Miracle</a></li>
+                        <li><span class="tell-secret" id="secret-trick">Reveal the Method</span></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo getCopyrightYears(1948); ?> All rights reserved - I.B.M. Ring 76 - San Diego Magic Club</p>
+            <p>&copy; <?php echo getCopyrightYears(2025); ?> The Parlour — San Diego's Exclusive Society of Magic. All rights reserved.</p>
             <div class="back-to-top"><br >
-                <a href="#" id="back-to-top-btn">⌛ Turn Back Time</a>
+                <a href="#" id="back-to-top-btn">↑ Ascend</a>
             </div>
         </div>
     </div>

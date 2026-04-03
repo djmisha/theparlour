@@ -13,8 +13,8 @@
 
             <div class="logo">
               <a href="index.php">
-                <h1>Ring 76</h1>
-                <p class="tagline">San Diego Magic Club</p>
+                <h1>The Parlour</h1>
+                <p class="tagline">San Diego's Exclusive Society of Magic</p>
               </a>
             </div>
             
@@ -28,44 +28,42 @@
                 <div class="nav-inner">
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="meetings.php">Meetings</a></li>
-                        <li><a href="board.php">Board of Directors</a></li>
+                        <li><a href="about.php">The Society</a></li>
+                        <li><a href="meetings.php">Gatherings</a></li>
                         <li><a href="membership.php">Membership</a></li>
-                        <li><a href="contact.php" class="btn nav-btn">Join Our Club</a></li>
+                        <li><a href="contact.php" class="btn nav-btn">Request an Invitation</a></li>
                     </ul>
                 </div>
             </nav>
             <div class="jumbo-nav">
                 <div class="nav-inner">
                     <div class="nav-column">
-                        <h3>Master Illusions</h3>
+                        <h3>The Inner Circle</h3>
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="about.php">About Us</a></li>
-                            <li><a href="meetings.php">Meetings & Events</a></li>
+                            <li><a href="about.php">The Society</a></li>
+                            <li><a href="meetings.php">Gatherings &amp; Events</a></li>
                             <li><a href="membership.php">Membership</a></li>
-                            <li><a href="contact.php">Join our Club</a></li>
+                            <li><a href="contact.php">Request an Invitation</a></li>
                         </ul>
                     </div>
                     
                     <div class="nav-column">
-                        <h3>Close-up Conjury</h3>
+                        <h3>The Archives</h3>
                         <ul>
-                            <li><a href="board.php">Board of Directors</a></li>
-                            <li><a href="hall-of-fame.php">Hall of Fame</a></li>
-                            <li><a href="newsletter.php">Newsletter</a></li>
-                            <li><a href="donate.php">Donate</a></li>
+                            <li><a href="board.php">The Council</a></li>
+                            <li><a href="hall-of-fame.php">Hall of Masters</a></li>
+                            <li><a href="newsletter.php">Dispatches</a></li>
+                            <li><a href="donate.php">Patronage</a></li>
                         </ul>
                     </div>
                         
                     <div class="nav-column">
-                        <h3>Parlour Tricks</h3>
+                        <h3>The Séance Room</h3>
                         <ul>
-                            <li><a href="https://arcanum.ring76.com/">Arcanum</a></li>
-                            <li><a href="links.php">Link Directory</a></li>
-                            <li><a href="#" class="do-magic" id="flip-trick">Do a Magic Trick</a></li>
-                            <li><span class="tell-secret" id="secret-trick">Tell me the Secret</span></li>
+                            <li><a href="links.php">Curated Resources</a></li>
+                            <li><a href="#" class="do-magic" id="flip-trick">Conjure a Miracle</a></li>
+                            <li><span class="tell-secret" id="secret-trick">Reveal the Method</span></li>
                         </ul>
                     </div>
                 </div>
