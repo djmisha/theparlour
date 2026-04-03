@@ -1,4 +1,4 @@
-/* /Users/mosinovs/workspace/ring76-com/src/css/transitions.css */
+/* transitions.css */
 body.transitioning {
     overflow: hidden; /* Prevent scrolling during transition */
 }
