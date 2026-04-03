@@ -1,32 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ring 76 - San Diego Magic Club | Learn & Perform Magic in San Diego</title>
-    <meta name="description" content="Join Ring 76, San Diego's premier magician community. Learn magic tricks, attend live performances, and connect with fellow magic enthusiasts. Part of the International Brotherhood of Magicians.">
-    <meta name="keywords" content="San Diego magic club, magicians San Diego, Ring 76, learn magic, magic performances, International Brotherhood of Magicians">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:description" content="San Diego's community of magic enthusiasts dedicated to preserving and advancing the art of magic.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ring76.com">
+---
+import Layout from '../layouts/Layout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import EventCards from '../components/EventCards.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
 
-    <?php include_once('includes/styles.php'); ?>
-</head>
-<body>
-
-<?php
-include_once('utils/db-connect.php');
-// include_once('utils/randphoto.php');
-?>
-
-<?php
-// Include site header with navigation
-include_once('includes/header.php');
-?>
-
-<main>
+<Layout 
+  title="Ring 76 - San Diego Magic Club | Learn & Perform Magic in San Diego"
+  description="Join Ring 76, San Diego's premier magician community. Learn magic tricks, attend live performances, and connect with fellow magic enthusiasts. Part of the International Brotherhood of Magicians."
+  keywords="San Diego magic club, magicians San Diego, Ring 76, learn magic, magic performances, International Brotherhood of Magicians"
+  ogUrl="https://ring76.com"
+>
     <section id="hero" class="hero-section hero-home">
         <div class="hero-content">
             <h1>Your Magical World</h1>
@@ -42,24 +26,12 @@ include_once('includes/header.php');
         </div>
     </section>
 
-    <!-- Add divider between About and Events sections -->
-    <div class="section-divider divider-wave"></div>
+    <SectionDivider type="wave" />
 
-    <?php
-    // Include Meetings and Events 
-    include_once('includes//sections/events.php');
-    ?>
+    <EventCards />
 
-    <!-- Add divider between Events and Magic Arts sections -->
-    <div class="section-divider divider-peaks"></div>
-    
-    
-    <!-- Random Photo section -->
-    <?php
-    include_once('utils/randphoto.php');
-    ?>
+    <SectionDivider type="peaks" />
 
-    <!-- Add Magic Art Forms section -->
     <section id="magic-arts" class="magic-arts-section">
         <div class="container">
             <h2>Explore the Arts of Magic</h2>
@@ -104,10 +76,8 @@ include_once('includes/header.php');
         </div>
     </section>
 
-    <!-- Add divider between Magic Arts and Experience Magic sections -->
-    <div class="section-divider divider-curve"></div>
+    <SectionDivider type="curve" />
 
-    <!-- Add Experience Magic section -->
     <section id="experience-magic" class="experience-magic-section">
         <div class="container">
             <h2>Experience Magic</h2>
@@ -149,10 +119,8 @@ include_once('includes/header.php');
         </div>
     </section>
 
-    <!-- Add divider between Experience Magic and Membership sections -->
-    <div class="section-divider divider-zigzag"></div>
+    <SectionDivider type="zigzag" />
 
-    <!-- Membership section -->
     <section id="membership" class="membership-section">
         <div class="container">
             <h2>Membership Benefits</h2>
@@ -191,10 +159,8 @@ include_once('includes/header.php');
         </div>
     </section>
 
-    <!-- Add divider between Membership and Library sections -->
-    <div class="section-divider divider-peaks"></div>
+    <SectionDivider type="peaks" />
 
-    <!-- Magic Library Section -->
     <section id="library" class="library-section">
         <div class="container">
             <h2>World's Third* Largest Magic Library <span class="probably">* probably</span></h2>
@@ -220,30 +186,9 @@ include_once('includes/header.php');
         </div>
     </section>
 
-    <!-- Add divider between Library and Contact sections -->
-    <div class="section-divider divider-curve"></div>
+    <SectionDivider type="curve" />
 
-    <!-- Join Our Club Section -->
+    <ContactForm />
 
-    <?php
-    // Include Contact Form
-      include_once('includes//sections/contact-form.php');
-    ?>
-  
-
-    <!-- Add divider between Contact section and Footer -->
-    <div class="section-divider divider-wave"></div>
-</main>
-
-<?php
-// Include site footer
-include_once('includes/footer.php');
-
-// Include chatbot component
-include_once('includes/chatbot.php');
-
-// Include scripts
-include_once('includes/scripts.php');
-?>
-</body>
-</html>
+    <SectionDivider type="wave" />
+</Layout>

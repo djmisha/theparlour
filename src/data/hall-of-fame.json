@@ -1,0 +1,27 @@
+{
+  "presidents": [
+    { "Name": "Tom Oliver", "Year": "1948", "EndYear": "1949" },
+    { "Name": "Ted Angell", "Year": "1949", "EndYear": "1950" },
+    { "Name": "James Thompson", "Year": "1950", "EndYear": "1951" },
+    { "Name": "Stewart Wilson", "Year": "1951", "EndYear": "1953" },
+    { "Name": "Sid Gerhart", "Year": "1958", "EndYear": "1960" },
+    { "Name": "Art Hannum", "Year": "1960", "EndYear": "1962" },
+    { "Name": "Don Soul", "Year": "2001", "EndYear": "2003" }
+  ],
+  "memberOfYear": [
+    { "Name": "Sample Member", "Year": "2024" },
+    { "Name": "Sample Member", "Year": "2023" }
+  ],
+  "performerOfYear": [
+    { "Name": "Sample Performer", "Year": "2024" },
+    { "Name": "Sample Performer", "Year": "2023" }
+  ],
+  "stageContest": [
+    { "Name": "Sample Winner", "Year": "2024" },
+    { "Name": "Sample Winner", "Year": "2023" }
+  ],
+  "closeUpContest": [
+    { "Name": "Sample Winner", "Year": "2024" },
+    { "Name": "Sample Winner", "Year": "2023" }
+  ]
+}

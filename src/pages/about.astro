@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Ring 76 | San Diego Magic Club</title>
-    <meta name="description" content="Learn about the rich history of Ring 76, San Diego's premier magic club. Founded in 1948, we've been promoting the art of magic for generations.">
-    <meta name="keywords" content="Ring 76 history, San Diego magic club, IBM magic club, Honest Sid Gerhart, magicians in San Diego, magic club history">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="About Ring 76 | San Diego Magic Club">
-    <meta property="og:description" content="Learn about the rich history of Ring 76, San Diego's premier magic club. Founded in 1948, we've been promoting the art of magic for generations.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ring76.com/about">
+---
+import Layout from '../layouts/Layout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+---
 
-    <?php include_once('includes/styles.php'); ?>
-</head>
-<body>
-
-<?php
-// Include site header with navigation
-include_once('includes/header.php');
-?>
-
-<main>
+<Layout 
+  title="About Ring 76 | San Diego Magic Club"
+  description="Learn about the rich history of Ring 76, San Diego's premier magic club. Founded in 1948, we've been promoting the art of magic for generations."
+  keywords="Ring 76 history, San Diego magic club, IBM magic club, Honest Sid Gerhart, magicians in San Diego, magic club history"
+  ogUrl="https://ring76.com/about"
+>
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-about">
         <div class="content-container">
@@ -187,7 +174,7 @@ include_once('includes/header.php');
                         <h3>Ready to Join?</h3>
                         <p>We welcome anyone with an interest in magic to attend up to three meetings as a guest before joining.</p>
                         <p>Membership requires joining the International Brotherhood of Magicians and our local Ring 76.</p>
-                        <a href="contact.php" class="content-btn content-mt-medium">Become a Member</a>
+                        <a href="/contact" class="content-btn content-mt-medium">Become a Member</a>
                     </div>
                   </div>
                 </div>
@@ -195,19 +182,5 @@ include_once('includes/header.php');
         </div>
     </section>
    
-    <!-- Add divider between Contact section and Footer -->
-    <div class="section-divider divider-wave"></div>
-</main>
-
-<?php
-// Include site footer
-include_once('includes/footer.php');
-
-// Include chatbot component
-include_once('includes/chatbot.php');
-
-// Include scripts
-include_once('includes/scripts.php');
-?>
-</body>
-</html>
+    <SectionDivider type="wave" />
+</Layout>

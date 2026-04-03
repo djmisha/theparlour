@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meetings | Ring 76 - San Diego Magic Club</title>
-    <meta name="description" content="Join our monthly meetings at Ring 76, San Diego's premier magician community. Learn from fellow magicians, participate in workshops, and enjoy live performances.">
-    <meta name="keywords" content="San Diego magic club meetings, Ring 76 events, magic gatherings, magic workshops, magician meetups, International Brotherhood of Magicians">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="Magic Meetings & Events | Ring 76 - San Diego Magic Club">
-    <meta property="og:description" content="Attend our regular magic meetings in San Diego. Learn new tricks, share techniques, and connect with our community of magicians.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ring76.com/meetings">
+---
+import Layout from '../layouts/Layout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import EventCards from '../components/EventCards.astro';
+---
 
-    <?php include_once('includes/styles.php'); ?>
-</head>
-<body>
-
-<?php
-// Include site header with navigation
-include_once('includes/header.php');
-?>
-
-<main>
+<Layout 
+  title="Meetings | Ring 76 - San Diego Magic Club"
+  description="Join our monthly meetings at Ring 76, San Diego's premier magician community. Learn from fellow magicians, participate in workshops, and enjoy live performances."
+  keywords="San Diego magic club meetings, Ring 76 events, magic gatherings, magic workshops, magician meetups, International Brotherhood of Magicians"
+  ogUrl="https://ring76.com/meetings"
+>
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-meetings">
         <div class="content-container">
@@ -33,9 +21,7 @@ include_once('includes/header.php');
     <!-- Upcoming Meetings -->
     <section class="content-listing">
         <div class="content-container">
-            <?php
-              include_once('includes/sections/events.php');
-            ?>
+            <EventCards />
         </div>
     </section>
 
@@ -102,7 +88,7 @@ include_once('includes/header.php');
                         <h3>For Visitors</h3>
                         <p>We welcome visitors to attend up to three meetings before joining.</p>
                         <p>Please arrive 15 minutes early to sign in at the front desk.</p>
-                        <a href="contact.php" class="content-btn content-mt-medium">Become a Member</a>
+                        <a href="/contact" class="content-btn content-mt-medium">Become a Member</a>
                     </div>
                   </div>
                 </div>
@@ -165,20 +151,5 @@ include_once('includes/header.php');
         </div>
     </section>
 
-   
-    <!-- Add divider between Contact section and Footer -->
-    <div class="section-divider divider-wave"></div>
-</main>
-
-<?php
-// Include site footer
-include_once('includes/footer.php');
-
-// Include chatbot component
-include_once('includes/chatbot.php');
-
-// Include scripts
-include_once('includes/scripts.php');
-?>
-</body>
-</html>
+    <SectionDivider type="wave" />
+</Layout>

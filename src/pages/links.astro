@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import linksData from '../data/links.json';
+
+interface Link {
+  Name: string;
+  Type: string;
+  LinkURL: string;
+  Description: string;
+}
+
+const typeNames: Record<string, string> = {
+  'Mfg': 'Manufacturers',
+  'Vendor': 'Vendors',
+  'Magician': 'Magicians',
+  'Resource': 'Resources',
+  'Org': 'Organizations',
+  'Other': 'Other Links'
+};
+
+// Get unique types
+const linkTypes = [...new Set(linksData.map((link: Link) => link.Type))].sort((a, b) => {
+  const nameA = typeNames[a] || a;
+  const nameB = typeNames[b] || b;
+  return nameA.localeCompare(nameB);
+});
+
+// Group links by first letter
+function groupByLetter(links: Link[]) {
+  const grouped: Record<string, Link[]> = {};
+  for (const link of links) {
+    if (!link.Name) continue;
+    const letter = link.Name.charAt(0).toUpperCase();
+    if (!grouped[letter]) grouped[letter] = [];
+    grouped[letter].push(link);
+  }
+  // Sort letters
+  const sorted: Record<string, Link[]> = {};
+  for (const letter of Object.keys(grouped).sort()) {
+    sorted[letter] = grouped[letter].sort((a, b) => a.Name.localeCompare(b.Name));
+  }
+  return sorted;
+}
+
+const allLinksGrouped = groupByLetter(linksData as Link[]);
+
+// Group by type
+const linksByType: Record<string, Record<string, Link[]>> = {};
+for (const type of linkTypes) {
+  const typeLinks = (linksData as Link[]).filter(link => link.Type === type);
+  linksByType[type] = groupByLetter(typeLinks);
+}
+---
+
+<Layout 
+  title="Magic Links Directory | Ring 76 - San Diego Magic Club"
+  description="Explore our curated list of magic-related websites, organizations, shops, and resources for magicians of all levels."
+  keywords="magic links, magician resources, magic organizations, magic shops, magic forums, magic clubs, magic learning"
+  ogUrl="https://ring76.com/links"
+>
+    <!-- Hero Section -->
+    <section class="hero-section content-hero content-hero-links">
+        <div class="content-container">
+            <h1 class="links-page-title">Magic Links Directory</h1>
+            <p class="lead">Useful Resources for the Magical Community</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="content-info">
+        <div class="content-container">
+            <h2 class="links-page-title">Explore the World of Magic</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <p>Welcome to our curated collection of magic-related websites and resources. We've compiled this list to help magicians of all skill levels find valuable information, products, and communities. Please note that Ring 76 is not affiliated with these external sites and does not endorse any specific products or services.</p>
+                        <p>If you have a magic link you would like added or notice a link that is no longer working, please <a href="mailto:librarian@ring76.com,webmage@ring76.com?subject=Magic Links">click here</a> to send us an email.</p>
+                        <p><em>Links open in a new tab for your convenience.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Navigation -->
+    <nav id="link-filter-nav" class="award-navigation">
+        <div class="content-container">
+            <ul id="link-filter">
+                <li><a href="#links-display" data-type="all" class="active">All Links</a></li>
+                {linkTypes.map(type => (
+                    <li><a href="#links-display" data-type={type}>{typeNames[type] || type}</a></li>
+                ))}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Links Section -->
+    <section id="links-container" class="content-info">
+        <div class="content-container">
+            <h2 id="links-heading" class="links-page-title">All Links</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card links-card">
+                        <div id="links-display">
+                            <!-- All Links -->
+                            <div id="links-all" class="links-category active">
+                                {Object.entries(allLinksGrouped).map(([letter, links]) => (
+                                    <Fragment>
+                                        <h3 class="links-letter-group">{letter}</h3>
+                                        <ul class="links-list">
+                                            {links.map(link => (
+                                                <li>
+                                                    <a href={link.LinkURL || '#'} class="external-link" target="_blank" rel="noopener noreferrer">{link.Name}</a>{link.Description ? ` - ${link.Description}` : ''}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </Fragment>
+                                ))}
+                            </div>
+                            
+                            <!-- Type-specific Links -->
+                            {Object.entries(linksByType).map(([type, grouped]) => (
+                                <div id={`links-${type}`} class="links-category" style="display: none;">
+                                    {Object.keys(grouped).length === 0 ? (
+                                        <p>No links found for this category.</p>
+                                    ) : (
+                                        Object.entries(grouped).map(([letter, links]) => (
+                                            <Fragment>
+                                                <h3 class="links-letter-group">{letter}</h3>
+                                                <ul class="links-list">
+                                                    {links.map(link => (
+                                                        <li>
+                                                            <a href={link.LinkURL || '#'} class="external-link" target="_blank" rel="noopener noreferrer">{link.Name}</a>{link.Description ? ` - ${link.Description}` : ''}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </Fragment>
+                                        ))
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <SectionDivider type="wave" />
+</Layout>

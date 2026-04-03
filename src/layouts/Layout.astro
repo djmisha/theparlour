@@ -1,0 +1,213 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogUrl?: string;
+}
+
+const { 
+  title, 
+  description = "Join Ring 76, San Diego's premier magician community. Learn magic tricks, attend live performances, and connect with fellow magic enthusiasts.",
+  keywords = "San Diego magic club, magicians San Diego, Ring 76, learn magic, magic performances, International Brotherhood of Magicians",
+  ogTitle,
+  ogDescription,
+  ogUrl = "https://ring76.com"
+} = Astro.props;
+
+const currentYear = new Date().getFullYear();
+const copyrightYears = `1948 - ${currentYear}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta name="keywords" content={keywords}>
+    <meta name="author" content="Ring 76 - San Diego Magic Club">
+    <meta property="og:title" content={ogTitle || title}>
+    <meta property="og:description" content={ogDescription || description}>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={ogUrl}>
+
+    <!--
+      Website designed and built by Misha Osinovskiy.
+      Find me on LinkedIn: https://www.linkedin.com/in/mishaosinovskiy/
+      If you'd like a website like this, please contact me - I would love to work with you.
+    -->
+
+    <link rel="icon" href="/image/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/image/favicon.png" type="image/x-icon">
+
+    <!-- Google Fonts Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400&family=Fredoka:wght@300;400;500;600&family=Prata&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
+    <link rel="stylesheet" href="/styles/content-styles.css">
+    <link rel="stylesheet" href="/styles/transitions.css">
+    <link rel="stylesheet" href="/styles/dynamic-styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="magic-eyes">
+                <div class="eye left">
+                    <div class="iris"></div>
+                    <div class="pupil"></div>
+                </div>
+                <div class="eye right">
+                    <div class="iris"></div>
+                    <div class="pupil"></div>
+                </div>
+            </div>
+
+            <div class="logo">
+              <a href="/">
+                <h1>Ring 76</h1>
+                <p class="tagline">San Diego Magic Club</p>
+              </a>
+            </div>
+            
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav class="main-nav">
+                <div class="nav-inner">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/meetings">Meetings</a></li>
+                        <li><a href="/board">Board of Directors</a></li>
+                        <li><a href="/membership">Membership</a></li>
+                        <li><a href="/contact" class="btn nav-btn">Join Our Club</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="jumbo-nav">
+                <div class="nav-inner">
+                    <div class="nav-column">
+                        <h3>Master Illusions</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/meetings">Meetings & Events</a></li>
+                            <li><a href="/membership">Membership</a></li>
+                            <li><a href="/contact">Join our Club</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="nav-column">
+                        <h3>Close-up Conjury</h3>
+                        <ul>
+                            <li><a href="/board">Board of Directors</a></li>
+                            <li><a href="/hall-of-fame">Hall of Fame</a></li>
+                            <li><a href="/newsletter">Newsletter</a></li>
+                            <li><a href="/donate">Donate</a></li>
+                        </ul>
+                    </div>
+                        
+                    <div class="nav-column">
+                        <h3>Parlour Tricks</h3>
+                        <ul>
+                            <li><a href="https://arcanum.ring76.com/">Arcanum</a></li>
+                            <li><a href="/links">Link Directory</a></li>
+                            <li><a href="#" class="do-magic" id="flip-trick">Do a Magic Trick</a></li>
+                            <li><span class="tell-secret" id="secret-trick">Tell me the Secret</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+    <div class="curtain-container">
+        <div class="curtain left"></div>
+        <div class="curtain right"></div>
+    </div>
+
+    <main>
+        <slot />
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-sections">
+                    <div class="footer-info">
+                        <h3>I.B.M. Ring 76</h3>
+                        <p>The Honest Sid Gerhart Ring, San Diego</p>
+                        <p>International Brotherhood of Magicians</p>
+                        <p>503(c) Non-Profit Organization</p>
+                        <img src="/image/ibm-logo.png" alt="IBM Logo" width="150" class="footer-ibm-logo">
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h3>Master Illusions</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/meetings">Meetings & Events</a></li>
+                            <li><a href="/membership">Membership</a></li>
+                            <li><a href="/contact">Join our Club</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h3>Close-up Conjury</h3>
+                        <ul>
+                            <li><a href="/board">Board of Directors</a></li>
+                            <li><a href="/hall-of-fame">Hall of Fame</a></li>
+                            <li><a href="/newsletter">Newsletter</a></li>
+                            <li><a href="/donate">Donate</a></li>
+                        </ul>
+                    </div>
+                        
+                    <div class="footer-nav-section">
+                        <h3>Parlour Tricks</h3>
+                        <ul>
+                            <li><a href="https://arcanum.ring76.com/">Arcanum</a></li>
+                            <li><a href="/links">Link Directory</a></li>
+                            <li><a href="#" class="do-magic" id="flip-trick-footer">Do a Magic Trick</a></li>
+                            <li><span class="tell-secret" id="secret-trick-footer">Tell me the Secret</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {copyrightYears} All rights reserved - I.B.M. Ring 76 - San Diego Magic Club</p>
+                <div class="back-to-top"><br>
+                    <a href="#" id="back-to-top-btn">⌛ Turn Back Time</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Individual Module JS Files -->
+    <script is:inline src="/js/navigation.js"></script>
+    <script is:inline src="/js/interactions.js"></script>
+    <script is:inline src="/js/animations.js"></script>
+    <script is:inline src="/js/forms.js"></script>
+    <script is:inline src="/js/chatbot.js"></script>
+    <script is:inline src="/js/magicTricks.js"></script>
+    <!-- Particles.js -->
+    <script is:inline src="/js/particles.js"></script>
+    <script is:inline src="/js/particleManager.js"></script>
+    <!-- Links Module -->
+    <script is:inline src="/js/links.js"></script>
+    <!-- Main Coordinator JS -->
+    <script is:inline src="/js/main.js"></script>
+    <script is:inline src="/js/transitions.js"></script>
+</body>
+</html>

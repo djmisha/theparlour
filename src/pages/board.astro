@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board of Directors | Ring 76 San Diego Magic Club</title>
-    <meta name="description" content="Meet the leadership team at Ring 76, San Diego's premier magic club. Learn about our board of directors who guide our magical community.">
-    <meta name="keywords" content="Ring 76 board, San Diego magic club leadership, IBM magic club officers, magic club directors">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="Board of Directors | Ring 76 San Diego Magic Club">
-    <meta property="og:description" content="Meet the leadership team at Ring 76, San Diego's premier magic club. Learn about our board of directors who guide our magical community.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ring76.com/board">
+---
+import Layout from '../layouts/Layout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import BoardMembers from '../components/BoardMembers.astro';
+---
 
-    <?php include_once('includes/styles.php'); ?>
-</head>
-<body>
-
-<?php
-// Include site header with navigation
-include_once('includes/header.php');
-?>
-
-<main>
+<Layout 
+  title="Board of Directors | Ring 76 San Diego Magic Club"
+  description="Meet the leadership team at Ring 76, San Diego's premier magic club. Learn about our board of directors who guide our magical community."
+  keywords="Ring 76 board, San Diego magic club leadership, IBM magic club officers, magic club directors"
+  ogUrl="https://ring76.com/board"
+>
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-board">
         <div class="content-container">
@@ -50,12 +38,7 @@ include_once('includes/header.php');
     <section class="content-info">
         <div class="content-container">
             <h2>Meet Our Current Officers</h2>
-            
-            <?php 
-            // Include the dynamically generated board members section
-            include_once('includes/sections/board-members.php'); 
-            ?>
-            
+            <BoardMembers />
         </div>
     </section>
 
@@ -66,7 +49,7 @@ include_once('includes/header.php');
                 <div class="content-col content-col-full">
                     <h2>Board Responsibilities</h2>
                     <div class="content-row">
-                        <div class="content-col content-">
+                        <div class="content-col">
                             <div class="expectation-item">
                                 <span class="emoji-icon">📋</span>
                                 <div>
@@ -93,7 +76,7 @@ include_once('includes/header.php');
                                 </div>
                             </div>
                         </div>
-                        <div class="content-col content- content-mt-medium">
+                        <div class="content-col content-mt-medium">
                             <div class="expectation-item">
                                 <span class="emoji-icon">🌐</span>
                                 <div>
@@ -102,7 +85,7 @@ include_once('includes/header.php');
                                 </div>
                             </div>
                         </div>
-                        <div class="content-col content- content-mt-medium">
+                        <div class="content-col content-mt-medium">
                             <div class="expectation-item">
                                 <span class="emoji-icon">💬</span>
                                 <div>
@@ -151,8 +134,6 @@ include_once('includes/header.php');
         </div>
     </section>
 
-    
-
     <!-- Join the Board Section -->
     <section class="attending-info">
         <div class="content-container">
@@ -179,7 +160,7 @@ include_once('includes/header.php');
                             <h3>Ready to Serve?</h3>
                             <p>The strength of our club depends on members who are willing to share their time and talents. By serving on the board, you help ensure that Ring 76 continues to be a vibrant community for magicians of all levels.</p>
                             <p>Express your interest to any current board member to learn more about available positions and the election process.</p>
-                            <a href="/contact.php" class="content-btn content-mt-medium">Summon Me</a>
+                            <a href="/contact" class="content-btn content-mt-medium">Summon Me</a>
                         </div>
                     </div>
                 </div>
@@ -187,19 +168,5 @@ include_once('includes/header.php');
         </div>
     </section>
    
-    <!-- Add divider between Contact section and Footer -->
-    <div class="section-divider divider-wave"></div>
-</main>
-
-<?php
-// Include site footer
-include_once('includes/footer.php');
-
-// Include chatbot component
-include_once('includes/chatbot.php');
-
-// Include scripts
-include_once('includes/scripts.php');
-?>
-</body>
-</html>
+    <SectionDivider type="wave" />
+</Layout>

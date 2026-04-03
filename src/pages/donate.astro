@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate | Ring 76 San Diego Magic Club</title>
-    <meta name="description" content="Support Ring 76 by donating your time, joining the board, contributing magic items or books, or making a monetary donation.">
-    <meta name="keywords" content="Ring 76 donations, San Diego magic club support, donate time, join the board, donate magic items, donate books, donate money">
-    <meta name="author" content="Ring 76 - San Diego Magic Club">
-    <meta property="og:title" content="Donate | Ring 76 San Diego Magic Club">
-    <meta property="og:description" content="Support Ring 76 by donating your time, joining the board, contributing magic items or books, or making a monetary donation.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ring76.com/donate">
+---
+import Layout from '../layouts/Layout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+---
 
-    <?php include_once('includes/styles.php'); ?>
-</head>
-<body>
-
-<?php
-// Include site header with navigation
-include_once('includes/header.php');
-?>
-
-<main>
+<Layout 
+  title="Donate | Ring 76 San Diego Magic Club"
+  description="Support Ring 76 by donating your time, joining the board, contributing magic items or books, or making a monetary donation."
+  keywords="Ring 76 donations, San Diego magic club support, donate time, join the board, donate magic items, donate books, donate money"
+  ogUrl="https://ring76.com/donate"
+>
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-donate">
         <div class="content-container">
@@ -88,26 +75,12 @@ include_once('includes/header.php');
                         <h3>Support Financially</h3>
                         <p>Your financial support helps us maintain our club activities, host special events, and continue promoting the art of magic in San Diego. Every contribution, no matter the size, makes a difference.</p>
                         <p>Donations can be made via PayPal to payments@ring76.com. We also will accept a check. If you'd like to make a donation, please contact us.</p>
-                        <a href="contact.php" class="content-btn content-mt-medium">Contact Us</a>
+                        <a href="/contact" class="content-btn content-mt-medium">Contact Us</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
    
-    <!-- Add divider between Content and Footer -->
-    <div class="section-divider divider-wave"></div>
-</main>
-
-<?php
-// Include site footer
-include_once('includes/footer.php');
-
-// Include chatbot component
-include_once('includes/chatbot.php');
-
-// Include scripts
-include_once('includes/scripts.php');
-?>
-</body>
-</html>
+    <SectionDivider type="wave" />
+</Layout>
