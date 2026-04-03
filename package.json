@@ -1,0 +1,21 @@
+{
+  "name": "ring76-com",
+  "version": "1.0.0",
+  "description": "Ring 76 - San Diego Magic Club Website",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": ["magic", "san-diego", "ring76", "ibm"],
+  "author": "Ring 76",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/react": "^4.2.1",
+    "astro": "^5.15.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}

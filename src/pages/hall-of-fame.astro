@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import AwardCard from '../components/AwardCard.astro';
+import hallOfFameData from '../data/hall-of-fame.json';
+---
+
+<Layout 
+  title="Hall of Fame | Ring 76 San Diego Magic Club"
+  description="Honoring the outstanding magicians and members of Ring 76 throughout our history. Discover our distinguished past presidents and competition winners."
+  keywords="Ring 76 Hall of Fame, San Diego magic awards, magic competition winners, IBM magic club recognition, magic contest history"
+  ogUrl="https://ring76.com/hall-of-fame"
+>
+    <!-- Hero Section -->
+    <section class="hero-section content-hero content-hero-halloffame">
+        <div class="content-container">
+            <h1>Hall of Fame</h1>
+            <p class="lead">Honoring Excellence in San Diego's Magical Community</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="content-info">
+        <div class="content-container">
+            <h2>Ring 76 Recognition</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <h3>Celebrating Magical Excellence</h3>
+                        <p>The Ring 76 Hall of Fame honors those who have made significant contributions to our club and the art of magic in San Diego. From dedicated leadership to exceptional performance skills, these individuals represent the best of our magical community.</p>
+                        <p>This page commemorates our past presidents who have guided our organization throughout its history, as well as the winners of our prestigious annual competitions and special recognitions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Award Navigation -->
+    <nav class="award-navigation">
+        <div class="content-container">
+            <ul>
+                <li><a href="#president">Past Presidents</a></li>
+                <li><a href="#member-of-year">Member of the Year</a></li>
+                <li><a href="#performer-of-year">Performer of the Year</a></li>
+                <li><a href="#stage-contest">Stage Contest</a></li>
+                <li><a href="#closeup-contest">Close-up Contest</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- President Section -->
+    <section id="president" class="award-section">
+        <div class="content-container">
+            <h2>Past Presidents</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <p>Throughout our history, these dedicated leaders have guided Ring 76 with their vision, passion, and commitment to the magical arts. We honor their service and the lasting impact they've made on our community.</p>
+                        
+                        <div class="award-container">
+                            {hallOfFameData.presidents.map((item: any, i: number) => (
+                                <AwardCard 
+                                    name={item.Name} 
+                                    year={item.Year} 
+                                    endYear={item.EndYear}
+                                    title="President" 
+                                    suitIndex={i} 
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member of the Year Section -->
+    <section id="member-of-year" class="award-section">
+        <div class="content-container">
+            <h2>Member of the Year</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <p>Each year, Ring 76 recognizes one outstanding member who has gone above and beyond in their contributions to our club. This prestigious award celebrates dedication, service, and commitment to advancing our magical community.</p>
+                        
+                        <div class="award-container">
+                            {hallOfFameData.memberOfYear.map((item: any, i: number) => (
+                                <AwardCard 
+                                    name={item.Name} 
+                                    year={item.Year} 
+                                    title="Member of the Year" 
+                                    suitIndex={i} 
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performer of the Year Section -->
+    <section id="performer-of-year" class="award-section">
+        <div class="content-container">
+            <h2>Performer of the Year</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <p>The Performer of the Year award recognizes exceptional magical talent, consistent excellence in performance, and artistic growth. These recipients have demonstrated outstanding skill, creativity, and showmanship in their magical presentations.</p>
+                        
+                        <div class="award-container">
+                            {hallOfFameData.performerOfYear.map((item: any, i: number) => (
+                                <AwardCard 
+                                    name={item.Name} 
+                                    year={item.Year} 
+                                    title="Performer of the Year" 
+                                    suitIndex={i} 
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stage Contest Section -->
+    <section id="stage-contest" class="award-section">
+        <div class="content-container">
+            <h2>Stage Contest Winners</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <p>Our annual Stage Contest showcases the best in theatrical magic, from grand illusions to captivating manipulation acts. These winners have demonstrated exceptional skill in entertaining audiences with their magical performances on stage.</p>
+                        
+                        <div class="award-container">
+                            {hallOfFameData.stageContest.map((item: any, i: number) => (
+                                <AwardCard 
+                                    name={item.Name} 
+                                    year={item.Year} 
+                                    title="Stage Contest Winner" 
+                                    suitIndex={i} 
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Close-up Contest Section -->
+    <section id="closeup-contest" class="award-section">
+        <div class="content-container">
+            <h2>Close-up Contest Winners</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <p>The Close-up Contest celebrates the intimate art of magic performed right before your eyes. These winners have mastered the delicate skills of sleight of hand, misdirection, and audience engagement in the challenging realm of close-up magic.</p>
+                        
+                        <div class="award-container">
+                            {hallOfFameData.closeUpContest.map((item: any, i: number) => (
+                                <AwardCard 
+                                    name={item.Name} 
+                                    year={item.Year} 
+                                    title="Close-up Contest Winner" 
+                                    suitIndex={i} 
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <SectionDivider type="wave" />
+</Layout>

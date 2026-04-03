@@ -1,59 +1,107 @@
-# ring76-com
+# Ring 76 - San Diego Magic Club Website
 
-## Ring 76 - San Diego Magic Club Website
+The official website for Ring 76, the Honest Sid Gerhart Ring of the International Brotherhood of Magicians in San Diego.
 
-This repository contains the website for Ring 76, the San Diego chapter of the International Brotherhood of Magicians.
+## Tech Stack
 
-## Development Setup
+- **Framework**: [Astro](https://astro.build/) with React integration
+- **Styling**: Plain CSS
+- **Deployment**: Static site generation, deployable to Netlify
+
+## Getting Started
 
 ### Prerequisites
 
-- Docker and Docker Compose installed on your machine
-- Git
+- Node.js 18+
+- npm
 
-### Getting Started
-
-1. Clone this repository:
-
-   ```bash
-   git clone <repository-url>
-   cd ring76-com
-   ```
-
-2. Start the Docker containers:
-
-   ```bash
-   docker-compose up -d
-   ```
-
-3. Access the website: Open your browser and navigate to `http://localhost:8080`
-
-### Project Structure
-
-- `src/` - Contains all website source files
-  - `index.php` - Main entry point
-  - `includes/` - PHP include files for the site sections
-  - `css/` - Stylesheet files
-  - `js/` - JavaScript files
-  - `images/` - Image assets
-
-### Making Changes
-
-1. Edit files in the `src/` directory
-2. Refresh your browser to see changes (no build step needed)
-
-### Stopping the Environment
+### Installation
 
 ```bash
-docker-compose down
+npm install
 ```
+
+### Development
+
+```bash
+npm run dev
+```
+
+The development server will start at `http://localhost:4321`.
+
+### Build
+
+```bash
+npm run build
+```
+
+The static site will be generated in the `dist/` directory.
+
+### Preview
+
+```bash
+npm run preview
+```
+
+Preview the production build locally.
+
+## Project Structure
+
+```
+├── public/              # Static assets
+│   ├── image/           # Images (heroes, logos, etc.)
+│   ├── js/              # Client-side JavaScript modules
+│   └── styles/          # CSS stylesheets
+├── src/
+│   ├── components/      # Reusable Astro components
+│   ├── data/            # Static JSON data (events, officers, links, etc.)
+│   ├── layouts/         # Page layouts
+│   ├── pages/           # Route pages
+│   └── styles/          # Source CSS files
+├── astro.config.mjs     # Astro configuration
+├── netlify.toml         # Netlify deployment config
+├── package.json         # Dependencies and scripts
+└── tsconfig.json        # TypeScript configuration
+```
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Home - Hero, about, events, magic arts, benefits, library, contact |
+| `/about` | Club history since 1948, values, membership info |
+| `/board` | Current officers, responsibilities, elections |
+| `/contact` | Membership application & payment |
+| `/donate` | Donation options (time, items, money) |
+| `/hall-of-fame` | Past presidents, award winners |
+| `/links` | Magic resource directory (filterable) |
+| `/membership` | Membership types & benefits |
+| `/meetings` | Meeting schedule, location, expectations |
+| `/newsletter` | Newsletter archive from 1988-present |
+
+## Data Management
+
+Database-driven content has been migrated to static JSON files in `src/data/`:
+
+- `events.json` - Upcoming meetings and events
+- `officers.json` - Board member information
+- `links.json` - Magic links directory
+- `hall-of-fame.json` - Awards and recognition data
+
+To update content, edit the corresponding JSON file and rebuild the site.
 
 ## Deployment
 
-For production deployment, configure your web server to serve the contents of the `src/` directory.
+### Netlify
 
-To deploy, you can use the following command:
+The site is configured for Netlify deployment:
 
-```bash
-./upload.sh
-```
+1. Connect the repository to Netlify
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+
+The `netlify.toml` file contains the deployment configuration.
+
+## License
+
+All rights reserved - I.B.M. Ring 76 - San Diego Magic Club
