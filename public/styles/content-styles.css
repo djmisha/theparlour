@@ -845,6 +845,53 @@ input.error, textarea.error {
     height: 50px;
 }
 
+/* Events Exclusive Notice */
+.events-exclusive-notice {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 30px;
+    background-color: var(--color-bg-card, #141414);
+    border-radius: var(--radius-lg, 8px);
+    position: relative;
+}
+
+.events-exclusive-notice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-lg, 8px);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(201, 169, 89, 0.6) 0%, transparent 40%, transparent 60%, rgba(201, 169, 89, 0.4) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.events-exclusive-notice .exclusive-headline {
+    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-size: 1.6rem;
+    color: var(--color-gold, #c9a959);
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.events-exclusive-notice p {
+    color: var(--color-text-secondary, #a09c94);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.events-exclusive-notice .btn {
+    margin-top: 15px;
+}
+
 /* Officer Profile Styles */
 .officer-profile {
     display: flex;
