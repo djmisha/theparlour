@@ -1,5 +1,5 @@
 /* ==========================================================================
-   RESPONSIVE STYLES - Ring 76 San Diego Magic Club
+   RESPONSIVE STYLES - The Parlour — San Diego Magic Society
    ========================================================================== */
 
 /* ==========================================================================
@@ -23,7 +23,7 @@
     position: absolute;
     height: 3px;
     width: 100%;
-    background: #c41212;
+    background: var(--color-gold, #c9a959);
     border-radius: 3px;
     opacity: 1;
     left: 0;
@@ -99,8 +99,8 @@
 
 .jumbo-nav ul li a, 
 .jumbo-nav ul li span {
-    font-family: 'Lobster Two', cursive;
-    color: #d4ac0d;
+    font-family: var(--font-display, 'Cinzel'), serif;
+    color: var(--color-gold, #c9a959);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -126,11 +126,11 @@
 }
 
 .main-nav a {
-    color: #d4ac0d;
+    color: var(--color-gold, #c9a959);
     text-decoration: none;
     font-weight: 400;
     font-size: 1.3rem;
-    font-family: 'Lobster Two', cursive;
+    font-family: var(--font-display, 'Cinzel'), serif;
     letter-spacing: 0.5px;
     display: inline-block;
     transition: all 0.3s ease;
@@ -139,7 +139,7 @@
 }
 
 .main-nav a:hover {
-    color: #8b0000;
+    color: var(--color-gold, #c9a959);
 }
 
 .nav-btn {
@@ -171,13 +171,13 @@
     }
 
     .jumbo-nav .nav-column h3 {
-        color: #c41212;
-        font-family: 'Lobster Two', cursive;
+        color: var(--color-gold, #c9a959);
+        font-family: var(--font-display, 'Cinzel'), serif;
         margin-bottom: 10px;
         font-size: 1.2rem;
         text-align: center;
         padding-bottom: 5px;
-        border-bottom: 1px solid #c41212;
+        border-bottom: 1px solid var(--color-gold, #c9a959);
     }
 
     .jumbo-nav ul li a,
@@ -205,13 +205,13 @@
     }
 
     .jumbo-nav .nav-column h3 {
-        color: #c41212;
-        font-family: 'Lobster Two', cursive;
+        color: var(--color-gold, #c9a959);
+        font-family: var(--font-display, 'Cinzel'), serif;
         margin-bottom: 20px;
         font-size: 1.8rem;
         text-align: center;
         padding-bottom: 10px;
-        border-bottom: 1px solid #c41212;
+        border-bottom: 1px solid var(--color-gold, #c9a959);
     }
 
     .jumbo-nav ul {

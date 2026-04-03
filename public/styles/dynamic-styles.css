@@ -36,7 +36,7 @@
   color: #fff;
   background-color: rgba(20, 20, 20, 0.85);
   border-radius: 10px;
-  box-shadow: 0 0 30px rgba(212, 172, 13, 0.5);
+  box-shadow: 0 0 30px rgba(201, 169, 89, 0.5);
   transition: all 0.5s ease;
   margin: 10px;
   overflow-y: auto;
@@ -148,7 +148,7 @@
   color: #fff; 
   background-color: rgba(20, 20, 20, 0.85); 
   border-radius: 10px; 
-  box-shadow: 0 0 30px rgba(212, 172, 13, 0.5); 
+  box-shadow: 0 0 30px rgba(201, 169, 89, 0.5); 
   transform: scale(0.9); 
   transition: transform 0.5s ease; 
   margin: 20px; 
@@ -159,25 +159,25 @@
 }
 
 .secret-heading { 
-  font-family: 'Lobster Two', cursive; 
+  font-family: var(--font-heading, 'Playfair Display'), serif; 
   font-size: 2.5rem; 
   line-height: 1.4; 
   margin-bottom: 30px; 
-  color: #d4ac0d; 
+  color: var(--color-gold, #c9a959); 
 }
 
 .secret-heading .emphasis { 
   font-size: 2.8rem; 
   font-weight: bold; 
   color: #fff; 
-  text-shadow: 0 0 10px #d4ac0d; 
+  text-shadow: 0 0 10px var(--color-gold, #c9a959); 
   padding: 0 5px; 
   display: inline-block; 
   transform: scale(1.2); 
 }
 
 .secret-explanation { 
-  font-family: 'Fredoka', sans-serif; 
+  font-family: var(--font-body, 'Raleway'), sans-serif; 
   font-size: 1.2rem; 
   line-height: 1.6; 
   margin-bottom: 30px; 

@@ -1,5 +1,5 @@
 /**
- * Particle Manager - Manages the particles.js library for Ring 76
+ * Particle Manager - Manages the particles.js library for The Parlour
  */
 document.addEventListener("DOMContentLoaded", function () {
   // Set up particles container
