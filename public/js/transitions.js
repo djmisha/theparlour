@@ -1,4 +1,4 @@
-/* /Users/mosinovs/workspace/ring76-com/src/js/transitions.js */
+/* transitions.js */
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   let curtainContainer = document.querySelector(".curtain-container");
