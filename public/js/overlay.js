@@ -19,7 +19,7 @@
       overlay.style.zIndex = zIndex;
 
       overlay.innerHTML =
-        '<button class="parlour-overlay-close" aria-label="Close">\u2715</button>' +
+        '<button class="parlour-overlay-close" aria-label="Close overlay (Escape)" title="Close (Esc)">\u2715</button>' +
         '<div class="parlour-overlay-body">' +
         contentHtml +
         "</div>";

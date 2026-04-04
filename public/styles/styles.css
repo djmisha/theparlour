@@ -215,7 +215,7 @@ p {
     padding: 10px 24px;
     border-radius: 0;
     font-weight: 500;
-    color: var(--color-gold, #c9a959) !important;
+    color: var(--color-gold, #c9a959);
     font-family: var(--font-display, 'Cinzel'), serif;
     font-size: 0.8rem;
     text-decoration: none;
@@ -227,7 +227,7 @@ p {
 }
 .content-btn:hover {
     background-color: var(--color-gold, #c9a959);
-    color: var(--color-bg-primary, #0a0a0a) !important;
+    color: var(--color-bg-primary, #0a0a0a);
 }
 section {
     padding: 60px 0;

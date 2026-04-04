@@ -39,9 +39,10 @@
           // Slight horizontal drift
           var drift = (Math.random() - 0.5) * 60;
           sparkle.style.setProperty("--drift-x", drift + "px");
-          // Gold + white sparkle colors
+          // Gold + white sparkle colors — roughly 60% white, 40% gold
+          var GOLD_SPARKLE_RATIO = 0.4;
           sparkle.style.background =
-            Math.random() > 0.4 ? "#ffffff" : "#c9a959";
+            Math.random() > GOLD_SPARKLE_RATIO ? "#ffffff" : "#c9a959";
           overlay.appendChild(sparkle);
           setTimeout(function () {
             if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle);

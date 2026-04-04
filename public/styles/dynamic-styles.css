@@ -51,9 +51,12 @@ body.overlay-open {
   font-family: var(--font-display, 'Cinzel'), serif;
 }
 
-.parlour-overlay-close:hover {
+.parlour-overlay-close:hover,
+.parlour-overlay-close:focus {
   background: var(--color-gold, #c9a959);
   color: #0a0a0a;
+  outline: 2px solid var(--color-gold, #c9a959);
+  outline-offset: 2px;
 }
 
 .parlour-overlay-body {
