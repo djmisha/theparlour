@@ -2,7 +2,7 @@
 .content-hero {
     background-size: cover;
     background-position: center;
-    height: 480px;
+    height: calc(100vh - var(--header-height, 80px));
     position: relative;
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@
 
 @media screen and (max-width: 768px) {
     .content-hero {
-        height: 350px;
+        height: calc(100vh - var(--header-height, 80px));
     }
 }
 
@@ -26,7 +26,9 @@
     line-height: 3.5rem;
     margin-bottom: 1rem;
     color: var(--color-gold, #c9a959);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-shadow: none;
 }
 
 .content-hero .lead {
@@ -46,9 +48,27 @@
     border-radius: var(--radius-lg, 8px);
     padding: 25px;
     height: 100%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-left: 4px solid var(--color-border-gold, rgba(201, 169, 89, 0.3));
+    box-shadow: none;
+    border-left: none;
+    border: 1px solid var(--color-border, #2a2a2a);
+    position: relative;
     transition: transform 0.3s ease;
+}
+
+.content-details-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-lg, 8px);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(201, 169, 89, 0.6) 0%, transparent 40%, transparent 60%, rgba(201, 169, 89, 0.4) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .content-details-card h3 {
@@ -119,7 +139,7 @@
 .year-button.active {
     background-color: var(--color-gold, #c9a959);
     color: var(--color-bg-primary, #0a0a0a);
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .prev-btn, .next-btn {
@@ -217,7 +237,7 @@
 }
 
 .location-image {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: none;
     border-radius: var(--radius-lg, 8px);
     overflow: hidden;
     border: 3px solid var(--color-bg-card, #141414);
@@ -256,17 +276,33 @@
     padding: 20px;
     background-color: var(--color-bg-card, #141414);
     border-radius: var(--radius-lg, 8px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     transition: transform 0.3s ease;
+    position: relative;
+}
+
+.expectation-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-lg, 8px);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(201, 169, 89, 0.6) 0%, transparent 40%, transparent 60%, rgba(201, 169, 89, 0.4) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .expectation-item:hover {
-    transform: translateY(-5px);
+    border-color: var(--color-border-gold, rgba(201, 169, 89, 0.3));
 }
 
 .emoji-icon {
-    color: inherit;
-    font-size: 2.5rem;
+    color: var(--color-gold, #c9a959);
     flex-shrink: 0;
     margin-right: 5px;
     display: flex;
@@ -311,7 +347,7 @@
     background-color: var(--color-bg-card, #141414);
     border-radius: var(--radius-lg, 8px);
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
     transition: transform 0.3s ease;
 }
 
@@ -333,13 +369,13 @@
 
 .content-date .month {
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 400;
     letter-spacing: 1px;
 }
 
 .content-date .day {
     font-size: 2.2rem;
-    font-weight: bold;
+    font-weight: 400;
     line-height: 1;
 }
 
@@ -409,7 +445,7 @@
 }
 
 .content-photo {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: none;
     border: 3px solid var(--color-bg-card, #141414);
     transition: transform 0.3s ease;
 }
@@ -553,7 +589,7 @@
 
 @media (max-width: 767px) {
     .content-hero h1 {
-        font-size: 2.8rem;
+        font-size: 2rem;
     }
     
     .content-hero .lead {
@@ -572,7 +608,6 @@
     
     .emoji-icon {
         margin-bottom: 10px;
-        font-size: 3rem;
     }
     
     .attendance-info h3::after {
@@ -643,8 +678,9 @@
     border-radius: var(--radius-lg, 8px);
     padding: 25px;
     width: calc(33.333% - 20px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-left: 4px solid var(--color-border-gold, rgba(201, 169, 89, 0.3));
+    box-shadow: none;
+    border-left: none;
+    border: 1px solid var(--color-border, #2a2a2a);
     transition: transform 0.3s ease;
 }
 
@@ -663,7 +699,7 @@
 .event-card .event-date {
     color: var(--color-text-primary, #f0ece2);
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 15px;
 }
 
@@ -695,7 +731,7 @@ event-card p {
     background-color: var(--color-bg-card, #141414);
     padding: 25px;
     border-radius: var(--radius-lg, 8px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 table.events {
@@ -807,6 +843,53 @@ input.error, textarea.error {
     background-size: cover;
     background-position: center;
     height: 50px;
+}
+
+/* Events Exclusive Notice */
+.events-exclusive-notice {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 30px;
+    background-color: var(--color-bg-card, #141414);
+    border-radius: var(--radius-lg, 8px);
+    position: relative;
+}
+
+.events-exclusive-notice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-lg, 8px);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(201, 169, 89, 0.6) 0%, transparent 40%, transparent 60%, rgba(201, 169, 89, 0.4) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.events-exclusive-notice .exclusive-headline {
+    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-size: 1.6rem;
+    color: var(--color-gold, #c9a959);
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.events-exclusive-notice p {
+    color: var(--color-text-secondary, #a09c94);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.events-exclusive-notice .btn {
+    margin-top: 15px;
 }
 
 /* Officer Profile Styles */

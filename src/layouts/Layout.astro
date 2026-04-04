@@ -10,7 +10,7 @@ interface Props {
 
 const { 
   title, 
-  description = "The Parlour is San Diego's most exclusive, invitation-only society of master magicians. An elite private magic club dedicated to the highest echelons of sleight of hand, conjury, and the performing arts of illusion.",
+  description = "The Parlour is the world's most exclusive, invitation-only society of master magicians. An elite private magic club dedicated to the highest echelons of sleight of hand, conjury, and the performing arts of illusion.",
   keywords = "San Diego magic club, San Diego magicians, exclusive magic society, private magic club San Diego, magic show San Diego, sleight of hand, conjuring, magician San Diego, magic performances, elite magic club",
   ogTitle,
   ogDescription,
@@ -18,7 +18,6 @@ const {
 } = Astro.props;
 
 const currentYear = new Date().getFullYear();
-const copyrightYears = `2025 - ${currentYear}`;
 ---
 
 <!DOCTYPE html>
@@ -29,7 +28,7 @@ const copyrightYears = `2025 - ${currentYear}`;
     <title>{title}</title>
     <meta name="description" content={description}>
     <meta name="keywords" content={keywords}>
-    <meta name="author" content="The Parlour — San Diego's Exclusive Society of Magic">
+    <meta name="author" content="The Parlour — The World's Most Exclusive Society of Magic">
     <meta property="og:title" content={ogTitle || title}>
     <meta property="og:description" content={ogDescription || description}>
     <meta property="og:type" content="website">
@@ -72,7 +71,7 @@ const copyrightYears = `2025 - ${currentYear}`;
             <div class="logo">
               <a href="/">
                 <h1>The Parlour</h1>
-                <p class="tagline">San Diego's Exclusive Society of Magic</p>
+                <p class="tagline">The World's Most Exclusive Society of Magic</p>
               </a>
             </div>
             
@@ -129,10 +128,7 @@ const copyrightYears = `2025 - ${currentYear}`;
         </div>
         <div class="header-divider"></div>
     </header>
-    <div class="curtain-container">
-        <div class="curtain left"></div>
-        <div class="curtain right"></div>
-    </div>
+    <div class="magic-transition-overlay" id="magic-transition-overlay"></div>
 
     <main>
         <slot />
@@ -144,8 +140,8 @@ const copyrightYears = `2025 - ${currentYear}`;
                 <div class="footer-sections">
                     <div class="footer-info">
                         <h3>The Parlour</h3>
-                        <p>San Diego's Exclusive Society of Magic</p>
-                        <p>An Invitation-Only Collective of Master Conjurers</p>
+                        <p>The World's Most Exclusive Society of Magic</p>
+                        <p>Based in San Diego</p>
                         <p class="footer-motto"><em>"Where the impossible becomes art."</em></p>
                     </div>
                     
@@ -181,7 +177,7 @@ const copyrightYears = `2025 - ${currentYear}`;
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; {copyrightYears} The Parlour — San Diego's Exclusive Society of Magic. All rights reserved.</p>
+                <p>&copy; Beyond Time — The Parlour — The World's Most Exclusive Society of Magic. Based in San Diego. All rights reserved.</p>
                 <div class="back-to-top"><br>
                     <a href="#" id="back-to-top-btn">↑ Ascend</a>
                 </div>
@@ -201,6 +197,7 @@ const copyrightYears = `2025 - ${currentYear}`;
     <!-- Particles.js -->
     <script is:inline src="/js/particles.js"></script>
     <script is:inline src="/js/particleManager.js"></script>
+    <script is:inline src="/js/heroSparkles.js"></script>
     <!-- Links Module -->
     <script is:inline src="/js/links.js"></script>
     <!-- Main Coordinator JS -->

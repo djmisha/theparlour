@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <Layout 
-  title="The Society | The Parlour — San Diego's Exclusive Magic Society"
+  title="The Society | The Parlour — The World's Most Exclusive Society of Magic"
   description="Discover The Parlour — San Diego's most exclusive private society of magicians. An invitation-only collective dedicated to the mastery of sleight of hand, conjury, and the performing arts of illusion."
   keywords="San Diego magic society, exclusive magician club, private magic club San Diego, magic history San Diego, conjuring arts, sleight of hand masters, San Diego magicians"
   ogUrl="https://theparlour.com/about"
@@ -24,10 +25,29 @@ import SectionDivider from '../components/SectionDivider.astro';
             <div class="content-row">
                 <div class="content-col content-col-full">
                     <div class="content-details-card">
-                        <h3>San Diego's Most Exclusive Magic Society</h3>
-                        <p>The Parlour is not a club. It is a society — a carefully curated collective of San Diego's most accomplished magicians, bound by a shared devotion to the art of the impossible. We exist behind closed doors, in the tradition of the great private magic societies of the world, where the craft is practiced at its highest level and its secrets are fiercely guarded.</p>
+                        <h3>The World's Most Exclusive Society of Magic</h3>
+                        <p>The Parlour is not a club. It is a society — the world's most exclusive collective of master magicians, bound by a shared devotion to the art of the impossible. Based in San Diego, we exist behind closed doors, in the tradition of the great private magic societies throughout history, where the craft is practiced at its highest level and its secrets are fiercely guarded.</p>
                         <p>Our members are professionals, scholars, and devoted practitioners who have dedicated their lives to mastering the classical arts of magic — from the precision of sleight of hand to the grandeur of stage illusion. Admission is not given freely. It is earned through demonstrated excellence and genuine passion for the craft.</p>
                         <p><em>The Parlour draws its inspiration from the world's most revered magical institutions — private societies where artistry, secrecy, and elegance converge to create something extraordinary.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Origins & Backstory Section -->
+    <section class="location-details">
+        <div class="content-container">
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <h2>The Origins</h2>
+                    <div class="content-details-card">
+                        <h3>Since the Dawn of the Arcane Arts</h3>
+                        <p>Long before magic was performed on stages or captured on film, there existed a secret lineage of practitioners — men and women who understood that true power lies not in the trick itself, but in the mystery that surrounds it. From the oracle chambers of ancient civilizations to the courts of medieval kings, these masters of the impossible operated in shadow, passing their knowledge from one generation to the next through whispered teachings and sacred oaths.</p>
+                        <p>The Parlour traces its origins to this unbroken chain. It is said that when the great magical societies of Europe began to fracture in the 18th century, a small circle of the most accomplished practitioners carried the old traditions westward — eventually establishing a sanctuary in San Diego, where the art could flourish in secrecy, far from prying eyes.</p>
+                        <p>To this day, no member of The Parlour has ever publicly acknowledged their involvement. No roster has ever been published. No gathering has ever been photographed. The society exists — as it always has — in the space between what is known and what is believed. This is not mere tradition. It is the very essence of magic itself.</p>
+                        <p>Master magicians throughout history — names that would astonish the uninitiated — are whispered to have been part of this lineage. But true to the code, none have ever confirmed it. The greatest secret of The Parlour is not any single trick or method. It is the society itself.</p>
+                        <p><em>The world's most exclusive society of magic. Passed down through generations. Shrouded in secrecy since the beginning of time.</em></p>
                     </div>
                 </div>
             </div>
@@ -43,7 +63,7 @@ import SectionDivider from '../components/SectionDivider.astro';
                     <div class="content-row">
                         <div class="content-col">
                             <div class="expectation-item">
-                                <span class="emoji-icon">🎭</span>
+                                <span class="emoji-icon"><Icon name="masks" /></span>
                                 <div>
                                     <h4>Magic as Fine Art</h4>
                                     <p>We believe magic deserves the same reverence as painting, sculpture, or music. It is not mere entertainment — it is a performing art of the highest order, combining psychology, dexterity, theater, and the indefinable spark of wonder that has captivated humanity for millennia. At The Parlour, we treat every performance as a work of art.</p>
@@ -52,7 +72,7 @@ import SectionDivider from '../components/SectionDivider.astro';
                         </div>
                         <div class="content-col content-col-half content-mt-medium">
                             <div class="expectation-item">
-                                <span class="emoji-icon">🔐</span>
+                                <span class="emoji-icon"><Icon name="lock" /></span>
                                 <div>
                                     <h4>The Sacred Secret</h4>
                                     <p>A magician's methods are sacred. The Parlour upholds the oldest tradition of our craft: that the secret is not merely a technique to be guarded, but a covenant between the performer and the art itself. Our members understand that protecting the mystery is not about elitism — it is about preserving the very thing that makes magic extraordinary.</p>
@@ -61,7 +81,7 @@ import SectionDivider from '../components/SectionDivider.astro';
                         </div>
                         <div class="content-col content-col-half content-mt-medium">
                             <div class="expectation-item">
-                                <span class="emoji-icon">✨</span>
+                                <span class="emoji-icon"><Icon name="star" /></span>
                                 <div>
                                     <h4>The Pursuit of Mastery</h4>
                                     <p>There is no finish line in magic. Every master knows that the craft reveals deeper layers the further you travel. The Parlour exists for those who are committed to this lifelong pursuit — practitioners who understand that true mastery is not a destination, but an ever-unfolding journey of discovery, refinement, and artistic evolution.</p>
@@ -70,7 +90,7 @@ import SectionDivider from '../components/SectionDivider.astro';
                         </div>
                         <div class="content-col content-col-full content-mt-medium">
                             <div class="expectation-item">
-                                <span class="emoji-icon">🌙</span>
+                                <span class="emoji-icon"><Icon name="moon" /></span>
                                 <div>
                                     <h4>Exclusivity with Purpose</h4>
                                     <p>Our selectivity is not about exclusion — it is about creating an environment where serious practitioners can study, create, and perform at the highest level, surrounded by peers who share the same uncompromising standards. When every person in the room is a master of their craft, the level of discourse, collaboration, and artistry elevates everyone present. This is the power of curated community.</p>
@@ -91,28 +111,28 @@ import SectionDivider from '../components/SectionDivider.astro';
                 <div class="content-col content-col-two-thirds content-offset-col">
                     <div class="expectation-list">
                         <div class="expectation-item">
-                            <span class="emoji-icon">♠️</span>
+                            <span class="emoji-icon"><Icon name="spade" /></span>
                             <div>
                                 <h4>Excellence Above All</h4>
                                 <p>We hold ourselves and our members to the highest standards of craft, performance, and artistic integrity</p>
                             </div>
                         </div>
                         <div class="expectation-item">
-                            <span class="emoji-icon">🤝</span>
+                            <span class="emoji-icon"><Icon name="chain" /></span>
                             <div>
                                 <h4>Brotherhood of the Art</h4>
                                 <p>Within these walls, knowledge flows freely — our masters share their deepest secrets with fellow members, elevating the entire collective</p>
                             </div>
                         </div>
                         <div class="expectation-item">
-                            <span class="emoji-icon">📖</span>
+                            <span class="emoji-icon"><Icon name="book" /></span>
                             <div>
                                 <h4>Guardians of Tradition</h4>
                                 <p>We are custodians of centuries of magical knowledge — preserving the classical arts while pushing the boundaries of what is possible</p>
                             </div>
                         </div>
                         <div class="expectation-item">
-                            <span class="emoji-icon">🎩</span>
+                            <span class="emoji-icon"><Icon name="crown" /></span>
                             <div>
                                 <h4>The Art of Presentation</h4>
                                 <p>A trick without presentation is merely a puzzle. We cultivate the theatrical artistry that transforms technique into transcendent experience</p>

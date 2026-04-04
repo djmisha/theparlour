@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
-import EventCards from '../components/EventCards.astro';
+import Icon from '../components/Icon.astro';
 import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout 
-  title="The Parlour — San Diego's Most Exclusive Magic Society | Private Magic Club"
+  title="The Parlour — The World's Most Exclusive Society of Magic | Based in San Diego"
   description="The Parlour is San Diego's most exclusive, invitation-only society of master magicians. An elite private magic club dedicated to the highest echelons of sleight of hand, conjury, and the performing arts of illusion."
   keywords="San Diego magic club, San Diego magicians, exclusive magic society, private magic club San Diego, magic show San Diego, sleight of hand, conjuring, magician San Diego, magic performances, elite magic club"
   ogUrl="https://theparlour.com"
@@ -22,13 +22,24 @@ import ContactForm from '../components/ContactForm.astro';
     <section id="about" class="about-section">
         <div class="container">
             <h2>A Society Unlike Any Other</h2>
-            <p>The Parlour is an invitation-only collective of San Diego's most accomplished magicians — a private society where the ancient art of conjury is practiced, preserved, and perfected behind closed doors. We do not advertise. We do not recruit. Those who belong, know. Those who seek to join must prove they are worthy of the secrets within.</p>
+            <p>The Parlour is the world's most exclusive society of magic — an invitation-only collective where the ancient art of conjury is practiced, preserved, and perfected behind closed doors. Based in San Diego, we do not advertise. We do not recruit. Those who belong, know. Those who seek to join must prove they are worthy of the secrets within.</p>
         </div>
     </section>
 
     <SectionDivider type="wave" />
 
-    <EventCards />
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2>Gatherings &amp; Events</h2>
+            <div class="events-exclusive-notice">
+                <p class="exclusive-headline">Exclusive to Members Only</p>
+                <p>The Parlour's gatherings, performances, and events are reserved exclusively for members of the society. Our private sessions feature world-class demonstrations, intimate lectures by master conjurers, and experiences that simply cannot be found elsewhere.</p>
+                <p>Non-members may not attend, observe, or participate in any society event. This exclusivity is not a barrier — it is a promise. A promise that every gathering will be attended only by those who have proven their dedication to the craft and earned the trust of their fellow practitioners.</p>
+                <p>If you seek to experience the extraordinary, the path begins with a petition for membership.</p>
+                <a href="/contact" class="btn">Petition for Membership</a>
+            </div>
+        </div>
+    </section>
 
     <SectionDivider type="peaks" />
 
@@ -39,32 +50,32 @@ import ContactForm from '../components/ContactForm.astro';
             
             <div class="art-forms-container">
                 <div class="art-form">
-                    <div class="art-icon">👐</div>
+                    <div class="art-icon"><Icon name="hand" size={36} /></div>
                     <h3>Sleight of Hand</h3>
                     <p>The purest form of magic — where bare hands create impossible realities through years of disciplined practice, misdirection, and flawless technique.</p>
                 </div>
                 <div class="art-form">
-                    <div class="art-icon">♠️</div>
+                    <div class="art-icon"><Icon name="spade" size={36} /></div>
                     <h3>Card Conjury</h3>
                     <p>The aristocrat's art. From elegant card manipulations to mind-bending predictions, our members command the 52 pasteboards with surgical precision.</p>
                 </div>
                 <div class="art-form">
-                    <div class="art-icon">💰</div>
+                    <div class="art-icon"><Icon name="coin" size={36} /></div>
                     <h3>Coin & Close-Up</h3>
                     <p>Intimate miracles performed inches from the spectator's eyes — vanishes, transpositions, and transformations that defy every sense.</p>
                 </div>
                 <div class="art-form">
-                    <div class="art-icon">🎭</div>
+                    <div class="art-icon"><Icon name="masks" size={36} /></div>
                     <h3>Grand Illusion</h3>
                     <p>The theatre of the impossible. Large-scale illusions that combine engineering, artistry, and stagecraft into breathtaking spectacles of wonder.</p>
                 </div>
                 <div class="art-form">
-                    <div class="art-icon">🧠</div>
+                    <div class="art-icon"><Icon name="eye" size={36} /></div>
                     <h3>Mentalism</h3>
                     <p>The art of apparent mind-reading, psychological influence, and impossible predictions — where the magician's greatest prop is the human mind itself.</p>
                 </div>
                 <div class="art-form">
-                    <div class="art-icon">✨</div>
+                    <div class="art-icon"><Icon name="star" size={36} /></div>
                     <h3>Presentation & Performance</h3>
                     <p>The craft that elevates tricks into art. Scripting, staging, audience psychology, and the theatrical command that separates amateurs from masters.</p>
                 </div>
@@ -90,22 +101,22 @@ import ContactForm from '../components/ContactForm.astro';
                     
                     <div class="magic-benefit-cards">
                         <div class="magic-benefit-card">
-                            <span class="benefit-icon">✨</span>
+                            <span class="benefit-icon"><Icon name="star" size={24} /></span>
                             <h3>Mastery of Craft</h3>
                             <p>Study under San Diego's most accomplished conjurers in private sessions</p>
                         </div>
                         <div class="magic-benefit-card">
-                            <span class="benefit-icon">🔮</span>
+                            <span class="benefit-icon"><Icon name="crystal" size={24} /></span>
                             <h3>Forbidden Knowledge</h3>
                             <p>Access one of the largest private magic libraries in the Western United States</p>
                         </div>
                         <div class="magic-benefit-card">
-                            <span class="benefit-icon">🎭</span>
+                            <span class="benefit-icon"><Icon name="masks" size={24} /></span>
                             <h3>Command the Room</h3>
                             <p>Perfect your performance in an environment of uncompromising excellence</p>
                         </div>
                         <div class="magic-benefit-card">
-                            <span class="benefit-icon">🌟</span>
+                            <span class="benefit-icon"><Icon name="star-filled" size={24} /></span>
                             <h3>The Inner Circle</h3>
                             <p>Join a private network of San Diego's most elite magical artists</p>
                         </div>
@@ -164,21 +175,21 @@ import ContactForm from '../components/ContactForm.astro';
     <section id="library" class="library-section">
         <div class="container">
             <h2>The Vault</h2>
-            <p class="library-tagline">One of the most extraordinary private collections of magical knowledge in the Western United States — accessible only to members of The Parlour.</p>
+            <p class="library-tagline">The Vault is said to contain the largest and most closely guarded collection of magical secrets in the world — manuscripts, methods, and forbidden knowledge passed down through generations, accessible only to those who have earned their place within The Parlour.</p>
             
             <div class="library-content">
                 <div class="library-info">
                     <div class="library-stat">
-                        <span class="stat-number">Centuries of</span>
-                        <span class="stat-label">Rare Magical Literature</span>
+                        <span class="stat-number">The Oldest Known</span>
+                        <span class="stat-label">Collection of Arcane Secrets</span>
                     </div>
                     <div class="library-stat">
-                        <span class="stat-number">Thousands of</span>
-                        <span class="stat-label">Performance Techniques</span>
+                        <span class="stat-number">Guarded for Centuries</span>
+                        <span class="stat-label">Forbidden Techniques &amp; Methods</span>
                     </div>
                     <div class="library-stat">
-                        <span class="stat-number">Exclusive</span>
-                        <span class="stat-label">Archival Manuscripts &amp; Film</span>
+                        <span class="stat-number">Accessible Only</span>
+                        <span class="stat-label">To Members of The Parlour</span>
                     </div>
                     <a href="#contact" class="btn btn-outline">Request Access</a>
                 </div>

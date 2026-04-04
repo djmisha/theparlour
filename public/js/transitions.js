@@ -1,40 +1,64 @@
-/* transitions.js */
+/* transitions.js - Magical page transition */
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
-  let curtainContainer = document.querySelector(".curtain-container");
 
-  // Create curtains if they don't exist
-  if (!curtainContainer) {
-    curtainContainer = document.createElement("div");
-    curtainContainer.className = "curtain-container";
-    curtainContainer.innerHTML = `
-            <div class="curtain left"></div>
-            <div class="curtain right"></div>
-        `;
-    body.appendChild(curtainContainer);
+  // Get or create overlay
+  let overlay = document.getElementById("magic-transition-overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "magic-transition-overlay";
+    overlay.id = "magic-transition-overlay";
+    body.appendChild(overlay);
   }
 
-  const performTransition = async (url) => {
+  // Create sparkle burst effect
+  function createSparkles(x, y) {
+    const count = 30;
+    for (let i = 0; i < count; i++) {
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+      const distance = 40 + Math.random() * 80;
+      const tx = Math.cos(angle) * distance;
+      const ty = Math.sin(angle) * distance;
+      const tx2 = tx * 1.5;
+      const ty2 = ty * 1.5;
+      sparkle.style.setProperty("--tx", tx + "px");
+      sparkle.style.setProperty("--ty", ty + "px");
+      sparkle.style.setProperty("--tx2", tx2 + "px");
+      sparkle.style.setProperty("--ty2", ty2 + "px");
+      sparkle.style.left = x + "px";
+      sparkle.style.top = y + "px";
+      sparkle.style.width = (2 + Math.random() * 4) + "px";
+      sparkle.style.height = sparkle.style.width;
+      overlay.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 800);
+    }
+  }
+
+  const performTransition = async (url, clickX, clickY) => {
     body.classList.add("transitioning");
-    body.classList.add("curtains-closed");
-    body.classList.remove("curtains-open");
 
-    // Wait for curtains to close
-    await new Promise((resolve) => setTimeout(resolve, 400)); // Duration of CSS transition (reduced from 600ms to 400ms)
+    // Show sparkles at click point
+    overlay.style.background = "transparent";
+    overlay.classList.add("active");
+    createSparkles(clickX, clickY);
 
-    window.isTransitioning = true; // Set flag before loading new content
+    // Fade to dark after sparkles start
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    overlay.style.background = "#0a0a0a";
+    overlay.style.transition = "opacity 0.3s ease";
+
+    // Wait for dark overlay to be fully visible
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    window.isTransitioning = true;
 
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        console.error(
-          "Failed to fetch page:",
-          response.status,
-          response.statusText
-        );
-        // Fallback to regular navigation if fetch fails
         window.location.href = url;
-        window.isTransitioning = false; // Clear flag on error before returning
+        window.isTransitioning = false;
         return;
       }
 
@@ -44,32 +68,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const newBody = newDoc.body;
       const newTitle = newDoc.title;
 
-      // Extract any inline scripts before replacing body
+      // Extract inline scripts
       const inlineScripts = [];
-      const scriptElements = newDoc.querySelectorAll("script:not([src])");
-      scriptElements.forEach((script) => {
+      newDoc.querySelectorAll("script:not([src])").forEach((script) => {
         inlineScripts.push(script.textContent);
       });
-
-      // Extract page-specific data like linksData if present
-      let linksDataScript = inlineScripts.find((script) =>
-        script.includes("window.allLinksData")
-      );
 
       // Replace body content
       document.body.innerHTML = newBody.innerHTML;
       document.title = newTitle;
 
-      // Re-create and append curtains to the new body
-      curtainContainer = document.createElement("div");
-      curtainContainer.className = "curtain-container";
-      curtainContainer.innerHTML = `
-                <div class="curtain left"></div>
-                <div class="curtain right"></div>
-            `;
-      document.body.appendChild(curtainContainer);
+      // Re-create overlay
+      overlay = document.createElement("div");
+      overlay.className = "magic-transition-overlay active";
+      overlay.id = "magic-transition-overlay";
+      overlay.style.background = "#0a0a0a";
+      overlay.style.opacity = "1";
+      document.body.appendChild(overlay);
 
-      // Execute important inline scripts after body content is replaced
+      // Execute inline scripts
       inlineScripts.forEach((script) => {
         try {
           eval(script);
@@ -78,95 +95,87 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Ensure body still has the closed class for the open animation
-      document.body.classList.add("transitioning");
-      document.body.classList.add("curtains-closed");
-
       // Update URL
       history.pushState({ path: url }, "", url);
 
-      // Re-initialize any scripts or event listeners if needed for the new content
-      initializePageSpecificScripts(); // Placeholder for re-initialization logic
+      // Re-initialize scripts
+      initializePageSpecificScripts();
     } catch (error) {
       console.error("Error during page transition:", error);
-      // Fallback to regular navigation on error
       window.location.href = url;
-      window.isTransitioning = false; // Clear flag on error before returning
+      window.isTransitioning = false;
       return;
     }
 
-    // Scroll to top before curtains open
+    // Scroll to top
     window.scrollTo(0, 0);
 
-    // Wait a brief moment for the new content to be in place and scroll to happen
-    await new Promise((resolve) => setTimeout(resolve, 50));
+    // Brief pause then fade in
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    overlay.style.transition = "opacity 0.4s ease";
+    overlay.classList.remove("active");
+    overlay.style.opacity = "0";
 
-    body.classList.remove("curtains-closed");
-    body.classList.add("curtains-open");
-
-    // Wait for curtains to open
-    await new Promise((resolve) => setTimeout(resolve, 400)); // Duration of CSS transition (reduced from 600ms to 400ms)
+    await new Promise((resolve) => setTimeout(resolve, 400));
     body.classList.remove("transitioning");
-    body.classList.remove("curtains-open"); // Clean up
-    // Remove the old curtain container if it was duplicated, ensure only one exists
-    const allCurtains = document.querySelectorAll(".curtain-container");
-    if (allCurtains.length > 1) {
-      allCurtains.forEach((curtain, index) => {
-        if (index < allCurtains.length - 1) curtain.remove();
-      });
-    }
-    window.isTransitioning = false; // Clear flag after transition is complete
+    overlay.style.background = "";
+    window.isTransitioning = false;
   };
 
+  // Intercept navigation clicks
   document.addEventListener(
     "click",
     (event) => {
       const target = event.target.closest("a");
 
       if (target && target.href) {
-        // Immediately allow default behavior for links meant to open in new tabs or download
+        // Skip external links and new tab links
         if (
           target.getAttribute("target") === "_blank" ||
           target.hasAttribute("download")
         ) {
-          return; // Let the browser handle it, do not preventDefault or transition
+          return;
         }
 
-        // Only apply transition to internal .php links on the same hostname
-        if (
-          target.href.endsWith(".php") &&
-          target.hostname === window.location.hostname
-        ) {
-          // Ensure it's not an anchor link on the same page, which should be handled by smooth scroll or default browser behavior
+        // Only transition for internal navigation links (not anchor links on same page)
+        if (target.hostname === window.location.hostname) {
+          // Skip anchor links on same page
           if (target.pathname === window.location.pathname && target.hash) {
             return;
           }
+
+          // Skip same-page links
+          if (target.href === window.location.href) {
+            return;
+          }
+
+          // Skip non-page links (like mailto, tel, javascript)
+          if (target.protocol !== "http:" && target.protocol !== "https:") {
+            return;
+          }
+
           event.preventDefault();
-          const url = target.href;
-          performTransition(url);
+          const rect = target.getBoundingClientRect();
+          const clickX = event.clientX || rect.left + rect.width / 2;
+          const clickY = event.clientY || rect.top + rect.height / 2;
+          performTransition(target.href, clickX, clickY);
         }
-        // Other types of links (e.g., #anchor on different page, external non-php, etc.) will just behave normally
       }
     },
     true
-  ); // Use capture phase for the event listener
+  );
 
   window.addEventListener("popstate", (event) => {
-    // Handle browser back/forward buttons
     if (event.state && event.state.path) {
-      performTransition(event.state.path);
+      performTransition(event.state.path, window.innerWidth / 2, window.innerHeight / 2);
     } else {
-      // Fallback for initial page load or states without path
-      // Or simply reload if the state is not what's expected
       window.location.reload();
     }
   });
 
   function initializePageSpecificScripts() {
-    // This function should re-run any JS needed for the new page content.
     console.log("Re-initializing page-specific scripts...");
 
-    // Call all setup functions from main.js that need to be re-applied to new content
     if (typeof window.setupSmoothScrolling === "function") {
       window.setupSmoothScrolling();
     }
@@ -177,21 +186,17 @@ document.addEventListener("DOMContentLoaded", () => {
       window.setupMembershipAnimations();
     }
     if (typeof window.setupContactForm === "function") {
-      // Ensure contact form specific elements like #contact-form and #form-response exist before calling
-      if ($("#contact-form").length) {
+      if ($ && $("#contact-form").length) {
         window.setupContactForm();
       }
     }
     if (typeof window.setupOwlChatbot === "function") {
-      // Ensure chatbot specific elements exist before calling
-      if ($(".owl-chatbot").length) {
+      if ($ && $(".owl-chatbot").length) {
         window.setupOwlChatbot();
       }
     }
     if (typeof window.setupHeaderEyes === "function") {
-      // Header eyes are likely in the header, which might be part of the body replacement
-      // or static. If they are part of the replaced body, they need re-init.
-      if ($(".magic-eyes").length) {
+      if ($ && $(".magic-eyes").length) {
         window.setupHeaderEyes();
       }
     }
@@ -199,8 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.setupArtFormHover();
     }
     if (typeof window.setupHamburgerMenu === "function") {
-      // Hamburger menu is likely in the header, similar to header eyes.
-      if ($(".hamburger-menu").length) {
+      if ($ && $(".hamburger-menu").length) {
         window.setupHamburgerMenu();
       }
     }
@@ -208,36 +212,19 @@ document.addEventListener("DOMContentLoaded", () => {
       window.setupMagicTricks();
     }
     if (typeof window.setupBackToTopButton === "function") {
-      // Back to top button might be added dynamically or exist in the footer.
-      if ($("#back-to-top-btn").length) {
+      if ($ && $("#back-to-top-btn").length) {
         window.setupBackToTopButton();
       }
     }
-
-    // Special handling for links page
     if (typeof window.setupLinksPage === "function") {
-      if ($("#links-display").length) {
+      if ($ && $("#links-display").length) {
         window.setupLinksPage();
       }
     }
+    if (typeof window.createHeroSparkles === "function") {
+      window.createHeroSparkles();
+    }
 
     console.log("Page specific scripts re-initialized.");
-
-    // Re-attach curtain container to the body if it was lost during innerHTML replacement
-    // This is already handled by re-creating it in performTransition, but as a safeguard:
-    if (!document.querySelector(".curtain-container")) {
-      const newCurtainContainer = document.createElement("div");
-      newCurtainContainer.className = "curtain-container";
-      newCurtainContainer.innerHTML = `
-                <div class="curtain left"></div>
-                <div class="curtain right"></div>
-            `;
-      document.body.appendChild(newCurtainContainer);
-    }
   }
-
-  // Initial curtain setup for the first page load (optional, if you want them to open on first load)
-  // setTimeout(() => {
-  //     body.classList.add('curtains-open');
-  // }, 50); // Small delay to ensure styles are applied
 });

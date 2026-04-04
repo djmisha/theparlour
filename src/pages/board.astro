@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
-import BoardMembers from '../components/BoardMembers.astro';
+import Icon from '../components/Icon.astro';
+
 ---
 
 <Layout 
-  title="The Council | The Parlour — San Diego's Exclusive Magic Society"
+  title="The Council | The Parlour — The World's Most Exclusive Society of Magic"
   description="Meet The Council — the distinguished leaders who guide The Parlour, San Diego's most exclusive private magic society. Stewards of tradition and excellence."
   keywords="San Diego magic, San Diego magicians, exclusive magic club, private magic society, magic show San Diego, magic council, magic leadership"
   ogUrl="https://theparlour.com/board"
@@ -34,11 +35,21 @@ import BoardMembers from '../components/BoardMembers.astro';
         </div>
     </section>
 
-    <!-- Officer Bios Section -->
+    <!-- The Council Mystery Section -->
     <section class="content-info">
         <div class="content-container">
-            <h2>Meet The Current Council</h2>
-            <BoardMembers />
+            <h2>The Shrouded Council</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <h3>Identities Unknown. Authority Absolute.</h3>
+                        <p>The current members of The Council are shrouded in absolute secrecy. Their identities are known only to one another and to the most senior members of the society. This is by design — and by tradition stretching back centuries.</p>
+                        <p>Legend holds that the original Council was formed in an age when practitioners of the arcane arts faced persecution and suspicion. To protect both the art and its guardians, the founders decreed that those who lead shall do so from the shadows. The Council governs not through visibility, but through wisdom, discretion, and an unwavering commitment to the preservation of magic's deepest secrets.</p>
+                        <p>What is known: The Council convenes in private. Their decisions shape every aspect of The Parlour — from who is granted admission to which ancient techniques are passed to the next generation. They are the keepers of the flame, ensuring that the art endures in its purest form.</p>
+                        <p><em>Those who seek to know The Council must first prove themselves worthy of the society itself. Only then, in time, may the veil be lifted.</em></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -51,7 +62,7 @@ import BoardMembers from '../components/BoardMembers.astro';
                     <div class="content-row">
                         <div class="content-col">
                             <div class="expectation-item">
-                                <span class="emoji-icon">📋</span>
+                                <span class="emoji-icon"><Icon name="clipboard" /></span>
                                 <div>
                                     <h4>Society Governance</h4>
                                     <p>The Council oversees all facets of The Parlour's operations, from strategic direction and financial stewardship to upholding the standards that define our institution. They ensure the society remains true to its mission of preserving and advancing the magical arts.</p>
@@ -60,7 +71,7 @@ import BoardMembers from '../components/BoardMembers.astro';
                         </div>
                         <div class="content-col content-col-half content-mt-medium">
                             <div class="expectation-item">
-                                <span class="emoji-icon">🎭</span>
+                                <span class="emoji-icon"><Icon name="masks" /></span>
                                 <div>
                                     <h4>Curated Experiences</h4>
                                     <p>From exclusive gatherings and masterclasses to private performances, The Council curates every event with meticulous attention. They secure world-class guest artists, orchestrate competitions, and create unparalleled opportunities for members to refine their craft.</p>
@@ -69,7 +80,7 @@ import BoardMembers from '../components/BoardMembers.astro';
                         </div>
                         <div class="content-col content-col-half content-mt-medium">
                             <div class="expectation-item">
-                                <span class="emoji-icon">🤝</span>
+                                <span class="emoji-icon"><Icon name="chain" /></span>
                                 <div>
                                     <h4>Member Cultivation</h4>
                                     <p>The Council nurtures the growth of every member, pairing emerging practitioners with seasoned mentors and fostering an environment where knowledge is exchanged with generosity and discretion.</p>
@@ -78,7 +89,7 @@ import BoardMembers from '../components/BoardMembers.astro';
                         </div>
                         <div class="content-col content-mt-medium">
                             <div class="expectation-item">
-                                <span class="emoji-icon">🌐</span>
+                                <span class="emoji-icon"><Icon name="globe" /></span>
                                 <div>
                                     <h4>Community Presence</h4>
                                     <p>Representing The Parlour in the broader world, The Council cultivates relationships with distinguished magical organizations, coordinates select public engagements, and elevates the art of magic throughout San Diego.</p>
@@ -87,7 +98,7 @@ import BoardMembers from '../components/BoardMembers.astro';
                         </div>
                         <div class="content-col content-mt-medium">
                             <div class="expectation-item">
-                                <span class="emoji-icon">💬</span>
+                                <span class="emoji-icon"><Icon name="speech" /></span>
                                 <div>
                                     <h4>Contribute</h4>
                                     <p>Members in good standing are welcome to attend Council sessions and offer their perspective — a privilege we hold in high regard. Formal votes are reserved for Council members. We encourage those with vision to seek a seat at the table.</p>
@@ -108,21 +119,21 @@ import BoardMembers from '../components/BoardMembers.astro';
                 <div class="content-col content-col-two-thirds content-offset-col">
                     <div class="expectation-list">
                         <div class="expectation-item">
-                            <span class="emoji-icon">🗳️</span>
+                            <span class="emoji-icon"><Icon name="ballot" /></span>
                             <div>
                                 <h4>The Selection</h4>
                                 <p>Each year, The Parlour convenes to select the next Council. All members in good standing may cast their vote. Selections are held in June, with the new Council assuming their duties in July.</p>
                             </div>
                         </div>
                         <div class="expectation-item">
-                            <span class="emoji-icon">👥</span>
+                            <span class="emoji-icon"><Icon name="people" /></span>
                             <div>
                                 <h4>Nomination Period</h4>
                                 <p>Members may put forward themselves or distinguished peers for Council positions. Nominations open in April, allowing candidates to articulate their vision for the society's future.</p>
                             </div>
                         </div>
                         <div class="expectation-item">
-                            <span class="emoji-icon">⚖️</span>
+                            <span class="emoji-icon"><Icon name="scale" /></span>
                             <div>
                                 <h4>Term of Service</h4>
                                 <p>Council members serve one-year terms with the opportunity for renewal. This ensures a balance of institutional knowledge and fresh vision, keeping the society dynamic and attuned to its members.</p>
