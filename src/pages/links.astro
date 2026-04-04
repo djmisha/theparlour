@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
 import linksData from '../data/links.json';
+import { FiExternalLink } from 'react-icons/fi';
 
 interface Link {
   Name: string;
@@ -10,142 +11,233 @@ interface Link {
   Description: string;
 }
 
+const typeOrder = ['Magician', 'Org', 'Vendor', 'Mfg', 'Resource', 'Other'];
+
 const typeNames: Record<string, string> = {
   'Mfg': 'Manufacturers',
   'Vendor': 'Vendors',
   'Magician': 'Magicians',
   'Resource': 'Resources',
   'Org': 'Organizations',
-  'Other': 'Other Links'
+  'Other': 'Other'
 };
 
-// Get unique types
-const linkTypes = [...new Set(linksData.map((link: Link) => link.Type))].sort((a, b) => {
-  const nameA = typeNames[a] || a;
-  const nameB = typeNames[b] || b;
-  return nameA.localeCompare(nameB);
-});
+const typeIcons: Record<string, string> = {
+  'Magician': '✦',
+  'Org': '⬡',
+  'Vendor': '◈',
+  'Mfg': '⬟',
+  'Resource': '◉',
+  'Other': '◇'
+};
 
-// Group links by first letter
-function groupByLetter(links: Link[]) {
-  const grouped: Record<string, Link[]> = {};
-  for (const link of links) {
-    if (!link.Name) continue;
-    const letter = link.Name.charAt(0).toUpperCase();
-    if (!grouped[letter]) grouped[letter] = [];
-    grouped[letter].push(link);
-  }
-  // Sort letters
-  const sorted: Record<string, Link[]> = {};
-  for (const letter of Object.keys(grouped).sort()) {
-    sorted[letter] = grouped[letter].sort((a, b) => a.Name.localeCompare(b.Name));
-  }
-  return sorted;
-}
+const links = linksData as Link[];
+const totalCount = links.length;
 
-const allLinksGrouped = groupByLetter(linksData as Link[]);
-
-// Group by type
-const linksByType: Record<string, Record<string, Link[]>> = {};
-for (const type of linkTypes) {
-  const typeLinks = (linksData as Link[]).filter(link => link.Type === type);
-  linksByType[type] = groupByLetter(typeLinks);
-}
+// Serialize for client-side JS
+const linksJSON = JSON.stringify(links);
 ---
 
 <Layout 
-  title="Curated Resources | The Parlour — The World's Most Exclusive Society of Magic"
-  description="A carefully selected collection of magical knowledge — resources, organizations, and purveyors curated by The Parlour, the world's most exclusive magic society."
-  keywords="magic, exclusive magic club, private magic society, magic resources, magic organizations"
+  title="The World's Most Complete Magic Resource Library | The Parlour"
+  description="The Parlour presents the world's most comprehensive curated collection of magic resources — magicians, organizations, manufacturers, vendors, and knowledge. Assembled by San Diego's exclusive society of magic."
+  keywords="magic resources, magic links, famous magicians, magic organizations, magic shops, magic manufacturers, magic books, San Diego magic, curated magic collection"
   ogUrl="https://theparlour.com/links"
 >
     <!-- Hero Section -->
     <section class="hero-section content-hero content-hero-links">
         <div class="content-container">
-            <h1 class="links-page-title">Curated Resources</h1>
-            <p class="lead">A carefully selected collection of magical knowledge</p>
+            <p class="links-hero-eyebrow">The Parlour Presents</p>
+            <h1 class="links-page-title">The World's Most Complete Magic Resource Library</h1>
+            <p class="lead">Every great magician, shop, organization &amp; resource — curated in one place</p>
+            <div class="links-hero-stats">
+                <div class="links-stat">
+                    <span class="links-stat-number">{totalCount}+</span>
+                    <span class="links-stat-label">Curated Resources</span>
+                </div>
+                <div class="links-stat-divider">✦</div>
+                <div class="links-stat">
+                    <span class="links-stat-number">6</span>
+                    <span class="links-stat-label">Categories</span>
+                </div>
+                <div class="links-stat-divider">✦</div>
+                <div class="links-stat">
+                    <span class="links-stat-number">∞</span>
+                    <span class="links-stat-label">Years of Magic</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Introduction Section -->
-    <section class="content-info">
+    <section class="content-info links-intro-section">
         <div class="content-container">
-            <h2 class="links-page-title">Explore the World of Magic</h2>
-            <div class="content-row">
-                <div class="content-col content-col-full">
-                    <div class="content-details-card">
-                        <p>Welcome to our curated collection of distinguished magical resources. The Parlour has assembled this compendium to serve practitioners at every stage of their journey. Please note that The Parlour does not endorse any specific products or services offered by these external sites.</p>
-                        <p>If you wish to suggest a worthy addition or report a broken link, please <a href="/contact">contact us</a>.</p>
-                        <p><em>Links open in a new tab for your convenience.</em></p>
-                    </div>
+            <div class="links-intro-card">
+                <div class="links-intro-text">
+                    <h2>A Living Library of Magic</h2>
+                    <p>The Parlour has assembled the most comprehensive directory of magical resources ever curated online. From the world's greatest performers to rare manufacturers, from landmark organizations to essential learning resources — everything the serious student and seasoned professional needs is here, gathered with the same devotion to excellence that defines our Society.</p>
+                    <p>This collection is a living library, grown from decades of magical community knowledge. The Parlour does not endorse specific products or services. If you wish to suggest a worthy addition or report a broken link, please <a href="/contact">contact us</a>.</p>
+                </div>
+                <div class="links-intro-note">
+                    <span class="links-note-icon">✦</span>
+                    <p><em>All links open in a new tab. Curated by The Parlour — San Diego's Exclusive Society of Magic.</em></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Links Navigation -->
-    <nav id="link-filter-nav" class="award-navigation">
+    <!-- Search + Filter Controls -->
+    <section class="links-controls-section">
         <div class="content-container">
-            <ul id="link-filter">
-                <li><a href="#links-display" data-type="all" class="active">All Links</a></li>
-                {linkTypes.map(type => (
-                    <li><a href="#links-display" data-type={type}>{typeNames[type] || type}</a></li>
-                ))}
-            </ul>
-        </div>
-    </nav>
+            <!-- Search Bar -->
+            <div class="links-search-wrapper">
+                <div class="links-search-bar">
+                    <span class="links-search-icon">⌕</span>
+                    <input 
+                        type="text" 
+                        id="links-search-input" 
+                        placeholder="Search magicians, shops, organizations…" 
+                        autocomplete="off"
+                        aria-label="Search magic resources"
+                    />
+                    <button id="links-search-clear" class="links-search-clear" aria-label="Clear search" style="display:none;">✕</button>
+                </div>
+                <p id="links-result-count" class="links-result-count">{totalCount} resources</p>
+            </div>
 
-    <!-- Links Section -->
-    <section id="links-container" class="content-info">
+            <!-- Category Filters -->
+            <div class="links-filter-bar" role="tablist" aria-label="Filter by category">
+                <button class="links-filter-btn active" data-type="all" role="tab" aria-selected="true">
+                    <span class="filter-icon">✦</span> All
+                    <span class="filter-count">{totalCount}</span>
+                </button>
+                {typeOrder.map(type => {
+                    const count = links.filter(l => l.Type === type).length;
+                    return (
+                        <button class="links-filter-btn" data-type={type} role="tab" aria-selected="false">
+                            <span class="filter-icon">{typeIcons[type]}</span> {typeNames[type]}
+                            <span class="filter-count">{count}</span>
+                        </button>
+                    );
+                })}
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Grid -->
+    <section class="links-grid-section">
         <div class="content-container">
-            <h2 id="links-heading" class="links-page-title">All Links</h2>
-            <div class="content-row">
-                <div class="content-col content-col-full">
-                    <div class="content-details-card links-card">
-                        <div id="links-display">
-                            <!-- All Links -->
-                            <div id="links-all" class="links-category active">
-                                {Object.entries(allLinksGrouped).map(([letter, links]) => (
-                                    <Fragment>
-                                        <h3 class="links-letter-group">{letter}</h3>
-                                        <ul class="links-list">
-                                            {links.map(link => (
-                                                <li>
-                                                    <a href={link.LinkURL || '#'} class="external-link" target="_blank" rel="noopener noreferrer">{link.Name}</a>{link.Description ? ` - ${link.Description}` : ''}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </Fragment>
-                                ))}
+            <p id="links-no-results" class="links-no-results" style="display:none;">
+                No resources found. Try a different search or category.
+            </p>
+            <div id="links-grid" class="links-card-grid">
+                {links.map(link => (
+                    <a 
+                        href={link.LinkURL || '#'} 
+                        class="link-card"
+                        data-name={(link.Name || '').toLowerCase()}
+                        data-desc={(link.Description || '').toLowerCase()}
+                        data-type={link.Type}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        <div class="link-card-inner">
+                            <div class="link-card-header">
+                                <span class="link-card-type-badge">{typeNames[link.Type] || link.Type}</span>
+                                <span class="link-card-arrow"><FiExternalLink /></span>
                             </div>
-                            
-                            <!-- Type-specific Links -->
-                            {Object.entries(linksByType).map(([type, grouped]) => (
-                                <div id={`links-${type}`} class="links-category" style="display: none;">
-                                    {Object.keys(grouped).length === 0 ? (
-                                        <p>No links found for this category.</p>
-                                    ) : (
-                                        Object.entries(grouped).map(([letter, links]) => (
-                                            <Fragment>
-                                                <h3 class="links-letter-group">{letter}</h3>
-                                                <ul class="links-list">
-                                                    {links.map(link => (
-                                                        <li>
-                                                            <a href={link.LinkURL || '#'} class="external-link" target="_blank" rel="noopener noreferrer">{link.Name}</a>{link.Description ? ` - ${link.Description}` : ''}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </Fragment>
-                                        ))
-                                    )}
-                                </div>
-                            ))}
+                            <h3 class="link-card-name">{link.Name}</h3>
+                            <p class="link-card-desc">{link.Description}</p>
+                            <div class="link-card-footer">
+                                <span class="link-card-domain">{link.LinkURL ? link.LinkURL.replace(/^https?:\/\/(www\.)?/, '').split('/')[0] : ''}</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </a>
+                ))}
             </div>
         </div>
     </section>
-   
+
     <SectionDivider type="wave" />
+
+    <script is:inline>
+    (function () {
+      function initLinksPage() {
+        var searchInput = document.getElementById('links-search-input');
+        var searchClear = document.getElementById('links-search-clear');
+        var resultCount = document.getElementById('links-result-count');
+        var noResults = document.getElementById('links-no-results');
+        var filterBtns = document.querySelectorAll('.links-filter-btn');
+        var cards = document.querySelectorAll('.link-card');
+
+        if (!searchInput || !cards.length) return;
+
+        var currentType = 'all';
+        var currentQuery = '';
+
+        function updateResults() {
+          var q = currentQuery.trim().toLowerCase();
+          var visible = 0;
+          cards.forEach(function (card) {
+            var name = (card.dataset.name || '');
+            var desc = (card.dataset.desc || '');
+            var type = (card.dataset.type || '');
+            var matchType = currentType === 'all' || type === currentType;
+            var matchQuery = !q || name.indexOf(q) !== -1 || desc.indexOf(q) !== -1;
+            if (matchType && matchQuery) {
+              card.style.display = '';
+              visible++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+          if (resultCount) {
+            resultCount.textContent = visible + (visible === 1 ? ' resource' : ' resources');
+          }
+          if (noResults) {
+            noResults.style.display = visible === 0 ? 'block' : 'none';
+          }
+        }
+
+        searchInput.addEventListener('input', function () {
+          currentQuery = this.value;
+          if (searchClear) {
+            searchClear.style.display = currentQuery.length ? 'flex' : 'none';
+          }
+          updateResults();
+        });
+
+        if (searchClear) {
+          searchClear.addEventListener('click', function () {
+            searchInput.value = '';
+            currentQuery = '';
+            searchClear.style.display = 'none';
+            searchInput.focus();
+            updateResults();
+          });
+        }
+
+        filterBtns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            filterBtns.forEach(function (b) {
+              b.classList.remove('active');
+              b.setAttribute('aria-selected', 'false');
+            });
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+            currentType = this.dataset.type;
+            updateResults();
+          });
+        });
+
+        updateResults();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLinksPage);
+      } else {
+        initLinksPage();
+      }
+    })();
+    </script>
 </Layout>
