@@ -39,57 +39,85 @@ window.setupSmoothScrolling = function () {
 };
 
 window.setupHamburgerMenu = function () {
+  var jumboNavEl = document.querySelector(".jumbo-nav");
+  var jumboNavInnerEl = document.querySelector(".jumbo-nav .nav-inner");
+
   $(".hamburger-menu")
     .off("click")
     .on("click", function () {
       $(this).toggleClass("active");
 
-      // Toggle the main-nav open class directly
-      if ($(".jumbo-nav").hasClass("open")) {
-        // If menu is open, close it with animation
-        $(".jumbo-nav").css("right", "-100%");
-        setTimeout(function () {
-          $(".jumbo-nav").removeClass("open");
-          $(".jumbo-nav").css("right", "");
-        }, 300);
-      } else {
-        // If menu is closed, open it
-        $(".jumbo-nav").addClass("open");
-        $(".jumbo-nav").css("right", "0");
+      if (window.ParlourOverlay && jumboNavInnerEl) {
+        var navHtml = jumboNavInnerEl.outerHTML;
+        var overlay = window.ParlourOverlay.open(navHtml);
+
+        // Handle regular nav link clicks — close overlay and let transition handle navigation
+        overlay.querySelectorAll(".parlour-overlay-body a[href]").forEach(function (a) {
+          // Skip magic trigger links
+          if (a.classList.contains("do-magic") || a.getAttribute("href") === "#") {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              window.ParlourOverlay.close(overlay);
+              $(".hamburger-menu").removeClass("active");
+              // Trigger magic trick
+              if (typeof window._startMagicTrick === "function") {
+                setTimeout(window._startMagicTrick, 350);
+              }
+            });
+          } else {
+            a.addEventListener("click", function () {
+              window.ParlourOverlay.close(overlay);
+              $(".hamburger-menu").removeClass("active");
+            });
+          }
+        });
+
+        // Handle "Reveal the Method" span
+        overlay.querySelectorAll(".parlour-overlay-body span.tell-secret").forEach(function (span) {
+          span.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.ParlourOverlay.close(overlay);
+            $(".hamburger-menu").removeClass("active");
+            // Trigger secret overlay
+            if (typeof window._showSecretOverlay === "function") {
+              setTimeout(window._showSecretOverlay, 350);
+            }
+          });
+        });
+
+        // Reset hamburger when overlay closes
+        var observer = new MutationObserver(function () {
+          if (!overlay.classList.contains("visible")) {
+            $(".hamburger-menu").removeClass("active");
+          }
+        });
+        observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
+      } else if (jumboNavEl) {
+        if ($(jumboNavEl).hasClass("open")) {
+          $(jumboNavEl).css("right", "-100%");
+          setTimeout(function () {
+            $(jumboNavEl).removeClass("open");
+            $(jumboNavEl).css("right", "");
+          }, 300);
+        } else {
+          $(jumboNavEl).addClass("open");
+          $(jumboNavEl).css("right", "0");
+        }
       }
     });
 
-  $(".jumbo-nav a")
-    .off("click.hamburger")
-    .on("click.hamburger", function () {
-      $(".hamburger-menu").removeClass("active");
-
-      // Close the menu
-      $(".jumbo-nav").css("right", "-100%");
-      setTimeout(function () {
-        $(".jumbo-nav").removeClass("open");
-        $(".jumbo-nav").css("right", "");
-      }, 300);
-    });
-
-  $(document)
-    .off("click.hamburgerClose")
-    .on("click.hamburgerClose", function (event) {
-      if (
-        !$(event.target).closest(".hamburger-menu").length &&
-        !$(event.target).closest(".jumbo-nav").length &&
-        $(".jumbo-nav").hasClass("open")
-      ) {
+  if (jumboNavEl) {
+    $(".jumbo-nav a")
+      .off("click.hamburger")
+      .on("click.hamburger", function () {
         $(".hamburger-menu").removeClass("active");
-
-        // Close the menu when clicking outside
         $(".jumbo-nav").css("right", "-100%");
         setTimeout(function () {
           $(".jumbo-nav").removeClass("open");
           $(".jumbo-nav").css("right", "");
         }, 300);
-      }
-    });
+      });
+  }
 };
 
 window.setupBackToTopButton = function () {

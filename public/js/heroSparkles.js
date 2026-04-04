@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sparkleContainer.style.bottom = "0";
       sparkleContainer.style.left = "0";
       sparkleContainer.style.width = "100%";
-      sparkleContainer.style.height = "80px";
+      sparkleContainer.style.height = Math.round(hero.clientHeight / 3) + "px";
       sparkleContainer.style.overflow = "hidden";
       sparkleContainer.style.pointerEvents = "none";
       sparkleContainer.style.zIndex = "3";
@@ -28,15 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
         sparkle.style.background = "#ffffff";
         sparkle.style.borderRadius = "50%";
         sparkle.style.left = Math.random() * 100 + "%";
-        sparkle.style.bottom = Math.random() * 40 + "px";
+        sparkle.style.bottom = Math.random() * sparkleContainer.clientHeight * 0.4 + "px";
         sparkle.style.opacity = "0";
         sparkle.style.boxShadow = "0 0 4px rgba(255,255,255,0.6)";
         sparkleContainer.appendChild(sparkle);
 
-        // Animate: fade in, drift, fade out
-        const duration = 1500 + Math.random() * 2000;
-        const driftX = (Math.random() - 0.5) * 30;
-        const driftY = -(10 + Math.random() * 20);
+        // Animate: fade in, drift upward, fade out
+        const duration = 2000 + Math.random() * 2500;
+        const driftX = (Math.random() - 0.5) * 50;
+        const driftY = -(60 + Math.random() * 120);
         
         sparkle.animate([
           { opacity: 0, transform: "translate(0, 0) scale(0)" },

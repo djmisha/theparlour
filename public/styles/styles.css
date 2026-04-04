@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 body {
-    font-family: var(--font-body, 'Raleway'), sans-serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
+    font-size: 1.25rem;
     line-height: 1.6;
     color: var(--color-text-primary, #f0ece2);
     background-color: var(--color-bg-primary, #0a0a0a);
@@ -14,9 +15,15 @@ a {
   color: var(--color-text-primary, #f0ece2);
 }
 
-h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   font-weight: 400;
-  font-family: var(--font-heading, 'Playfair Display'), serif;
+  font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+  line-height: var(--leading-tight, 1.1);
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.7;
 }
 
 .container {
@@ -64,7 +71,7 @@ h2, h3, h4 {
     text-decoration: none;
     letter-spacing: var(--tracking-widest, 0.2em);
     text-transform: uppercase;
-    font-family: var(--font-body, 'Raleway'), sans-serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
     margin-top: 2px;
     line-height: 1;
 }
@@ -167,16 +174,19 @@ h2, h3, h4 {
     padding: 0 20px;
 }
 .hero-content h1 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+    font-size: 7.5rem;
+    line-height: 1.0;
+    margin-bottom: 0.4rem;
     color: var(--color-gold, #c9a959);
-    font-weight: 300;
-    letter-spacing: 0.08em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
 }
 .hero-content p {
-    font-size: 1.3rem; /* Increased from 1.2rem */
-    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+    margin-top: 0;
+    line-height: 1.5;
 }
 .btn {
     display: inline-block;
@@ -206,27 +216,31 @@ h2, h3, h4 {
     padding: 10px 24px;
     border-radius: 0;
     font-weight: 500;
-    color: var(--color-gold, #c9a959) !important;
+    color: var(--color-gold, #c9a959);
     font-family: var(--font-display, 'Cinzel'), serif;
     font-size: 0.8rem;
     text-decoration: none;
     border: 1px solid var(--color-gold, #c9a959);
     letter-spacing: var(--tracking-wider, 0.1em);
     text-transform: uppercase;
-    border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+.content-btn:hover {
+    background-color: var(--color-gold, #c9a959);
+    color: var(--color-bg-primary, #0a0a0a);
 }
 section {
     padding: 60px 0;
 }
 h2 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
-    font-size: 2rem;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+    font-size: 2.4rem;
     margin-bottom: 1.5rem;
     text-align: center;
     color: var(--color-gold, #c9a959);
     letter-spacing: var(--tracking-wide, 0.05em);
+    line-height: 1.1;
 }
 .about-section {
     background-color: var(--color-bg-surface, #111111);
@@ -239,7 +253,7 @@ h2 {
 .about-section p {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     color: var(--color-text-secondary, #a09c94);
     line-height: 1.8;
 }
@@ -295,7 +309,7 @@ h2 {
     letter-spacing: var(--tracking-wide, 0.05em);
 }
 .event-card h3 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.4rem;
     margin-bottom: 15px;
     color: var(--color-gold, #c9a959);
@@ -332,7 +346,7 @@ h2 {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 3rem;
-    font-size: 1.2rem; /* Increased from 1.1rem */
+    font-size: 1.25rem; /* min 20px */
     color: var(--color-text-primary, #f0ece2); /* Softer white */
 }
 .benefits-container {
@@ -398,7 +412,7 @@ h2 {
 .benefit p {
     color: var(--color-text-secondary, #a09c94);
     line-height: 1.6;
-    font-size: 1.05rem; /* Added font size */
+    font-size: 1.25rem; /* min 20px */
 }
 .membership-cta {
     text-align: center;
@@ -406,7 +420,7 @@ h2 {
 }
 .membership-cta .btn {
     padding: 12px 30px;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     letter-spacing: 1px;
 }
 footer {
@@ -451,7 +465,12 @@ footer ul li {
     padding-top: 20px;
     margin-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--color-text-muted, #6b6560); /* Added even softer color for copyright text */
+    color: var(--color-text-muted, #6b6560);
+}
+
+.footer-bottom p {
+    font-size: 0.75rem; /* 12px — explicit exception for copyright */
+    line-height: 1.5;
 }
 
 .back-to-top {
@@ -524,7 +543,7 @@ footer ul li {
 }
 
 .footer-info h3 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.9rem;
     margin-bottom: 12px;
     color: var(--color-gold, #c9a959)
@@ -542,7 +561,7 @@ footer ul li {
 }
 
 .footer-nav-section h3 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.4rem;
     margin-bottom: 20px;
     color: var(--color-gold, #c9a959);
@@ -725,8 +744,15 @@ footer ul li {
 }
 @media (max-width: 1119px) {
     .header-container {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+        position: relative;
+    }
+    
+    .logo {
+        flex: 1;
+        text-align: left;
     }
     
     .hero-content h1 {
@@ -780,8 +806,8 @@ footer ul li {
     }
     
     .magic-eyes {
-        top: 20px;
-        left: 50%;
+        top: 50%;
+        left: 140px;
         transform: translate(-50%, -50%);
     }
 }
@@ -791,44 +817,38 @@ footer ul li {
     100% { height: 18px; }
 }
 .magic-eyes {
-    position: absolute;
-    top: 50%;
-    left: 140px;
-    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 30px;
+    left: 30px;
     display: flex;
-    z-index: 1000;
+    z-index: 9900;
     pointer-events: auto;
     cursor: pointer;
-    gap: 5px;
-    transition: top 0.3s ease-out, left 0.3s ease-out;
-}
-.magic-eyes.moving {
-    transition: top 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55), 
-                left 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 .magic-eyes .eye {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     background: #1a1a1a;
     border-radius: 50%;
     margin: 0;
     position: relative;
-    box-shadow: none;
+    box-shadow: 0 0 8px rgba(201, 169, 89, 0.3);
     overflow: hidden;
-    border: 2px solid #333;
+    border: 2px solid rgba(201, 169, 89, 0.4);
 }
 
-/* Removing the eyelids as owls have round eyes */
 .magic-eyes .eye::before,
 .magic-eyes .eye::after {
     display: none;
 }
 
-/* Add iris */
 .magic-eyes .eye .iris {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -838,8 +858,8 @@ footer ul li {
 }
 
 .magic-eyes .pupil {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     background: #000;
     border-radius: 50%;
     position: absolute;
@@ -851,7 +871,6 @@ footer ul li {
     box-shadow: none;
 }
 
-/* Update blink animation for owl eyes */
 @keyframes eyeBlink {
     0% { transform: scale(1, 1); }
     45% { transform: scale(1, 1); }
@@ -866,9 +885,7 @@ footer ul li {
 
 @media (max-width: 768px) {
     .magic-eyes {
-        top: 20px;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        display: none;
     }
 }
 
@@ -949,22 +966,18 @@ footer ul li {
 .art-icon {
     font-size: 36px;
     margin-bottom: 15px;
-    transition: transform 0.3s ease;
     color: var(--color-gold, #c9a959);
-}
-.art-form:hover .art-icon {
-    transform: scale(1.2) translateX(10px);
 }
 .art-form h3 {
     color: var(--color-gold, #c9a959);
     margin-bottom: 15px;
     font-size: 1.4rem;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
 }
 .art-form p {
     color: var(--color-text-secondary, #a09c94); /* Changed from #bbb */
     line-height: 1.6;
-    font-size: 1.05rem; /* Added font size */
+    font-size: 1.25rem; /* min 20px */
 }
 .magic-arts-cta {
     text-align: center;
@@ -1118,7 +1131,7 @@ footer ul li {
 }
 .stat-number {
     display: block;
-    font-size: 1.15rem; /* Increased from 1.1rem */
+    font-size: 1.25rem; /* min 20px */
     font-weight: normal;
     color: var(--color-text-primary, #f0ece2); /* Changed from #ddd */
     margin-bottom: 5px;
@@ -1127,7 +1140,7 @@ footer ul li {
     font-size: 2.5rem;
     font-weight: 400;
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     line-height: 1.2;
     margin-bottom: 15px;
 }
@@ -1158,7 +1171,7 @@ footer ul li {
     }
     
     .library-tagline {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         margin-bottom: 30px;
     }
     
@@ -1208,7 +1221,7 @@ footer ul li {
     text-align: center;
     font-size: 1.5rem;
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-style: italic;
 }
 .magic-experience-content {
@@ -1217,7 +1230,7 @@ footer ul li {
 }
 .magic-experience-text p {
     margin-bottom: 25px;
-    font-size: 1.2rem; /* Increased from 1.1rem */
+    font-size: 1.25rem; /* Increased from 1.1rem */
     line-height: 1.7;
     color: var(--color-text-primary, #f0ece2); /* Changed from #ddd */
 }
@@ -1266,7 +1279,7 @@ footer ul li {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 40px;
-    font-size: 1.2rem; /* Increased from 1.1rem */
+    font-size: 1.25rem; /* min 20px */
     color: var(--color-text-primary, #f0ece2); /* Changed from #ddd */
 }
 .form-container {
@@ -1306,7 +1319,7 @@ footer ul li {
     border-radius: 6px;
     padding: 12px 15px;
     color: #fff;
-    font-family: var(--font-body, 'Raleway'), sans-serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
@@ -1478,7 +1491,7 @@ footer ul li {
 .send-btn,
 .close-chat,
 .nav-btn {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
 }
 
 /* Magic Benefit Cards styling */
@@ -1541,9 +1554,9 @@ footer ul li {
 
 .magic-benefit-card h3 {
     color: var(--color-gold, #c9a959);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 10px;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
 }
 
 .magic-benefit-card p {
@@ -1639,7 +1652,7 @@ footer ul li {
 
 .membership-type-header h3 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.4rem;
     margin: 0;
     text-align: center;
@@ -1701,8 +1714,8 @@ footer ul li {
     color: var(--color-gold, #c9a959);
     padding: 8px 15px;
     border-radius: 0;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
-    font-size: 1.1rem;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+    font-size: 1.25rem;
     transition: all 0.3s ease;
     text-decoration: none;
 }
@@ -1786,9 +1799,9 @@ footer ul li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: var(--font-body, 'Raleway'), sans-serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 
 .award-back {
@@ -1822,9 +1835,9 @@ footer ul li {
 }
 
 .award-name {
-    font-size: 18px; /* Reduced from 20px */
+    font-size: 20px;
     font-weight: 700;
-    margin: 10px 0 3px 0; /* Reduced margins */
+    margin: 10px 0 3px 0;
     text-transform: uppercase;
     line-height: 1.2;
     max-width: 100%;
@@ -1834,8 +1847,8 @@ footer ul li {
 }
 
 .award-years, .award-title {
-    font-size: 16px; /* Reduced from 18px */
-    margin: 0 0 3px 0; /* Reduced margins */
+    font-size: 20px;
+    margin: 0 0 3px 0;
     color: #000;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
@@ -2060,11 +2073,11 @@ footer ul li {
     }
     
     .award-name {
-        font-size: 16px;
+        font-size: 20px;
     }
     
     .award-years, .award-title {
-        font-size: 14px;
+        font-size: 20px;
     }
 }
 
@@ -2119,7 +2132,7 @@ footer ul li {
 .random-photo-caption p {
     margin: 0;
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     text-align: center;
     font-style: italic;
 }
@@ -2228,8 +2241,8 @@ footer ul li {
     color: var(--color-gold, #c9a959);
     padding: 8px 15px;
     border-radius: 0;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
-    font-size: 1.1rem;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+    font-size: 1.25rem;
     transition: all 0.3s ease;
     text-decoration: none;
 }
@@ -2376,4 +2389,14 @@ footer ul li {
         margin-left: 0;
         margin-top: 15px;
     }
+}
+/* Hero heading — scale down on smaller screens */
+@media (max-width: 1200px) {
+    .hero-content h1 { font-size: 5.5rem; }
+}
+@media (max-width: 900px) {
+    .hero-content h1 { font-size: 4rem; }
+}
+@media (max-width: 600px) {
+    .hero-content h1 { font-size: 2.8rem; }
 }

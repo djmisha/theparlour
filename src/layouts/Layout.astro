@@ -43,8 +43,20 @@ const currentYear = new Date().getFullYear();
     <link rel="icon" href="/image/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="/image/favicon.png" type="image/x-icon">
 
-    <!-- Google Fonts Import — Elegant Serif + Clean Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts Import — Antique Serif Display + Elegant Old-Style -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Page transition: hide content immediately if arriving from a transition -->
+    <script>
+      (function(){
+        if(sessionStorage.getItem('parlour-transition')){
+          var s=document.createElement('style');
+          s.id='parlour-transition-init';
+          s.textContent='#magic-transition-overlay{opacity:1!important;pointer-events:auto!important;}body>*:not(#magic-transition-overlay){opacity:0;}';
+          document.head.appendChild(s);
+        }
+      })();
+    </script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles/tokens.css">
@@ -187,6 +199,8 @@ const currentYear = new Date().getFullYear();
 
     <!-- jQuery -->
     <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Overlay System (must load before navigation) -->
+    <script is:inline src="/js/overlay.js"></script>
     <!-- Individual Module JS Files -->
     <script is:inline src="/js/navigation.js"></script>
     <script is:inline src="/js/interactions.js"></script>
