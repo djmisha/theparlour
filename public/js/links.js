@@ -1,74 +1,95 @@
-// links.js - Handles functionality for the links page
+// links.js — Search + Category filtering for the magic resource library
 (function () {
-  // Initialize links page functionality
   window.setupLinksPage = function () {
-    // Only initialize if we have the links page elements
-    const linkFilters = document.querySelectorAll("#link-filter a");
-    const linkFilterNav = document.getElementById("link-filter-nav");
-    const linksHeading = document.getElementById("links-heading");
-    const linksDisplay = document.getElementById("links-display");
+    var searchInput = document.getElementById('links-search-input');
+    var searchClear = document.getElementById('links-search-clear');
+    var resultCount = document.getElementById('links-result-count');
+    var noResults = document.getElementById('links-no-results');
+    var filterBtns = document.querySelectorAll('.links-filter-btn');
+    var cards = document.querySelectorAll('.link-card');
 
-    if (
-      !linkFilters.length ||
-      !linkFilterNav ||
-      !linksHeading ||
-      !linksDisplay
-    ) {
-      return;
-    }
+    if (!searchInput || !cards.length) return;
 
-    // Function to show a specific category and hide others
-    function showCategory(type) {
-      // Update heading
-      const activeFilterLink = document.querySelector(
-        `#link-filter a[data-type="${type}"]`
-      );
-      linksHeading.textContent =
-        type === "all"
-          ? "All Links"
-          : activeFilterLink
-          ? activeFilterLink.textContent
-          : "Links";
+    var currentType = 'all';
+    var currentQuery = '';
 
-      // Hide all categories
-      document.querySelectorAll(".links-category").forEach((category) => {
-        category.style.display = "none";
-        category.classList.remove("active");
+    function updateResults() {
+      var q = currentQuery.trim().toLowerCase();
+      var visible = 0;
+
+      cards.forEach(function (card) {
+        var name = card.dataset.name || '';
+        var desc = card.dataset.desc || '';
+        var type = card.dataset.type || '';
+
+        var matchType = currentType === 'all' || type === currentType;
+        var matchQuery = !q || name.includes(q) || desc.includes(q);
+
+        if (matchType && matchQuery) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
       });
 
-      // Show the selected category
-      const selectedCategory = document.getElementById(`links-${type}`);
-      if (selectedCategory) {
-        selectedCategory.style.display = "block";
-        selectedCategory.classList.add("active");
+      // Update count label
+      if (resultCount) {
+        resultCount.textContent = visible + (visible === 1 ? ' resource' : ' resources');
+      }
 
-        // Scroll to the links display container, not to the top of page
-        setTimeout(() => {
-          // Using setTimeout to ensure DOM is updated before scrolling
-          linksDisplay.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 10);
+      // Show/hide empty state
+      if (noResults) {
+        noResults.style.display = visible === 0 ? 'block' : 'none';
       }
     }
 
-    // Set up click handlers for filters
-    linkFilters.forEach((link) => {
-      link.addEventListener("click", function (event) {
-        event.preventDefault();
+    // Search input handler
+    searchInput.addEventListener('input', function () {
+      currentQuery = this.value;
+      if (searchClear) {
+        searchClear.style.display = currentQuery.length ? 'flex' : 'none';
+      }
+      updateResults();
+    });
 
-        // Update active state in navigation
-        linkFilters.forEach((l) => l.classList.remove("active"));
-        this.classList.add("active");
+    // Clear button
+    if (searchClear) {
+      searchClear.addEventListener('click', function () {
+        searchInput.value = '';
+        currentQuery = '';
+        searchClear.style.display = 'none';
+        searchInput.focus();
+        updateResults();
+      });
+    }
 
-        // Show the appropriate category
-        showCategory(this.dataset.type);
+    // Filter buttons
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(function (b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+        currentType = this.dataset.type;
+        updateResults();
       });
     });
 
-    // Make sure "All Links" is active and displayed by default
-    const allLinksCategory = document.getElementById("links-all");
-    if (allLinksCategory) {
-      allLinksCategory.style.display = "block";
-      allLinksCategory.classList.add("active");
-    }
+    // Initial render
+    updateResults();
   };
+})();
+
+// Self-initialize on DOMContentLoaded as a fallback (in case jQuery is unavailable)
+(function () {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      window.setupLinksPage();
+    });
+  } else {
+    window.setupLinksPage();
+  }
 })();
