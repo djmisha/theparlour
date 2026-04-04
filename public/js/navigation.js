@@ -39,57 +39,78 @@ window.setupSmoothScrolling = function () {
 };
 
 window.setupHamburgerMenu = function () {
+  // Get the nav inner content for the overlay
+  var jumboNavEl = document.querySelector(".jumbo-nav");
+  var jumboNavInnerEl = document.querySelector(".jumbo-nav .nav-inner");
+
   $(".hamburger-menu")
     .off("click")
     .on("click", function () {
       $(this).toggleClass("active");
 
-      // Toggle the main-nav open class directly
-      if ($(".jumbo-nav").hasClass("open")) {
-        // If menu is open, close it with animation
-        $(".jumbo-nav").css("right", "-100%");
-        setTimeout(function () {
-          $(".jumbo-nav").removeClass("open");
-          $(".jumbo-nav").css("right", "");
-        }, 300);
-      } else {
-        // If menu is closed, open it
-        $(".jumbo-nav").addClass("open");
-        $(".jumbo-nav").css("right", "0");
+      if (window.ParlourOverlay && jumboNavInnerEl) {
+        // Use the ParlourOverlay system
+        var navHtml = jumboNavInnerEl.outerHTML;
+        var overlay = window.ParlourOverlay.open(navHtml);
+
+        // Handle nav link clicks to close overlay
+        overlay.querySelectorAll(".parlour-overlay-body a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            // Close immediately (transition will handle the page change)
+            window.ParlourOverlay.close(overlay);
+            $(".hamburger-menu").removeClass("active");
+          });
+        });
+
+        // Handle span (tell-secret, flip-trick) clicks
+        overlay.querySelectorAll(".parlour-overlay-body span").forEach(function (span) {
+          span.addEventListener("click", function () {
+            window.ParlourOverlay.close(overlay);
+            $(".hamburger-menu").removeClass("active");
+            // Re-fire the original click handler
+            var origId = span.id;
+            if (origId) {
+              var origEl = document.querySelector("." + (origId === "secret-trick" ? "tell-secret" : "do-magic"));
+              if (origEl && origEl !== span) origEl.click();
+            }
+          });
+        });
+
+        // When overlay is closed via ESC or close button, reset hamburger
+        var observer = new MutationObserver(function () {
+          if (!overlay.classList.contains("visible")) {
+            $(".hamburger-menu").removeClass("active");
+          }
+        });
+        observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
+      } else if (jumboNavEl) {
+        // Fallback to original behavior
+        if ($(jumboNavEl).hasClass("open")) {
+          $(jumboNavEl).css("right", "-100%");
+          setTimeout(function () {
+            $(jumboNavEl).removeClass("open");
+            $(jumboNavEl).css("right", "");
+          }, 300);
+        } else {
+          $(jumboNavEl).addClass("open");
+          $(jumboNavEl).css("right", "0");
+        }
       }
     });
 
-  $(".jumbo-nav a")
-    .off("click.hamburger")
-    .on("click.hamburger", function () {
-      $(".hamburger-menu").removeClass("active");
-
-      // Close the menu
-      $(".jumbo-nav").css("right", "-100%");
-      setTimeout(function () {
-        $(".jumbo-nav").removeClass("open");
-        $(".jumbo-nav").css("right", "");
-      }, 300);
-    });
-
-  $(document)
-    .off("click.hamburgerClose")
-    .on("click.hamburgerClose", function (event) {
-      if (
-        !$(event.target).closest(".hamburger-menu").length &&
-        !$(event.target).closest(".jumbo-nav").length &&
-        $(".jumbo-nav").hasClass("open")
-      ) {
+  // Keep jumbo-nav link clicks working if it's open the old way
+  if (jumboNavEl) {
+    $(".jumbo-nav a")
+      .off("click.hamburger")
+      .on("click.hamburger", function () {
         $(".hamburger-menu").removeClass("active");
-
-        // Close the menu when clicking outside
         $(".jumbo-nav").css("right", "-100%");
         setTimeout(function () {
           $(".jumbo-nav").removeClass("open");
           $(".jumbo-nav").css("right", "");
         }, 300);
-      }
-    });
+      });
+  }
 };
 
 window.setupBackToTopButton = function () {

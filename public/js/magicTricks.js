@@ -106,6 +106,7 @@ window.createMagicParticle = function () {
 };
 
 window.setupMagicTricks = function () {
+  // Clean up any stray magic areas outside overlay
   if (
     $("#magic-area").length > 0 &&
     !$("#magic-area").closest("#magic-trick-overlay").length
@@ -113,6 +114,7 @@ window.setupMagicTricks = function () {
     $("#magic-area").remove();
   }
 
+  // Keep the old #magic-trick-overlay for compatibility / fallback
   if (
     $("#magic-trick-overlay").length === 0 ||
     $("#magic-trick-overlay").children().length === 0
@@ -120,7 +122,6 @@ window.setupMagicTricks = function () {
     if ($("#magic-trick-overlay").length > 0) {
       $("#magic-trick-overlay").remove();
     }
-
     $("<div>", {
       id: "magic-trick-overlay",
       html: `<div id="magic-area"></div>`,
@@ -128,6 +129,14 @@ window.setupMagicTricks = function () {
   }
 
   $("#flip-trick")
+    .off("click")
+    .on("click", function (e) {
+      e.preventDefault();
+      startMagicTrick();
+    });
+
+  // Also handle the footer variant
+  $("#flip-trick-footer")
     .off("click")
     .on("click", function (e) {
       e.preventDefault();
@@ -143,7 +152,7 @@ window.setupMagicTricks = function () {
       }
     });
 
-  $("#secret-trick")
+  $("#secret-trick, #secret-trick-footer")
     .off("click")
     .on("click", function (e) {
       e.preventDefault();
@@ -151,40 +160,36 @@ window.setupMagicTricks = function () {
     });
 
   function startMagicTrick() {
-    $("#magic-trick-overlay").addClass("visible");
-    $("body").css("overflow", "hidden");
+    const firstSetOfCards = ["🂢", "🃄", "🃙", "🂦", "🃓"];
+    const secondSetOfCards = ["🂣", "🃅", "🂧", "🃉", "🃂"];
 
-    // First set - only number cards, mixed non-sequentially from different suits
-    const firstSetOfCards = ["🂢", "🃄", "🃙", "🂦", "🃓"]; // 2♠, 4♦, 9♦, 6♠, 3♣
-    // Second set - completely different number cards from the first set
-    const secondSetOfCards = ["🂣", "🃅", "🂧", "🃉", "🃂"]; // 3♠, 5♦, 7♠, 9♣, 2♣
-
-    $("#magic-trick-overlay #magic-area").html(`
-      <h2>Mind Reading Magic Trick</h2>
-      <p>Think of ONE card below. Don't click it—just remember it clearly.</p>
-      <div class="cards-container">
-        ${firstSetOfCards
-          .map((card) => `<span class="card">${card}</span>`)
-          .join("")}
-      </div>
-      <p>Got your card in mind? Let me read your thoughts...</p>
-      <button class="content-btn" id="start-mind-reading">I've chosen my card</button>
-    `);
-
-    $("#start-mind-reading")
-      .off("click")
-      .on("click", function () {
-        for (let i = 0; i < 100; i++) {
-          window.createSparkle();
-        }
-
-        $("#magic-trick-overlay #magic-area").html(`
-        <h2>Reading your mind...</h2>
-        <div class="mind-reading-animation">
-          <span class="crystal-ball">🔮</span>
-          <div id="reading-text">Focusing...</div>
+    var step1Html = `
+      <div id="magic-area">
+        <h2>Mind Reading Magic Trick</h2>
+        <p>Think of ONE card below. Don't click it—just remember it clearly.</p>
+        <div class="cards-container">
+          ${firstSetOfCards.map((card) => `<span class="card">${card}</span>`).join("")}
         </div>
-      `);
+        <p>Got your card in mind? Let me read your thoughts...</p>
+        <button class="btn" id="start-mind-reading">I've chosen my card</button>
+      </div>
+    `;
+
+    if (window.ParlourOverlay) {
+      var overlay = window.ParlourOverlay.open(step1Html);
+
+      overlay.querySelector("#start-mind-reading").addEventListener("click", function () {
+        for (let i = 0; i < 100; i++) window.createSparkle();
+
+        overlay.querySelector(".parlour-overlay-body").innerHTML = `
+          <div id="magic-area">
+            <h2>Reading your mind...</h2>
+            <div class="mind-reading-animation">
+              <span class="crystal-ball">🔮</span>
+              <div id="reading-text">Focusing...</div>
+            </div>
+          </div>
+        `;
 
         const readingMessages = [
           "Focusing...",
@@ -192,101 +197,150 @@ window.setupMagicTricks = function () {
           "Ah, I can see it clearly now...",
           "Getting the image...",
         ];
-
         let messageIndex = 0;
+        const readingInterval = setInterval(function () {
+          const readingEl = overlay.querySelector("#reading-text");
+          if (readingEl) {
+            messageIndex = (messageIndex + 1) % readingMessages.length;
+            readingEl.textContent = readingMessages[messageIndex];
+          }
+        }, 1000);
 
-        // Set up interval for changing reading messages
+        setTimeout(function () {
+          clearInterval(readingInterval);
+          overlay.querySelector(".parlour-overlay-body").innerHTML = `
+            <div id="magic-area">
+              <p>Voilà! Look at the cards now.</p>
+              <h2>Your card has vanished!</h2>
+              <div class="cards-container">
+                ${secondSetOfCards.map((card) => `<span class="card">${card}</span>`).join("")}
+              </div>
+              <button class="btn" id="close-magic-trick">Amazing!</button>
+            </div>
+          `;
+          for (let i = 0; i < 150; i++) window.createSparkle();
+
+          overlay.querySelector("#close-magic-trick").addEventListener("click", function () {
+            window.ParlourOverlay.close(overlay);
+          });
+        }, 6000);
+      });
+    } else {
+      // Fallback
+      $("#magic-trick-overlay").addClass("visible");
+      $("body").css("overflow", "hidden");
+      $("#magic-trick-overlay #magic-area").html(`
+        <h2>Mind Reading Magic Trick</h2>
+        <p>Think of ONE card below. Don't click it—just remember it clearly.</p>
+        <div class="cards-container">
+          ${firstSetOfCards.map((card) => `<span class="card">${card}</span>`).join("")}
+        </div>
+        <p>Got your card in mind? Let me read your thoughts...</p>
+        <button class="content-btn" id="start-mind-reading">I've chosen my card</button>
+      `);
+      $("#start-mind-reading").off("click").on("click", function () {
+        for (let i = 0; i < 100; i++) window.createSparkle();
+        $("#magic-trick-overlay #magic-area").html(`
+          <h2>Reading your mind...</h2>
+          <div class="mind-reading-animation">
+            <span class="crystal-ball">🔮</span>
+            <div id="reading-text">Focusing...</div>
+          </div>
+        `);
+        const readingMessages = ["Focusing...", "I sense your choice...", "Ah, I can see it clearly now...", "Getting the image..."];
+        let messageIndex = 0;
         const readingInterval = setInterval(function () {
           messageIndex = (messageIndex + 1) % readingMessages.length;
           $("#reading-text").text(readingMessages[messageIndex]);
         }, 1000);
-
-        // Clear the interval after 5 seconds and show the final screen
         setTimeout(function () {
           clearInterval(readingInterval);
-
           $("#magic-trick-overlay #magic-area").html(`
             <p>Voilà! Look at the cards now.</p>
             <h2>Your card has vanished!</h2>
             <div class="cards-container">
-              ${secondSetOfCards
-                .map((card) => `<span class="card">${card}</span>`)
-                .join("")}
+              ${secondSetOfCards.map((card) => `<span class="card">${card}</span>`).join("")}
             </div>
             <button class="content-btn" id="close-magic-trick">Amazing!</button>
           `);
-
-          for (let i = 0; i < 150; i++) {
-            window.createSparkle();
-          }
-
-          $("#close-magic-trick")
-            .off("click")
-            .on("click", function () {
-              $("#magic-trick-overlay").removeClass("visible");
-              setTimeout(() => {
-                $("body").css("overflow", "");
-              }, 500);
-            });
+          for (let i = 0; i < 150; i++) window.createSparkle();
+          $("#close-magic-trick").off("click").on("click", function () {
+            $("#magic-trick-overlay").removeClass("visible");
+            setTimeout(() => { $("body").css("overflow", ""); }, 500);
+          });
         }, 6000);
       });
+    }
   }
 
   function showSecretOverlay() {
-    if ($("#secret-overlay").length === 0) {
-      const overlay = $("<div>", {
-        id: "secret-overlay",
-        class: "secret-overlay",
-        html: `
-          <div class="secret-content">
-            <h2 class="secret-heading">
-              The Magician is not keeping the secret <span class="emphasis">from</span> you.<br>
-              The Magician is keeping the secret <span class="emphasis">for</span> you.
-            </h2>
-            <p class="secret-explanation">
-              Magic is the art of wonder and astonishment. By preserving its mysteries,
-              magicians ensure that you can experience the genuine joy of being amazed—the very
-              feeling that makes magic special. When we safeguard these secrets, we're protecting
-              your opportunity to experience true wonder in a world that too rarely surprises us.
-            </p>
-            <button class="content-btn">Enchanted & Ready!</button>
-          </div>
-        `,
-      });
-      $("body").append(overlay);
-    }
-    $("#secret-overlay").addClass("visible");
-    $("body").css("overflow", "hidden");
-    for (let i = 0; i < 200; i++) {
-      window.createMagicParticle();
-    }
+    var secretHtml = `
+      <div class="secret-content">
+        <h2 class="secret-heading">
+          The Magician is not keeping the secret <span class="emphasis">from</span> you.<br>
+          The Magician is keeping the secret <span class="emphasis">for</span> you.
+        </h2>
+        <p class="secret-explanation">
+          Magic is the art of wonder and astonishment. By preserving its mysteries,
+          magicians ensure that you can experience the genuine joy of being amazed—the very
+          feeling that makes magic special. When we safeguard these secrets, we're protecting
+          your opportunity to experience true wonder in a world that too rarely surprises us.
+        </p>
+        <button class="btn secret-close-btn">Enchanted &amp; Ready</button>
+      </div>
+    `;
 
-    $(".secret-close, .content-btn, #secret-overlay")
-      .off("click.secretClose")
-      .on("click.secretClose", function (event) {
-        if (
-          $(event.target).is("#secret-overlay") ||
-          $(event.target).is(".secret-close") ||
-          $(event.target).is(".content-btn")
-        ) {
-          $("#secret-overlay").removeClass("visible");
-          setTimeout(() => {
-            $("body").css("overflow", "");
-            $("#secret-overlay").remove();
-          }, 500);
-        }
+    if (window.ParlourOverlay) {
+      for (let i = 0; i < 200; i++) {
+        window.createMagicParticle();
+      }
+      var overlay = window.ParlourOverlay.open(secretHtml);
+      overlay.querySelector(".secret-close-btn").addEventListener("click", function () {
+        window.ParlourOverlay.close(overlay);
       });
-    $(document)
-      .off("keydown.secret")
-      .on("keydown.secret", function (e) {
-        if (e.key === "Escape") {
-          $("#secret-overlay").removeClass("visible");
-          setTimeout(() => {
-            $("body").css("overflow", "");
-            $(document).off("keydown.secret");
-            $("#secret-overlay").remove();
-          }, 500);
-        }
-      });
+    } else {
+      // Fallback to old overlay
+      if ($("#secret-overlay").length === 0) {
+        const overlay = $("<div>", {
+          id: "secret-overlay",
+          class: "secret-overlay",
+          html: secretHtml,
+        });
+        $("body").append(overlay);
+      }
+      $("#secret-overlay").addClass("visible");
+      $("body").css("overflow", "hidden");
+      for (let i = 0; i < 200; i++) {
+        window.createMagicParticle();
+      }
+
+      $(".secret-close, .content-btn, #secret-overlay")
+        .off("click.secretClose")
+        .on("click.secretClose", function (event) {
+          if (
+            $(event.target).is("#secret-overlay") ||
+            $(event.target).is(".secret-close") ||
+            $(event.target).is(".content-btn")
+          ) {
+            $("#secret-overlay").removeClass("visible");
+            setTimeout(() => {
+              $("body").css("overflow", "");
+              $("#secret-overlay").remove();
+            }, 500);
+          }
+        });
+      $(document)
+        .off("keydown.secret")
+        .on("keydown.secret", function (e) {
+          if (e.key === "Escape") {
+            $("#secret-overlay").removeClass("visible");
+            setTimeout(() => {
+              $("body").css("overflow", "");
+              $(document).off("keydown.secret");
+              $("#secret-overlay").remove();
+            }, 500);
+          }
+        });
+    }
   }
 };

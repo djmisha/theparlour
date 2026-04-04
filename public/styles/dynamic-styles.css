@@ -5,7 +5,104 @@
   box-shadow: 0 0 0 0.2rem rgba(217, 83, 79, 0.25);
 }
 
-/* Magic Trick Overlay */
+/* ============================================================
+   Parlour Overlay System — Reusable full-screen overlay
+   ============================================================ */
+
+body.overlay-open {
+  overflow: hidden;
+}
+
+.parlour-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  overflow-y: auto;
+}
+
+.parlour-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.parlour-overlay-close {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: 1px solid var(--color-gold, #c9a959);
+  color: var(--color-gold, #c9a959);
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1;
+  font-family: var(--font-display, 'Cinzel'), serif;
+}
+
+.parlour-overlay-close:hover {
+  background: var(--color-gold, #c9a959);
+  color: #0a0a0a;
+}
+
+.parlour-overlay-body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 40px;
+}
+
+/* Navigation inside an overlay */
+.parlour-overlay .nav-inner {
+  margin-top: 0;
+}
+
+/* Magic area inside parlour overlay */
+.parlour-overlay-body #magic-area {
+  max-width: 800px;
+  width: 90%;
+  padding: 30px 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(20, 20, 20, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(201, 169, 89, 0.5);
+  margin: 10px auto;
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+.parlour-overlay-body #magic-area h2 {
+  color: var(--color-gold, #c9a959);
+  margin-bottom: 20px;
+}
+
+/* Secret content inside overlay */
+.parlour-overlay-body .secret-content {
+  max-width: 900px;
+  padding: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(20, 20, 20, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(201, 169, 89, 0.5);
+}
+
+
 #magic-trick-overlay {
   position: fixed;
   top: 0;
@@ -159,7 +256,7 @@
 }
 
 .secret-heading { 
-  font-family: var(--font-heading, 'Playfair Display'), serif; 
+  font-family: var(--font-heading, 'Cormorant Garamond'), serif; 
   font-size: 2.5rem; 
   line-height: 1.4; 
   margin-bottom: 30px; 
@@ -177,7 +274,7 @@
 }
 
 .secret-explanation { 
-  font-family: var(--font-body, 'Raleway'), sans-serif; 
+  font-family: var(--font-body, 'EB Garamond'), serif; 
   font-size: 1.2rem; 
   line-height: 1.6; 
   margin-bottom: 30px; 

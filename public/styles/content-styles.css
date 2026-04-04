@@ -21,13 +21,13 @@
 }
 
 .content-hero h1 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 3.5rem;
-    line-height: 3.5rem;
+    line-height: 1.1;
     margin-bottom: 1rem;
     color: var(--color-gold, #c9a959);
-    font-weight: 300;
-    letter-spacing: 0.08em;
+    font-weight: 400;
+    letter-spacing: 0.04em;
     text-shadow: none;
 }
 
@@ -73,7 +73,7 @@
 
 .content-details-card h3 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.8rem;
     margin-bottom: 20px;
     position: relative;
@@ -201,7 +201,7 @@
 
 .location-details h2 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 2.2rem;
     margin-bottom: 25px;
     text-align: left;
@@ -317,7 +317,7 @@
 .expectation-item h4 {
     color: var(--color-gold, #c9a959);
     font-size: 1.3rem;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     margin-bottom: 10px;
 }
 
@@ -386,7 +386,7 @@
 
 .content-item-info h3 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.6rem;
     margin-bottom: 12px;
 }
@@ -421,7 +421,7 @@
 
 .attendance-info h3 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.6rem;
     margin-bottom: 15px;
     position: relative;
@@ -651,7 +651,7 @@
 
 .events-section h2 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 2.2rem;
     margin-bottom: 30px;
     text-align: center;
@@ -659,7 +659,7 @@
 
 .events-section h3 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.8rem;
     margin: 40px 0 20px 0;
     text-align: center;
@@ -690,7 +690,7 @@
 
 .event-card h3 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.6rem;
     margin-bottom: 20px;
     text-align: center;
@@ -873,7 +873,7 @@ input.error, textarea.error {
 }
 
 .events-exclusive-notice .exclusive-headline {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.6rem;
     color: var(--color-gold, #c9a959);
     margin-bottom: 20px;

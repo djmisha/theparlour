@@ -65,7 +65,7 @@
     right: -100%;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(5, 5, 5, 0.97);
     z-index: 999;
     transition: right 0.3s ease-in-out;
     margin-top: 0;
@@ -99,15 +99,49 @@
 
 .jumbo-nav ul li a, 
 .jumbo-nav ul li span {
-    font-family: var(--font-display, 'Cinzel'), serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
     color: var(--color-gold, #c9a959);
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 1.1rem;
+    font-style: italic;
 }
 
 .jumbo-nav ul li a:hover,
 .jumbo-nav ul li span:hover {
     color: #ffffff;
+}
+
+/* Nav column section titles — white, smaller, Cinzel display */
+.jumbo-nav .nav-column h3 {
+    font-family: var(--font-display, 'Cinzel'), serif;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Hamburger close button inside jumbo-nav */
+.jumbo-nav-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: 1px solid var(--color-gold, #c9a959);
+    color: var(--color-gold, #c9a959);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 1001;
+}
+
+.jumbo-nav-close:hover {
+    background: var(--color-gold, #c9a959);
+    color: #0a0a0a;
 }
 
 /* ---------- Desktop Navigation ---------- */
@@ -156,6 +190,19 @@
 /* Mobile Navigation (max-width: 768px) */
 @media screen and (max-width: 768px) {
 
+    /* Left-align logo on mobile */
+    .logo {
+        text-align: left;
+    }
+
+    .logo h1 {
+        text-align: left;
+    }
+
+    .tagline {
+        text-align: left;
+    }
+
     .jumbo-nav ul {
         flex-direction: column;
         width: 100%;
@@ -173,13 +220,11 @@
     }
 
     .jumbo-nav .nav-column h3 {
-        color: var(--color-gold, #c9a959);
-        font-family: var(--font-display, 'Cinzel'), serif;
         margin-bottom: 10px;
-        font-size: 1.2rem;
+        font-size: 0.8rem;
         text-align: center;
         padding-bottom: 5px;
-        border-bottom: 1px solid var(--color-gold, #c9a959);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .jumbo-nav ul li a,
@@ -207,13 +252,11 @@
     }
 
     .jumbo-nav .nav-column h3 {
-        color: var(--color-gold, #c9a959);
-        font-family: var(--font-display, 'Cinzel'), serif;
         margin-bottom: 20px;
-        font-size: 1.8rem;
+        font-size: 0.85rem;
         text-align: center;
         padding-bottom: 10px;
-        border-bottom: 1px solid var(--color-gold, #c9a959);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .jumbo-nav ul {
@@ -230,7 +273,7 @@
     .jumbo-nav ul li span {
         padding: 8px;
         display: block;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 }
 

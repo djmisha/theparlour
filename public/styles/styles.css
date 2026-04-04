@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 body {
-    font-family: var(--font-body, 'Raleway'), sans-serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
+    font-size: 1.125rem;
     line-height: 1.6;
     color: var(--color-text-primary, #f0ece2);
     background-color: var(--color-bg-primary, #0a0a0a);
@@ -14,9 +15,15 @@ a {
   color: var(--color-text-primary, #f0ece2);
 }
 
-h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   font-weight: 400;
-  font-family: var(--font-heading, 'Playfair Display'), serif;
+  font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+  line-height: var(--leading-tight, 1.1);
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.7;
 }
 
 .container {
@@ -64,7 +71,7 @@ h2, h3, h4 {
     text-decoration: none;
     letter-spacing: var(--tracking-widest, 0.2em);
     text-transform: uppercase;
-    font-family: var(--font-body, 'Raleway'), sans-serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
     margin-top: 2px;
     line-height: 1;
 }
@@ -167,16 +174,18 @@ h2, h3, h4 {
     padding: 0 20px;
 }
 .hero-content h1 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
-    font-size: 3rem;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
     margin-bottom: 1rem;
     color: var(--color-gold, #c9a959);
-    font-weight: 300;
-    letter-spacing: 0.08em;
+    font-weight: 400;
+    letter-spacing: 0.04em;
 }
 .hero-content p {
-    font-size: 1.3rem; /* Increased from 1.2rem */
+    font-size: 1.3rem;
     margin-bottom: 2rem;
+    line-height: 1.6;
 }
 .btn {
     display: inline-block;
@@ -213,20 +222,24 @@ h2, h3, h4 {
     border: 1px solid var(--color-gold, #c9a959);
     letter-spacing: var(--tracking-wider, 0.1em);
     text-transform: uppercase;
-    border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+.content-btn:hover {
+    background-color: var(--color-gold, #c9a959);
+    color: var(--color-bg-primary, #0a0a0a) !important;
 }
 section {
     padding: 60px 0;
 }
 h2 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
-    font-size: 2rem;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+    font-size: 2.4rem;
     margin-bottom: 1.5rem;
     text-align: center;
     color: var(--color-gold, #c9a959);
     letter-spacing: var(--tracking-wide, 0.05em);
+    line-height: 1.1;
 }
 .about-section {
     background-color: var(--color-bg-surface, #111111);
@@ -295,7 +308,7 @@ h2 {
     letter-spacing: var(--tracking-wide, 0.05em);
 }
 .event-card h3 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.4rem;
     margin-bottom: 15px;
     color: var(--color-gold, #c9a959);
@@ -524,7 +537,7 @@ footer ul li {
 }
 
 .footer-info h3 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.9rem;
     margin-bottom: 12px;
     color: var(--color-gold, #c9a959)
@@ -542,7 +555,7 @@ footer ul li {
 }
 
 .footer-nav-section h3 {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.4rem;
     margin-bottom: 20px;
     color: var(--color-gold, #c9a959);
@@ -725,8 +738,15 @@ footer ul li {
 }
 @media (max-width: 1119px) {
     .header-container {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+        position: relative;
+    }
+    
+    .logo {
+        flex: 1;
+        text-align: left;
     }
     
     .hero-content h1 {
@@ -780,8 +800,8 @@ footer ul li {
     }
     
     .magic-eyes {
-        top: 20px;
-        left: 50%;
+        top: 50%;
+        left: 140px;
         transform: translate(-50%, -50%);
     }
 }
@@ -866,9 +886,7 @@ footer ul li {
 
 @media (max-width: 768px) {
     .magic-eyes {
-        top: 20px;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        display: none;
     }
 }
 
@@ -949,17 +967,13 @@ footer ul li {
 .art-icon {
     font-size: 36px;
     margin-bottom: 15px;
-    transition: transform 0.3s ease;
     color: var(--color-gold, #c9a959);
-}
-.art-form:hover .art-icon {
-    transform: scale(1.2) translateX(10px);
 }
 .art-form h3 {
     color: var(--color-gold, #c9a959);
     margin-bottom: 15px;
     font-size: 1.4rem;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
 }
 .art-form p {
     color: var(--color-text-secondary, #a09c94); /* Changed from #bbb */
@@ -1127,7 +1141,7 @@ footer ul li {
     font-size: 2.5rem;
     font-weight: 400;
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     line-height: 1.2;
     margin-bottom: 15px;
 }
@@ -1208,7 +1222,7 @@ footer ul li {
     text-align: center;
     font-size: 1.5rem;
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-style: italic;
 }
 .magic-experience-content {
@@ -1306,7 +1320,7 @@ footer ul li {
     border-radius: 6px;
     padding: 12px 15px;
     color: #fff;
-    font-family: var(--font-body, 'Raleway'), sans-serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
@@ -1478,7 +1492,7 @@ footer ul li {
 .send-btn,
 .close-chat,
 .nav-btn {
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
 }
 
 /* Magic Benefit Cards styling */
@@ -1543,7 +1557,7 @@ footer ul li {
     color: var(--color-gold, #c9a959);
     font-size: 1.2rem;
     margin-bottom: 10px;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
 }
 
 .magic-benefit-card p {
@@ -1639,7 +1653,7 @@ footer ul li {
 
 .membership-type-header h3 {
     color: var(--color-gold, #c9a959);
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.4rem;
     margin: 0;
     text-align: center;
@@ -1701,7 +1715,7 @@ footer ul li {
     color: var(--color-gold, #c9a959);
     padding: 8px 15px;
     border-radius: 0;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.1rem;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -1786,7 +1800,7 @@ footer ul li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: var(--font-body, 'Raleway'), sans-serif;
+    font-family: var(--font-body, 'EB Garamond'), serif;
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -2228,7 +2242,7 @@ footer ul li {
     color: var(--color-gold, #c9a959);
     padding: 8px 15px;
     border-radius: 0;
-    font-family: var(--font-heading, 'Playfair Display'), serif;
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
     font-size: 1.1rem;
     transition: all 0.3s ease;
     text-decoration: none;
