@@ -1,4 +1,4 @@
-/* transitions.css - Magical transition overlay */
+/* transitions.css — Magical page transition overlay */
 body.transitioning {
     overflow: hidden;
 }
@@ -9,11 +9,11 @@ body.transitioning {
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 9999;
+    z-index: 9998;
     pointer-events: none;
     background: #0a0a0a;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    overflow: hidden;
 }
 
 .magic-transition-overlay.active {
@@ -21,6 +21,35 @@ body.transitioning {
     pointer-events: auto;
 }
 
+/* Sparkle rain particles */
+.sparkle-rain {
+    position: absolute;
+    top: -6px;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 5px currentColor;
+    animation: sparkle-rain-fall var(--fall-duration, 0.9s) ease-in forwards;
+}
+
+@keyframes sparkle-rain-fall {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+        transform: translate(0, 10px) scale(1.3);
+    }
+    85% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(var(--drift-x, 0px), var(--fall-distance, 300px)) scale(0.4);
+        opacity: 0;
+    }
+}
+
+/* Legacy sparkle (used by heroSparkles.js) — keep for compatibility */
 .magic-transition-overlay .sparkle {
     position: absolute;
     width: 4px;

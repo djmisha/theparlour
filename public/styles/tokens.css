@@ -1,6 +1,6 @@
 /* ============================================================
    THE PARLOUR — Design System Tokens
-   San Diego's Most Exclusive Society of Magic
+   The World's Most Exclusive Society of Magic
    ============================================================ */
 
 :root {
@@ -36,8 +36,8 @@
 
   /* ── Typography ── */
   --font-display: 'Cinzel', serif;
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Raleway', sans-serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'EB Garamond', serif;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -67,7 +67,7 @@
   --tracking-ultra: 0.35em;
 
   /* Line Heights */
-  --leading-tight: 1.2;
+  --leading-tight: 1.1;
   --leading-normal: 1.6;
   --leading-relaxed: 1.8;
 

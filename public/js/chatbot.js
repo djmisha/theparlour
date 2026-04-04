@@ -4,7 +4,7 @@ window.setupOwlChatbot = function () {
     hi: "Hi there! How can I assist you with your magical interests?",
     help: "I can help you learn about our club, upcoming events, or membership benefits. What would you like to know?",
     membership:
-      "Membership in The Parlour grants access to exclusive private gatherings, our renowned library, master mentorship, and an elite network of San Diego's finest magicians.",
+      "Membership in The Parlour grants access to exclusive private gatherings, our renowned library, master mentorship, and an elite network of the world's finest magicians.",
     events:
       "We have several exciting events coming up, including Mini-Lectures, Stage Contests, and our annual Installation Banquet.",
     magic:
