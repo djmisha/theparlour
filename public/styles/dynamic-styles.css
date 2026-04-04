@@ -35,7 +35,8 @@ body.overlay-open {
 .parlour-overlay-close {
   position: fixed;
   top: 20px;
-  left: 20px;
+  right: 20px;
+  left: auto;
   background: none;
   border: 1px solid var(--color-gold, #c9a959);
   color: var(--color-gold, #c9a959);
@@ -68,9 +69,107 @@ body.overlay-open {
   padding: 80px 20px 40px;
 }
 
-/* Navigation inside an overlay */
-.parlour-overlay .nav-inner {
+/* ── Navigation overlay — full-screen 3-column layout ── */
+.parlour-overlay-body .nav-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 60px;
+  gap: 0;
   margin-top: 0;
+}
+
+.parlour-overlay-body .nav-column {
+  flex: 1;
+  padding: 30px 50px;
+  border-right: 1px solid rgba(201, 169, 89, 0.15);
+  text-align: left;
+}
+
+.parlour-overlay-body .nav-column:last-child {
+  border-right: none;
+}
+
+.parlour-overlay-body .nav-column h3 {
+  font-family: var(--font-display, 'Cinzel'), serif;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 400;
+}
+
+.parlour-overlay-body .nav-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.parlour-overlay-body .nav-column ul li {
+  margin-bottom: 0;
+}
+
+.parlour-overlay-body .nav-column ul li a,
+.parlour-overlay-body .nav-column ul li span {
+  font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+  font-size: 2.4rem;
+  color: var(--color-gold, #c9a959);
+  text-decoration: none;
+  font-weight: 400;
+  display: block;
+  padding: 0.45rem 0;
+  line-height: 1.15;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.parlour-overlay-body .nav-column ul li a:hover,
+.parlour-overlay-body .nav-column ul li span:hover {
+  color: #ffffff;
+  padding-left: 10px;
+}
+
+/* Mobile nav overlay — stacked, no scroll needed */
+@media (max-width: 768px) {
+  .parlour-overlay-body .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 28px;
+    justify-content: center;
+    gap: 0;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .parlour-overlay-body .nav-column {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 0;
+    width: 100%;
+  }
+
+  .parlour-overlay-body .nav-column:last-child {
+    border-bottom: none;
+  }
+
+  .parlour-overlay-body .nav-column h3 {
+    font-size: 0.6rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .parlour-overlay-body .nav-column ul li a,
+  .parlour-overlay-body .nav-column ul li span {
+    font-size: 1.7rem;
+    padding: 0.3rem 0;
+  }
 }
 
 /* Magic area inside parlour overlay */
@@ -278,7 +377,7 @@ body.overlay-open {
 
 .secret-explanation { 
   font-family: var(--font-body, 'EB Garamond'), serif; 
-  font-size: 1.2rem; 
+  font-size: 1.25rem; 
   line-height: 1.6; 
   margin-bottom: 30px; 
 }
@@ -286,7 +385,7 @@ body.overlay-open {
 @media (max-width: 768px) { 
   .secret-heading { font-size: 1.8rem; } 
   .secret-heading .emphasis { font-size: 2rem; } 
-  .secret-explanation { font-size: 1rem; } 
+  .secret-explanation { font-size: 1.25rem; } 
 }
 
 /* Magic Sparkle Animation */

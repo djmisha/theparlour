@@ -39,7 +39,6 @@ window.setupSmoothScrolling = function () {
 };
 
 window.setupHamburgerMenu = function () {
-  // Get the nav inner content for the overlay
   var jumboNavEl = document.querySelector(".jumbo-nav");
   var jumboNavInnerEl = document.querySelector(".jumbo-nav .nav-inner");
 
@@ -49,34 +48,44 @@ window.setupHamburgerMenu = function () {
       $(this).toggleClass("active");
 
       if (window.ParlourOverlay && jumboNavInnerEl) {
-        // Use the ParlourOverlay system
         var navHtml = jumboNavInnerEl.outerHTML;
         var overlay = window.ParlourOverlay.open(navHtml);
 
-        // Handle nav link clicks to close overlay
-        overlay.querySelectorAll(".parlour-overlay-body a").forEach(function (a) {
-          a.addEventListener("click", function () {
-            // Close immediately (transition will handle the page change)
-            window.ParlourOverlay.close(overlay);
-            $(".hamburger-menu").removeClass("active");
-          });
+        // Handle regular nav link clicks — close overlay and let transition handle navigation
+        overlay.querySelectorAll(".parlour-overlay-body a[href]").forEach(function (a) {
+          // Skip magic trigger links
+          if (a.classList.contains("do-magic") || a.getAttribute("href") === "#") {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              window.ParlourOverlay.close(overlay);
+              $(".hamburger-menu").removeClass("active");
+              // Trigger magic trick
+              if (typeof window._startMagicTrick === "function") {
+                setTimeout(window._startMagicTrick, 350);
+              }
+            });
+          } else {
+            a.addEventListener("click", function () {
+              window.ParlourOverlay.close(overlay);
+              $(".hamburger-menu").removeClass("active");
+            });
+          }
         });
 
-        // Handle span (tell-secret, flip-trick) clicks
-        overlay.querySelectorAll(".parlour-overlay-body span").forEach(function (span) {
-          span.addEventListener("click", function () {
+        // Handle "Reveal the Method" span
+        overlay.querySelectorAll(".parlour-overlay-body span.tell-secret").forEach(function (span) {
+          span.addEventListener("click", function (e) {
+            e.preventDefault();
             window.ParlourOverlay.close(overlay);
             $(".hamburger-menu").removeClass("active");
-            // Re-fire the original click handler
-            var origId = span.id;
-            if (origId) {
-              var origEl = document.querySelector("." + (origId === "secret-trick" ? "tell-secret" : "do-magic"));
-              if (origEl && origEl !== span) origEl.click();
+            // Trigger secret overlay
+            if (typeof window._showSecretOverlay === "function") {
+              setTimeout(window._showSecretOverlay, 350);
             }
           });
         });
 
-        // When overlay is closed via ESC or close button, reset hamburger
+        // Reset hamburger when overlay closes
         var observer = new MutationObserver(function () {
           if (!overlay.classList.contains("visible")) {
             $(".hamburger-menu").removeClass("active");
@@ -84,7 +93,6 @@ window.setupHamburgerMenu = function () {
         });
         observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
       } else if (jumboNavEl) {
-        // Fallback to original behavior
         if ($(jumboNavEl).hasClass("open")) {
           $(jumboNavEl).css("right", "-100%");
           setTimeout(function () {
@@ -98,7 +106,6 @@ window.setupHamburgerMenu = function () {
       }
     });
 
-  // Keep jumbo-nav link clicks working if it's open the old way
   if (jumboNavEl) {
     $(".jumbo-nav a")
       .off("click.hamburger")

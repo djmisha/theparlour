@@ -128,36 +128,48 @@ window.setupMagicTricks = function () {
     }).appendTo("body");
   }
 
-  $("#flip-trick")
-    .off("click")
-    .on("click", function (e) {
+  // Use event delegation so footer + nav + any cloned elements all work
+  $(document)
+    .off("click.doMagic")
+    .on("click.doMagic", ".do-magic", function (e) {
       e.preventDefault();
       startMagicTrick();
     });
 
-  // Also handle the footer variant
-  $("#flip-trick-footer")
-    .off("click")
-    .on("click", function (e) {
+  $(document)
+    .off("click.tellSecret")
+    .on("click.tellSecret", ".tell-secret", function (e) {
       e.preventDefault();
-      startMagicTrick();
+      showSecretOverlay();
     });
 
   $(".magic-eyes")
     .off("click.sparkle")
     .on("click.sparkle", function (e) {
       e.preventDefault();
-      for (let i = 0; i < 300; i++) {
-        window.createSparkle();
+      // Run the current effect from the extensible effects array
+      var effect = window._eyeEffects && window._eyeEffects.length
+        ? window._eyeEffects[Math.floor(Math.random() * window._eyeEffects.length)]
+        : null;
+      if (effect) {
+        effect();
+      } else {
+        for (let i = 0; i < 300; i++) {
+          window.createSparkle();
+        }
       }
     });
 
-  $("#secret-trick, #secret-trick-footer")
-    .off("click")
-    .on("click", function (e) {
-      e.preventDefault();
-      showSecretOverlay();
-    });
+  // Expose magic functions so navigation.js overlay can call them
+  window._startMagicTrick = startMagicTrick;
+  window._showSecretOverlay = showSecretOverlay;
+
+  // Extensible effects array — add new effects here in the future
+  window._eyeEffects = window._eyeEffects || [
+    function sparkleEffect() {
+      for (let i = 0; i < 300; i++) window.createSparkle();
+    }
+  ];
 
   function startMagicTrick() {
     const firstSetOfCards = ["🂢", "🃄", "🃙", "🂦", "🃓"];
@@ -299,7 +311,6 @@ window.setupMagicTricks = function () {
         window.ParlourOverlay.close(overlay);
       });
     } else {
-      // Fallback to old overlay
       if ($("#secret-overlay").length === 0) {
         const overlay = $("<div>", {
           id: "secret-overlay",

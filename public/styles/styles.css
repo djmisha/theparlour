@@ -5,7 +5,7 @@
 }
 body {
     font-family: var(--font-body, 'EB Garamond'), serif;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.6;
     color: var(--color-text-primary, #f0ece2);
     background-color: var(--color-bg-primary, #0a0a0a);
@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5 {
 }
 
 p {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.7;
 }
 
@@ -175,17 +175,18 @@ p {
 }
 .hero-content h1 {
     font-family: var(--font-heading, 'Cormorant Garamond'), serif;
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
+    font-size: 7.5rem;
+    line-height: 1.0;
+    margin-bottom: 0.4rem;
     color: var(--color-gold, #c9a959);
     font-weight: 400;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
 }
 .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+    margin-top: 0;
+    line-height: 1.5;
 }
 .btn {
     display: inline-block;
@@ -252,7 +253,7 @@ h2 {
 .about-section p {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     color: var(--color-text-secondary, #a09c94);
     line-height: 1.8;
 }
@@ -345,7 +346,7 @@ h2 {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 3rem;
-    font-size: 1.2rem; /* Increased from 1.1rem */
+    font-size: 1.25rem; /* min 20px */
     color: var(--color-text-primary, #f0ece2); /* Softer white */
 }
 .benefits-container {
@@ -411,7 +412,7 @@ h2 {
 .benefit p {
     color: var(--color-text-secondary, #a09c94);
     line-height: 1.6;
-    font-size: 1.05rem; /* Added font size */
+    font-size: 1.25rem; /* min 20px */
 }
 .membership-cta {
     text-align: center;
@@ -419,7 +420,7 @@ h2 {
 }
 .membership-cta .btn {
     padding: 12px 30px;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     letter-spacing: 1px;
 }
 footer {
@@ -464,7 +465,12 @@ footer ul li {
     padding-top: 20px;
     margin-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--color-text-muted, #6b6560); /* Added even softer color for copyright text */
+    color: var(--color-text-muted, #6b6560);
+}
+
+.footer-bottom p {
+    font-size: 0.75rem; /* 12px — explicit exception for copyright */
+    line-height: 1.5;
 }
 
 .back-to-top {
@@ -811,44 +817,38 @@ footer ul li {
     100% { height: 18px; }
 }
 .magic-eyes {
-    position: absolute;
-    top: 50%;
-    left: 140px;
-    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 30px;
+    left: 30px;
     display: flex;
-    z-index: 1000;
+    z-index: 9900;
     pointer-events: auto;
     cursor: pointer;
-    gap: 5px;
-    transition: top 0.3s ease-out, left 0.3s ease-out;
-}
-.magic-eyes.moving {
-    transition: top 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55), 
-                left 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 .magic-eyes .eye {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     background: #1a1a1a;
     border-radius: 50%;
     margin: 0;
     position: relative;
-    box-shadow: none;
+    box-shadow: 0 0 8px rgba(201, 169, 89, 0.3);
     overflow: hidden;
-    border: 2px solid #333;
+    border: 2px solid rgba(201, 169, 89, 0.4);
 }
 
-/* Removing the eyelids as owls have round eyes */
 .magic-eyes .eye::before,
 .magic-eyes .eye::after {
     display: none;
 }
 
-/* Add iris */
 .magic-eyes .eye .iris {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -858,8 +858,8 @@ footer ul li {
 }
 
 .magic-eyes .pupil {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     background: #000;
     border-radius: 50%;
     position: absolute;
@@ -871,7 +871,6 @@ footer ul li {
     box-shadow: none;
 }
 
-/* Update blink animation for owl eyes */
 @keyframes eyeBlink {
     0% { transform: scale(1, 1); }
     45% { transform: scale(1, 1); }
@@ -978,7 +977,7 @@ footer ul li {
 .art-form p {
     color: var(--color-text-secondary, #a09c94); /* Changed from #bbb */
     line-height: 1.6;
-    font-size: 1.05rem; /* Added font size */
+    font-size: 1.25rem; /* min 20px */
 }
 .magic-arts-cta {
     text-align: center;
@@ -1132,7 +1131,7 @@ footer ul li {
 }
 .stat-number {
     display: block;
-    font-size: 1.15rem; /* Increased from 1.1rem */
+    font-size: 1.25rem; /* min 20px */
     font-weight: normal;
     color: var(--color-text-primary, #f0ece2); /* Changed from #ddd */
     margin-bottom: 5px;
@@ -1172,7 +1171,7 @@ footer ul li {
     }
     
     .library-tagline {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         margin-bottom: 30px;
     }
     
@@ -1231,7 +1230,7 @@ footer ul li {
 }
 .magic-experience-text p {
     margin-bottom: 25px;
-    font-size: 1.2rem; /* Increased from 1.1rem */
+    font-size: 1.25rem; /* Increased from 1.1rem */
     line-height: 1.7;
     color: var(--color-text-primary, #f0ece2); /* Changed from #ddd */
 }
@@ -1280,7 +1279,7 @@ footer ul li {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 40px;
-    font-size: 1.2rem; /* Increased from 1.1rem */
+    font-size: 1.25rem; /* min 20px */
     color: var(--color-text-primary, #f0ece2); /* Changed from #ddd */
 }
 .form-container {
@@ -1555,7 +1554,7 @@ footer ul li {
 
 .magic-benefit-card h3 {
     color: var(--color-gold, #c9a959);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 10px;
     font-family: var(--font-heading, 'Cormorant Garamond'), serif;
 }
@@ -1716,7 +1715,7 @@ footer ul li {
     padding: 8px 15px;
     border-radius: 0;
     font-family: var(--font-heading, 'Cormorant Garamond'), serif;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     transition: all 0.3s ease;
     text-decoration: none;
 }
@@ -1802,7 +1801,7 @@ footer ul li {
     align-items: center;
     font-family: var(--font-body, 'EB Garamond'), serif;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 
 .award-back {
@@ -1836,9 +1835,9 @@ footer ul li {
 }
 
 .award-name {
-    font-size: 18px; /* Reduced from 20px */
+    font-size: 20px;
     font-weight: 700;
-    margin: 10px 0 3px 0; /* Reduced margins */
+    margin: 10px 0 3px 0;
     text-transform: uppercase;
     line-height: 1.2;
     max-width: 100%;
@@ -1848,8 +1847,8 @@ footer ul li {
 }
 
 .award-years, .award-title {
-    font-size: 16px; /* Reduced from 18px */
-    margin: 0 0 3px 0; /* Reduced margins */
+    font-size: 20px;
+    margin: 0 0 3px 0;
     color: #000;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
@@ -2074,11 +2073,11 @@ footer ul li {
     }
     
     .award-name {
-        font-size: 16px;
+        font-size: 20px;
     }
     
     .award-years, .award-title {
-        font-size: 14px;
+        font-size: 20px;
     }
 }
 
@@ -2133,7 +2132,7 @@ footer ul li {
 .random-photo-caption p {
     margin: 0;
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     text-align: center;
     font-style: italic;
 }
@@ -2243,7 +2242,7 @@ footer ul li {
     padding: 8px 15px;
     border-radius: 0;
     font-family: var(--font-heading, 'Cormorant Garamond'), serif;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     transition: all 0.3s ease;
     text-decoration: none;
 }
@@ -2390,4 +2389,14 @@ footer ul li {
         margin-left: 0;
         margin-top: 15px;
     }
+}
+/* Hero heading — scale down on smaller screens */
+@media (max-width: 1200px) {
+    .hero-content h1 { font-size: 5.5rem; }
+}
+@media (max-width: 900px) {
+    .hero-content h1 { font-size: 4rem; }
+}
+@media (max-width: 600px) {
+    .hero-content h1 { font-size: 2.8rem; }
 }

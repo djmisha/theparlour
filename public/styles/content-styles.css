@@ -92,7 +92,7 @@
 
 .content-details-card p {
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     margin-bottom: 12px;
 }
 
@@ -218,7 +218,7 @@
     padding-left: 30px;
     position: relative;
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
 }
 
 .location-directions li::before {
@@ -232,7 +232,7 @@
 
 .location-details p {
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     line-height: 1.6;
 }
 
@@ -252,7 +252,7 @@
 .image-caption {
     text-align: center;
     margin-top: 15px;
-    font-size: 0.95rem;
+    font-size: 1.25rem;
     color: var(--color-text-secondary, #a09c94);
     font-style: italic;
 }
@@ -323,7 +323,7 @@
 
 .expectation-item p {
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     line-height: 1.5;
 }
 
@@ -368,7 +368,7 @@
 }
 
 .content-date .month {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 400;
     letter-spacing: 1px;
 }
@@ -393,7 +393,7 @@
 
 .content-item-info p {
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     margin-bottom: 20px;
     line-height: 1.5;
 }
@@ -439,7 +439,7 @@
 
 .attendance-info p {
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     line-height: 1.6;
     margin-bottom: 12px;
 }
@@ -698,7 +698,7 @@
 
 .event-card .event-date {
     color: var(--color-text-primary, #f0ece2);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 400;
     margin-bottom: 15px;
 }
@@ -883,7 +883,7 @@ input.error, textarea.error {
 
 .events-exclusive-notice p {
     color: var(--color-text-secondary, #a09c94);
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     line-height: 1.7;
     margin-bottom: 15px;
 }
