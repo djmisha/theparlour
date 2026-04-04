@@ -1,7 +1,8 @@
 /* transitions.js — Magical page transition with sparkle rain
- * Strategy: reliable real-page-load approach
- * Outgoing: fade to black (0.3s) → navigate
- * Incoming: sparkle rain from top → fade in after sparkles settle
+ * Strategy: AJAX — fetch new page content, inject into <main>, update URL via pushState.
+ * The browser never navigates; overlay is dark before any DOM change occurs.
+ * Outgoing: snap to dark → fetch → inject → pushState → sparkle reveal
+ * Fallback: real navigation (+ sessionStorage flag) if fetch fails
  */
 (function () {
   "use strict";
@@ -17,6 +18,7 @@
   var SESSION_KEY = "parlour-transition";
   // 40% chance of gold sparkles, 60% white — used in createSparkleWave
   var GOLD_SPARKLE_RATIO = 0.4;
+  var _navigating = false;
 
   // --- Sparkle rain wave ---
   function createSparkleWave(count, startDelay) {
@@ -50,57 +52,96 @@
     }
   }
 
-  // --- Incoming: arriving on a new page ---
-  if (sessionStorage.getItem(SESSION_KEY)) {
-    sessionStorage.removeItem(SESSION_KEY);
-
-    // Remove the init style that hid page content
-    var initStyle = document.getElementById("parlour-transition-init");
-    if (initStyle) initStyle.parentNode.removeChild(initStyle);
-
-    // Ensure overlay is fully opaque — it should already be from the init style
-    overlay.style.opacity = "1";
-    overlay.classList.add("active");
-
-    // Immediately start sparkles (no delay)
+  // --- Reveal: sparkle rain then fade overlay out ---
+  function revealPage() {
     createSparkleWave(120, 0);
-    // Second wave at 200ms
     createSparkleWave(100, 200);
-    // Third wave at 500ms
     createSparkleWave(80, 500);
-
-    // Show page content and fade overlay after sparkles have been going
     setTimeout(function () {
-      // Unhide all body content (in case init style is still active)
-      var s = document.getElementById("parlour-transition-init");
-      if (s) s.parentNode.removeChild(s);
-      document.body.style.opacity = "";
-
       overlay.style.transition = "opacity 0.7s ease";
       overlay.style.opacity = "0";
       setTimeout(function () {
         overlay.classList.remove("active");
         overlay.style.transition = "";
         overlay.style.opacity = "";
+        _navigating = false;
       }, 750);
     }, 1400);
   }
 
-  // --- Outgoing: leaving current page ---
-  function performTransition(url) {
-    if (overlay.classList.contains("active")) return;
-
-    sessionStorage.setItem(SESSION_KEY, "1");
-
-    // Snap to dark immediately (no CSS transition — avoid partial flash)
-    overlay.style.transition = "none";
+  // --- Incoming: arriving via real navigation (fallback path only) ---
+  if (sessionStorage.getItem(SESSION_KEY)) {
+    sessionStorage.removeItem(SESSION_KEY);
+    var initStyle = document.getElementById("parlour-transition-init");
+    if (initStyle) initStyle.parentNode.removeChild(initStyle);
     overlay.style.opacity = "1";
     overlay.classList.add("active");
+    revealPage();
+  }
 
-    // Small buffer to ensure overlay renders at opacity 1 before navigation
-    setTimeout(function () {
-      window.location.href = url;
-    }, 80);
+  // --- AJAX navigation ---
+  function performTransition(url) {
+    if (_navigating) return;
+    _navigating = true;
+
+    // Start fetch immediately — runs in parallel with the fade-to-dark animation
+    var fetchPromise = fetch(url, { credentials: "same-origin" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("fetch-failed");
+        return res.text();
+      });
+
+    // Fade to dark — CSS transition (0.3s) handles the animation
+    overlay.classList.add("active");
+
+    // Wait for both the fade AND the fetch before injecting content
+    var fadePromise = new Promise(function (resolve) {
+      setTimeout(resolve, 300);
+    });
+
+    Promise.all([fadePromise, fetchPromise])
+      .then(function (results) {
+        var html = results[1];
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, "text/html");
+
+        // Swap <main> content
+        var newMain = doc.querySelector("main");
+        var currentMain = document.querySelector("main");
+        if (newMain && currentMain) {
+          currentMain.innerHTML = newMain.innerHTML;
+        }
+
+        // Update <title>
+        var newTitle = doc.querySelector("title");
+        if (newTitle) document.title = newTitle.textContent;
+
+        // Update meta description
+        var newDesc = doc.querySelector("meta[name='description']");
+        var curDesc = document.querySelector("meta[name='description']");
+        if (newDesc && curDesc) {
+          curDesc.setAttribute("content", newDesc.getAttribute("content"));
+        }
+
+        // URL changes here — page is dark and content is already in the DOM
+        history.pushState({ url: url }, document.title, url);
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+
+        // Re-initialize all page JS modules
+        if (typeof window.reinitPage === "function") {
+          window.reinitPage();
+        }
+
+        // Sparkle reveal
+        revealPage();
+      })
+      .catch(function () {
+        // Fetch failed — fall back to real navigation
+        sessionStorage.setItem(SESSION_KEY, "1");
+        window.location.href = url;
+      });
   }
 
   // --- Intercept navigation clicks ---
@@ -129,8 +170,10 @@
     true
   );
 
-  window.addEventListener("popstate", function () {
-    sessionStorage.setItem(SESSION_KEY, "1");
+  // Back/forward button — re-fetch the target page via AJAX
+  window.addEventListener("popstate", function (e) {
+    var url = (e.state && e.state.url) || location.href;
+    performTransition(url);
   });
 })();
 

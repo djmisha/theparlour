@@ -14,6 +14,9 @@ body.transitioning {
     background: #0a0a0a;
     opacity: 0;
     overflow: hidden;
+    will-change: opacity;
+    transform: translateZ(0);
+    transition: opacity 0.3s ease;
 }
 
 .magic-transition-overlay.active {

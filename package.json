@@ -1,7 +1,7 @@
 {
-  "name": "ring76-com",
+  "name": "the-parlour",
   "version": "1.0.0",
-  "description": "Ring 76 - San Diego Magic Club Website",
+  "description": "The most secret magic society in the world .",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -11,9 +11,7 @@
   },
   "keywords": [
     "magic",
-    "san-diego",
-    "ring76",
-    "ibm"
+    "san-diego"
   ],
   "author": "Ring 76",
   "license": "ISC",

@@ -1,11 +1,16 @@
 /* heroSparkles.js - Ambient sparkle effect for hero sections */
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
   function createHeroSparkles() {
-    const heroes = document.querySelectorAll(".hero-section, .content-hero");
-    
+    // Remove containers left by the previous page before re-running
+    document.querySelectorAll(".hero-sparkle-container").forEach(function (el) {
+      el.remove();
+    });
+
+    var heroes = document.querySelectorAll(".hero-section, .content-hero");
+
     heroes.forEach(function (hero) {
       // Create sparkle container
-      const sparkleContainer = document.createElement("div");
+      var sparkleContainer = document.createElement("div");
       sparkleContainer.className = "hero-sparkle-container";
       sparkleContainer.style.position = "absolute";
       sparkleContainer.style.bottom = "0";
@@ -20,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Continuously spawn sparkles
       function spawnSparkle() {
         if (!document.body.contains(sparkleContainer)) return;
-        
-        const sparkle = document.createElement("div");
+
+        var sparkle = document.createElement("div");
         sparkle.style.position = "absolute";
         sparkle.style.width = (1 + Math.random() * 3) + "px";
         sparkle.style.height = sparkle.style.width;
@@ -34,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
         sparkleContainer.appendChild(sparkle);
 
         // Animate: fade in, drift upward, fade out
-        const duration = 2000 + Math.random() * 2500;
-        const driftX = (Math.random() - 0.5) * 50;
-        const driftY = -(60 + Math.random() * 120);
-        
+        var duration = 2000 + Math.random() * 2500;
+        var driftX = (Math.random() - 0.5) * 50;
+        var driftY = -(60 + Math.random() * 120);
+
         sparkle.animate([
           { opacity: 0, transform: "translate(0, 0) scale(0)" },
           { opacity: 0.9, transform: "translate(" + (driftX * 0.3) + "px, " + (driftY * 0.3) + "px) scale(1)", offset: 0.3 },
@@ -59,8 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  createHeroSparkles();
+  // Exposed for re-initialization after AJAX navigation
+  window.initHeroSparkles = createHeroSparkles;
 
-  // Make it available for re-init after transitions
-  window.createHeroSparkles = createHeroSparkles;
-});
+  document.addEventListener("DOMContentLoaded", createHeroSparkles);
+})();

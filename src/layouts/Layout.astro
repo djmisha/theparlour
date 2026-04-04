@@ -23,6 +23,8 @@ const currentYear = new Date().getFullYear();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Prevent white flash before external CSS loads -->
+    <style>html { background: #0a0a0a; }</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
@@ -52,7 +54,7 @@ const currentYear = new Date().getFullYear();
         if(sessionStorage.getItem('parlour-transition')){
           var s=document.createElement('style');
           s.id='parlour-transition-init';
-          s.textContent='#magic-transition-overlay{opacity:1!important;pointer-events:auto!important;}body>*:not(#magic-transition-overlay){opacity:0;}';
+          s.textContent='html,body{background:#0a0a0a!important;}#magic-transition-overlay{opacity:1!important;pointer-events:auto!important;}body>*:not(#magic-transition-overlay){opacity:0;}';  
           document.head.appendChild(s);
         }
       })();
