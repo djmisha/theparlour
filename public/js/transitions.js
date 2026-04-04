@@ -119,7 +119,7 @@
         return;
       }
 
-      if (target.pathname === window.location.pathname && target.hash) return;
+      if (target.pathname === window.location.pathname && target.search === window.location.search) return;
       if (target.href === window.location.href) return;
       if (target.hasAttribute("data-no-transition")) return;
 
