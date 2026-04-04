@@ -8,19 +8,13 @@
 
 /* ---------- Hamburger Menu ---------- */
 .hamburger-menu {
-    display: none;
+    display: block;
     cursor: pointer;
     width: 30px;
     height: 24px;
     z-index: 1000;
     flex-shrink: 0;
     position: relative;
-}
-
-@media screen and (max-width: 1120px) {
-    .hamburger-menu {
-        display: block;
-    }
 }
 
 .hamburger-menu span {
