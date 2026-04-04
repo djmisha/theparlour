@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
 import linksData from '../data/links.json';
+import { FiExternalLink } from 'react-icons/fi';
 
 interface Link {
   Name: string;
@@ -143,7 +144,7 @@ const linksJSON = JSON.stringify(links);
                         <div class="link-card-inner">
                             <div class="link-card-header">
                                 <span class="link-card-type-badge">{typeNames[link.Type] || link.Type}</span>
-                                <span class="link-card-arrow">↗</span>
+                                <span class="link-card-arrow"><FiExternalLink /></span>
                             </div>
                             <h3 class="link-card-name">{link.Name}</h3>
                             <p class="link-card-desc">{link.Description}</p>
