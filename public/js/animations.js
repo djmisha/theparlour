@@ -55,6 +55,8 @@ window.setupHeaderEyes = function () {
 
   function getRandomCorner(exclude) {
     var available = CORNERS.map(function(_, i) { return i; }).filter(function(i) { return i !== exclude; });
+    // Fallback to any corner if somehow available is empty
+    if (!available.length) return 0;
     return available[Math.floor(Math.random() * available.length)];
   }
 

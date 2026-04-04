@@ -15,6 +15,7 @@
   }
 
   var SESSION_KEY = "parlour-transition";
+  // 40% chance of gold sparkles, 60% white — used in createSparkleWave
   var GOLD_SPARKLE_RATIO = 0.4;
 
   // --- Sparkle rain wave ---
