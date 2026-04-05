@@ -180,9 +180,9 @@ body.overlay-open {
   font-size: 1.2rem;
   text-align: center;
   color: #fff;
-  background-color: rgba(20, 20, 20, 0.85);
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(201, 169, 89, 0.5);
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
   margin: 10px auto;
   overflow-y: auto;
   max-height: 85vh;
@@ -199,9 +199,9 @@ body.overlay-open {
   padding: 40px;
   text-align: center;
   color: #fff;
-  background-color: rgba(20, 20, 20, 0.85);
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(201, 169, 89, 0.5);
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 
@@ -405,4 +405,80 @@ body.overlay-open {
   position: fixed;
   pointer-events: none;
   z-index: 10001;
+}
+
+/* ── Contact Form Overlay ── */
+.overlay-contact-form {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.overlay-contact-form h2 {
+  font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+  font-size: 2.4rem;
+  color: var(--color-gold, #c9a959);
+  margin-bottom: 0.5rem;
+}
+
+.overlay-contact-form .section-intro {
+  font-size: 1rem;
+  color: var(--color-text-secondary, #b0a890);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.overlay-contact-form .form-container {
+  text-align: left;
+}
+
+.overlay-contact-form .form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.overlay-contact-form .form-group-half {
+  flex: 1;
+}
+
+.overlay-contact-form .form-group {
+  margin-bottom: 0.75rem;
+}
+
+.overlay-contact-form .form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.overlay-contact-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.overlay-contact-form .form-submit {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Prevent scroll on desktop */
+.parlour-overlay .overlay-contact-form {
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .overlay-contact-form .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .overlay-contact-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .parlour-overlay .overlay-contact-form {
+    max-height: none;
+    overflow-y: visible;
+  }
 }

@@ -93,9 +93,9 @@ const currentYear = new Date().getFullYear();
                 <div class="nav-inner">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/about">The Society</a></li>
+                        <li><a href="/the-society">The Society</a></li>
                         <li><a href="/membership">Membership</a></li>
-                        <li><a href="/links">Resources</a></li>
+                        <li><a href="/resources">The Collection</a></li>
                     </ul>
                 </div>
             </nav>
@@ -111,27 +111,26 @@ const currentYear = new Date().getFullYear();
                         <h3>The Inner Circle</h3>
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/about">The Society</a></li>
-                            <li><a href="/meetings">Gatherings &amp; Events</a></li>
+                            <li><a href="/the-society">The Society</a></li>
+                            <li><a href="/gatherings">Gatherings</a></li>
                             <li><a href="/membership">Membership</a></li>
-                            <li><a href="/contact">Request an Invitation</a></li>
                         </ul>
                     </div>
                     
                     <div class="nav-column">
-                        <h3>The Archives</h3>
+                        <h3>The Chamber</h3>
                         <ul>
-                            <li><a href="/board">The Council</a></li>
-                            <li><a href="/hall-of-fame">Hall of Masters</a></li>
-                            <li><a href="/newsletter">Dispatches</a></li>
-                            <li><a href="/donate">Patronage</a></li>
+                            <li><a href="/the-council">The Council</a></li>
+                            <li><a href="/hall-of-masters">Hall of Masters</a></li>
+                            <li><a href="/patronage">Patronage</a></li>
+                            <li><a href="#" class="open-contact-form">Request an Invitation</a></li>
                         </ul>
                     </div>
                         
                     <div class="nav-column">
                         <h3>The Séance Room</h3>
                         <ul>
-                            <li><a href="/links">Curated Resources</a></li>
+                            <li><a href="/resources">The Collection</a></li>
                             <li><a href="#" class="do-magic" id="flip-trick">Conjure a Miracle</a></li>
                             <li><span class="tell-secret" id="secret-trick">Reveal the Method</span></li>
                         </ul>
@@ -143,6 +142,18 @@ const currentYear = new Date().getFullYear();
     </header>
     <div class="magic-transition-overlay" id="magic-transition-overlay"></div>
 
+    <!-- Hidden form for Netlify form detection (JS-rendered forms need a static counterpart) -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <input type="text" name="experience" />
+        <input type="text" name="specialization" />
+        <input type="text" name="referral" />
+        <textarea name="message"></textarea>
+        <input type="text" name="bot-field" />
+    </form>
+
     <main>
         <slot />
     </main>
@@ -153,25 +164,24 @@ const currentYear = new Date().getFullYear();
                 <h3>The Inner Circle</h3>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about">The Society</a></li>
-                    <li><a href="/meetings">Gatherings &amp; Events</a></li>
+                    <li><a href="/the-society">The Society</a></li>
+                    <li><a href="/gatherings">Gatherings</a></li>
                     <li><a href="/membership">Membership</a></li>
-                    <li><a href="/contact">Request an Invitation</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>The Archives</h3>
+                <h3>The Chamber</h3>
                 <ul>
-                    <li><a href="/board">The Council</a></li>
-                    <li><a href="/hall-of-fame">Hall of Masters</a></li>
-                    <li><a href="/newsletter">Dispatches</a></li>
-                    <li><a href="/donate">Patronage</a></li>
+                    <li><a href="/the-council">The Council</a></li>
+                    <li><a href="/hall-of-masters">Hall of Masters</a></li>
+                    <li><a href="/patronage">Patronage</a></li>
+                    <li><a href="#" class="open-contact-form">Request an Invitation</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>The Séance Room</h3>
                 <ul>
-                    <li><a href="/links">Curated Resources</a></li>
+                    <li><a href="/resources">The Collection</a></li>
                     <li><a href="#" class="do-magic" id="flip-trick-footer">Conjure a Miracle</a></li>
                     <li><span class="tell-secret" id="secret-trick-footer">Reveal the Method</span></li>
                 </ul>

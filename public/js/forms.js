@@ -210,30 +210,30 @@ function initContactForm() {
     submitButton.textContent = "Sending...";
     submitButton.classList.add("submitting");
 
-    // Collect form data
-    const formData = new FormData(contactForm);
+    // Collect form data and submit to Netlify
+    const formData = new URLSearchParams(new FormData(contactForm)).toString();
 
-    // Send AJAX request to the secure handler
-    fetch("utils/mailer/form-handler.php", {
+    fetch("/", {
       method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: formData,
     })
-      .then((response) => response.json())
-      .then((data) => {
+      .then(function (response) {
         // Re-enable submit button
         submitButton.disabled = false;
-        submitButton.textContent = "Open Sesame";
+        submitButton.textContent = "Submit Your Petition";
         submitButton.classList.remove("submitting");
 
         // Show response message
         formResponse.style.display = "block";
         const responseParagraph = formResponse.querySelector("p");
 
-        if (data.success) {
+        if (response.ok) {
           // Success message
           formResponse.classList.add("success");
           formResponse.classList.remove("error");
-          responseParagraph.textContent = data.message;
+          responseParagraph.textContent =
+            "Your petition has been received. The Council will review your submission and respond in due course.";
 
           // Reset form on success
           contactForm.reset();
@@ -244,16 +244,14 @@ function initContactForm() {
           // Error message
           formResponse.classList.add("error");
           formResponse.classList.remove("success");
-          responseParagraph.textContent = data.message;
+          responseParagraph.textContent =
+            "Something went wrong. Please try again later.";
         }
-
-        // Scroll to response message
-        formResponse.scrollIntoView({ behavior: "smooth", block: "nearest" });
       })
-      .catch((error) => {
+      .catch(function (error) {
         // Handle network errors
         submitButton.disabled = false;
-        submitButton.textContent = "Open Sesame";
+        submitButton.textContent = "Submit Your Petition";
         submitButton.classList.remove("submitting");
 
         formResponse.style.display = "block";

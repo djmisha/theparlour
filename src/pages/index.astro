@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import SectionDivider from '../components/SectionDivider.astro';
 import Icon from '../components/Icon.astro';
-import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout 
@@ -27,19 +26,6 @@ import ContactForm from '../components/ContactForm.astro';
     </section>
 
     <SectionDivider type="wave" />
-
-    <section id="events" class="events-section">
-        <div class="container">
-            <h2>Gatherings &amp; Events</h2>
-            <div class="events-exclusive-notice">
-                <p class="exclusive-headline">Exclusive to Members Only</p>
-                <p>The Parlour's gatherings, performances, and events are reserved exclusively for members of the society. Our private sessions feature world-class demonstrations, intimate lectures by master conjurers, and experiences that simply cannot be found elsewhere.</p>
-                <p>Non-members may not attend, observe, or participate in any society event. This exclusivity is not a barrier — it is a promise. A promise that every gathering will be attended only by those who have proven their dedication to the craft and earned the trust of their fellow practitioners.</p>
-                <p>If you seek to experience the extraordinary, the path begins with a petition for membership.</p>
-                <a href="/contact" class="btn">Petition for Membership</a>
-            </div>
-        </div>
-    </section>
 
     <SectionDivider type="peaks" />
 
@@ -82,7 +68,7 @@ import ContactForm from '../components/ContactForm.astro';
             </div>
             
             <div class="magic-arts-cta">
-                <a href="#contact" class="btn btn-gold">Begin Your Journey</a>
+                <a href="#" class="btn btn-gold open-contact-form">Begin Your Journey</a>
             </div>
         </div>
     </section>
@@ -123,7 +109,7 @@ import ContactForm from '../components/ContactForm.astro';
                     </div>
                     
                     <div class="cta-container">
-                        <a href="#contact" class="btn">Seek Admission</a>
+                        <a href="#" class="btn open-contact-form">Seek Admission</a>
                     </div>
                 </div>
             </div>
@@ -165,7 +151,7 @@ import ContactForm from '../components/ContactForm.astro';
             </div>
             
             <div class="membership-cta">
-                <a href="#contact" class="btn">Petition for Membership</a>
+                <a href="#" class="btn open-contact-form">Petition for Membership</a>
             </div>
         </div>
     </section>
@@ -191,15 +177,13 @@ import ContactForm from '../components/ContactForm.astro';
                         <span class="stat-number">Accessible Only</span>
                         <span class="stat-label">To Members of The Parlour</span>
                     </div>
-                    <a href="#contact" class="btn btn-outline">Request Access</a>
+                    <a href="#" class="btn btn-outline open-contact-form">Request Access</a>
                 </div>
             </div>
         </div>
     </section>
 
     <SectionDivider type="curve" />
-
-    <ContactForm />
 
     <SectionDivider type="wave" />
 </Layout>

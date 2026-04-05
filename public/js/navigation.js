@@ -2,6 +2,11 @@ window.setupSmoothScrolling = function () {
   $('a[href^="#"]')
     .off("click")
     .on("click", function (event) {
+      // Skip contact form overlay triggers
+      if (this.classList.contains("open-contact-form")) {
+        return;
+      }
+
       if (
         this.getAttribute("target") === "_blank" ||
         !this.pathname.endsWith(
@@ -53,10 +58,21 @@ window.setupHamburgerMenu = function () {
 
         // Handle regular nav link clicks — close overlay and let transition handle navigation
         overlay.querySelectorAll(".parlour-overlay-body a[href]").forEach(function (a) {
-          // Skip magic trigger links
-          if (a.classList.contains("do-magic") || a.getAttribute("href") === "#") {
+          // Handle contact form trigger links
+          if (a.classList.contains("open-contact-form")) {
             a.addEventListener("click", function (e) {
               e.preventDefault();
+              window.ParlourOverlay.close(overlay);
+              $(".hamburger-menu").removeClass("active");
+              if (typeof window.openContactForm === "function") {
+                setTimeout(window.openContactForm, 350);
+              }
+            });
+          // Skip magic trigger links
+          } else if (a.classList.contains("do-magic") || a.getAttribute("href") === "#") {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
               window.ParlourOverlay.close(overlay);
               $(".hamburger-menu").removeClass("active");
               // Trigger magic trick
@@ -76,6 +92,7 @@ window.setupHamburgerMenu = function () {
         overlay.querySelectorAll(".parlour-overlay-body span.tell-secret").forEach(function (span) {
           span.addEventListener("click", function (e) {
             e.preventDefault();
+            e.stopPropagation();
             window.ParlourOverlay.close(overlay);
             $(".hamburger-menu").removeClass("active");
             // Trigger secret overlay
