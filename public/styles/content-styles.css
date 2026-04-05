@@ -22,20 +22,47 @@
 
 .content-hero h1 {
     font-family: var(--font-heading, 'Cormorant Garamond'), serif;
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
+    font-size: 7.5rem;
+    line-height: 1.0;
+    margin-bottom: 1.2rem;
     color: var(--color-gold, #c9a959);
     font-weight: 400;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
     text-shadow: none;
+    animation: heroFadeUp 1s ease-out both;
 }
 
 .content-hero .lead {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--color-text-secondary, #a09c94);
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.5;
+    animation: heroFadeUp 1s ease-out 0.2s both;
+}
+
+/* Gold divider between h1 and subtitle */
+.content-hero .content-container h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: var(--color-gold, #c9a959);
+    margin: 1rem auto 0;
+    opacity: 0.6;
+    animation: heroFadeUp 1s ease-out 0.1s both;
+}
+
+/* Subtle fade-up entrance animation */
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .content-info {
@@ -588,14 +615,6 @@
 }
 
 @media (max-width: 767px) {
-    .content-hero h1 {
-        font-size: 2rem;
-    }
-    
-    .content-hero .lead {
-        font-size: 1.3rem;
-    }
-    
     .content-details-card {
         margin-bottom: 30px;
     }
@@ -1393,4 +1412,16 @@ input.error, textarea.error {
     .link-card-name {
         font-size: 0.975rem;
     }
+}
+
+/* Content hero heading — scale down on smaller screens (matches homepage) */
+@media (max-width: 1200px) {
+    .content-hero h1 { font-size: 5.5rem; }
+}
+@media (max-width: 900px) {
+    .content-hero h1 { font-size: 4rem; }
+}
+@media (max-width: 600px) {
+    .content-hero h1 { font-size: 2.8rem; }
+    .content-hero .lead { font-size: 1.1rem; }
 }

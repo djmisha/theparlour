@@ -171,6 +171,26 @@
     .tagline {
         text-align: left;
     }
+
+    /* Center CTA buttons on mobile */
+    .cta-mobile-center {
+        text-align: center;
+    }
+
+    .content-details-card,
+    .attendance-info,
+    .attendance-info > div,
+    .attendance-info .members {
+        text-align: center;
+    }
+
+    a.content-btn.content-mt-medium,
+    a.content-btn.open-contact-form {
+        display: inline-block;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* Hide Main Nav on Smaller Screens */

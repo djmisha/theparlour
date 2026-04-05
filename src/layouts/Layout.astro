@@ -112,8 +112,8 @@ const currentYear = new Date().getFullYear();
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="/the-society">The Society</a></li>
-                            <li><a href="/gatherings">Gatherings</a></li>
                             <li><a href="/membership">Membership</a></li>
+                            <li><a href="/gatherings">Gatherings</a></li>
                         </ul>
                     </div>
                     
@@ -143,7 +143,7 @@ const currentYear = new Date().getFullYear();
     <div class="magic-transition-overlay" id="magic-transition-overlay"></div>
 
     <!-- Hidden form for Netlify form detection (JS-rendered forms need a static counterpart) -->
-    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" style="display:none">
         <input type="text" name="name" />
         <input type="email" name="email" />
         <input type="tel" name="phone" />
@@ -165,8 +165,8 @@ const currentYear = new Date().getFullYear();
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/the-society">The Society</a></li>
-                    <li><a href="/gatherings">Gatherings</a></li>
                     <li><a href="/membership">Membership</a></li>
+                    <li><a href="/gatherings">Gatherings</a></li>
                 </ul>
             </div>
             <div class="footer-col">
