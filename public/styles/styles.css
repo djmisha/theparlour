@@ -46,6 +46,12 @@ p {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 .logo a {
     text-decoration: none;
 }
@@ -117,7 +123,6 @@ p {
 }
 
 .hero-home {
-  background-image: url('../image/hero-home.jpg');
   height: calc(100vh - 120px);
 }
 
@@ -424,67 +429,144 @@ h2 {
     letter-spacing: 1px;
 }
 footer {
-    background-color: var(--color-bg-primary, #0a0a0a);
-    color: var(--color-text-secondary, #a09c94);
-    padding: 100px 20px 60px 20px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23333' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background: rgba(5, 5, 5, 0.97);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 80px 50px;
     position: relative;
+    box-sizing: border-box;
     margin-top: 20px;
 }
-.footer-content {
+
+.footer-nav-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 0;
 }
-.footer-info,
-.footer-nav {
-    margin-bottom: 20px;
+
+.footer-col {
+    flex: 1;
+    padding: 30px 50px;
+    border-right: 1px solid rgba(201, 169, 89, 0.15);
+    text-align: left;
 }
-footer ul {
+
+.footer-col:last-child {
+    border-right: none;
+}
+
+.footer-col h3 {
+    font-family: var(--font-display, 'Cinzel'), serif;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-weight: 400;
+}
+
+.footer-col ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
-footer ul li {
-    margin-bottom: 10px;
+
+.footer-col ul li {
+    margin-bottom: 0;
 }
-.footer-nav a,
-.footer-nav-section a {
-    color: var(--color-text-secondary, #a09c94); /* Soft gray color for all footer links */
+
+.footer-col ul li a,
+.footer-col ul li span {
+    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
+    color: var(--color-gold, #c9a959);
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 2.4rem;
+    font-style: italic;
+    font-weight: 400;
+    display: block;
+    padding: 0.45rem 0;
+    line-height: 1.15;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    cursor: pointer;
 }
-.footer-nav a:hover,
-.footer-nav-section a:hover {
-    color: var(--color-gold, #c9a959); /* Gold color on hover */
+
+.footer-col ul li a:hover,
+.footer-col ul li span:hover {
+    color: #ffffff;
+    padding-left: 10px;
 }
-.footer-bottom {
+
+.footer-identity {
+    border-top: 1px solid rgba(201, 169, 89, 0.15);
+    padding-top: 30px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 20px;
-    margin-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 16px;
+    text-align: center;
+}
+
+.footer-identity-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-logo-name {
+    font-family: var(--font-display, 'Cinzel'), serif;
+    font-size: 1.5rem;
+    color: var(--color-gold, #c9a959);
+    letter-spacing: 0.15em;
+    font-weight: 400;
+    margin: 0;
+}
+
+.footer-logo-tagline {
+    font-family: var(--font-body, 'EB Garamond'), serif;
+    font-size: 0.65rem;
     color: var(--color-text-muted, #6b6560);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
 }
 
-.footer-bottom p {
-    font-size: 0.75rem; /* 12px — explicit exception for copyright */
-    line-height: 1.5;
+.footer-identity-bottom {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-.back-to-top {
-    display: inline-block;
-    margin-left: 15px;
+.footer-copyright {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #6b6560);
+    font-family: var(--font-body, 'EB Garamond'), serif;
+    letter-spacing: 0.05em;
+    margin: 0;
 }
 
-.back-to-top a {
-    color:var(--color-text-muted, #6b6560);
+.footer-ascend {
+    font-family: var(--font-display, 'Cinzel'), serif;
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #6b6560);
     text-decoration: none;
+    letter-spacing: 0.15em;
+    transition: color 0.3s ease;
 }
 
-.back-to-top i {
-    margin-right: 10px;
+.footer-ascend:hover {
+    color: var(--color-gold, #c9a959);
 }
 
 /* Fixed back to top button for long pages */
@@ -525,59 +607,60 @@ footer ul li {
     100% { transform: translateY(0); }
 }
 
-.back-to-top a.levitating {
+.footer-ascend.levitating {
     animation: levitate 1s ease-in-out;
 }
 
-/* Improve button appearance on small screens */
+/* Footer responsive */
 @media (max-width: 768px) {
-    .footer-bottom {
+    footer {
+        padding: 36px 28px 28px;
+        min-height: 100svh;
+        justify-content: center;
+    }
+
+    .footer-nav-grid {
         flex-direction: column;
-        text-align: center;
+        align-items: stretch;
+        gap: 0;
     }
-    
-    .back-to-top {
-        margin-left: 0;
-        margin-top: 15px;
+
+    .footer-col {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 16px 0;
     }
-}
 
-.footer-info h3 {
-    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
-    font-size: 1.9rem;
-    margin-bottom: 12px;
-    color: var(--color-gold, #c9a959)
-}
-.footer-nav {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
-}
+    .footer-col:last-child {
+        border-bottom: none;
+    }
 
-.footer-nav-section {
-    min-width: 160px;
-}
+    .footer-col h3 {
+        font-size: 0.6rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+    }
 
-.footer-nav-section h3 {
-    font-family: var(--font-heading, 'Cormorant Garamond'), serif;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: var(--color-gold, #c9a959);
-    text-shadow: none;
-    position: relative;
-}
+    .footer-col ul li a,
+    .footer-col ul li span {
+        font-size: 1.65rem;
+        padding: 0.25rem 0;
+    }
 
-.footer-nav-section h3:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    height: 2px;
-    width: 40px;
-    background-color: var(--color-crimson, #6b0f1a);
-    border-radius: 1px;
+    .footer-identity {
+        margin-top: 28px;
+        padding-top: 20px;
+        gap: 10px;
+    }
+
+    .footer-logo-name {
+        font-size: 1.1rem;
+    }
+
+    .footer-identity-bottom {
+        flex-direction: column;
+        gap: 6px;
+    }
 }
 
 .footer-ibm-logo {
@@ -759,11 +842,6 @@ footer ul li {
         font-size: 2rem;
     }
     
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .benefits-container {
         grid-template-columns: 1fr;
     }
@@ -772,39 +850,6 @@ footer ul li {
         padding: 50px 0;
     }
 
-    .footer-nav {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-    }
-    
-    .footer-nav-section {
-        text-align: center;
-        width: 100%;
-    }
-    
-    .footer-nav-section h3:after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .footer-sections {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .footer-info, 
-    .footer-nav-section {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .footer-nav-section h3:after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
     .magic-eyes {
         top: 50%;
         left: 140px;
@@ -1577,28 +1622,6 @@ footer ul li {
     .magic-benefit-cards {
         grid-template-columns: 1fr; /* Switch to 1 card per row on small mobile */
     }
-}
-
-.footer-sections {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.footer-info, 
-.footer-nav-section {
-    margin-bottom: 20px;
-    min-width: 160px;
-}
-
-/* Keep the existing footer-nav style for compatibility */
-.footer-nav {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
 }
 
 .tell-secret {

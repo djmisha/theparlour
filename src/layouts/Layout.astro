@@ -89,23 +89,22 @@ const currentYear = new Date().getFullYear();
               </a>
             </div>
             
-            <div class="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
             <nav class="main-nav">
                 <div class="nav-inner">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">The Society</a></li>
-                        <li><a href="/meetings">Gatherings</a></li>
                         <li><a href="/membership">Membership</a></li>
-                        <li><a href="/contact" class="btn nav-btn">Request an Invitation</a></li>
+                        <li><a href="/links">Resources</a></li>
                     </ul>
                 </div>
             </nav>
+
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="jumbo-nav">
                 <div class="nav-inner">
                     <div class="nav-column">
@@ -149,52 +148,43 @@ const currentYear = new Date().getFullYear();
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-sections">
-                    <div class="footer-info">
-                        <h3>The Parlour</h3>
-                        <p>The World's Most Exclusive Society of Magic</p>
-                        <p>Based in San Diego</p>
-                        <p class="footer-motto"><em>"Where the impossible becomes art."</em></p>
-                    </div>
-                    
-                    <div class="footer-nav-section">
-                        <h3>The Inner Circle</h3>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/about">The Society</a></li>
-                            <li><a href="/meetings">Gatherings &amp; Events</a></li>
-                            <li><a href="/membership">Membership</a></li>
-                            <li><a href="/contact">Request an Invitation</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-nav-section">
-                        <h3>The Archives</h3>
-                        <ul>
-                            <li><a href="/board">The Council</a></li>
-                            <li><a href="/hall-of-fame">Hall of Masters</a></li>
-                            <li><a href="/newsletter">Dispatches</a></li>
-                            <li><a href="/donate">Patronage</a></li>
-                        </ul>
-                    </div>
-                        
-                    <div class="footer-nav-section">
-                        <h3>The Séance Room</h3>
-                        <ul>
-                            <li><a href="/links">Curated Resources</a></li>
-                            <li><a href="#" class="do-magic" id="flip-trick-footer">Conjure a Miracle</a></li>
-                            <li><span class="tell-secret" id="secret-trick-footer">Reveal the Method</span></li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="footer-nav-grid">
+            <div class="footer-col">
+                <h3>The Inner Circle</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">The Society</a></li>
+                    <li><a href="/meetings">Gatherings &amp; Events</a></li>
+                    <li><a href="/membership">Membership</a></li>
+                    <li><a href="/contact">Request an Invitation</a></li>
+                </ul>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; Beyond Time — The Parlour — The World's Most Exclusive Society of Magic. Based in San Diego. All rights reserved.</p>
-                <div class="back-to-top"><br>
-                    <a href="#" id="back-to-top-btn">↑ Ascend</a>
-                </div>
+            <div class="footer-col">
+                <h3>The Archives</h3>
+                <ul>
+                    <li><a href="/board">The Council</a></li>
+                    <li><a href="/hall-of-fame">Hall of Masters</a></li>
+                    <li><a href="/newsletter">Dispatches</a></li>
+                    <li><a href="/donate">Patronage</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>The Séance Room</h3>
+                <ul>
+                    <li><a href="/links">Curated Resources</a></li>
+                    <li><a href="#" class="do-magic" id="flip-trick-footer">Conjure a Miracle</a></li>
+                    <li><span class="tell-secret" id="secret-trick-footer">Reveal the Method</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-identity">
+            <div class="footer-identity-top">
+                <h2 class="footer-logo-name">The Parlour</h2>
+                <p class="footer-logo-tagline">The World's Most Exclusive Society of Magic &bull; San Diego</p>
+            </div>
+            <div class="footer-identity-bottom">
+                <p class="footer-copyright">&copy; Beyond Time — The Parlour. All rights reserved.</p>
+                <a href="#" id="back-to-top-btn" class="footer-ascend">↑ Ascend</a>
             </div>
         </div>
     </footer>
