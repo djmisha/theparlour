@@ -1,0 +1,18 @@
+{
+  "name": "The Parlour — The World's Most Exclusive Society of Magic",
+  "short_name": "The Parlour",
+  "description": "An invitation-only society of master magicians based in San Diego. The highest echelons of sleight of hand, conjury, and the performing arts of illusion.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#c9a959",
+  "icons": [
+    {
+      "src": "/image/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["entertainment", "lifestyle"],
+  "lang": "en"
+}
