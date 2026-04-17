@@ -1,7 +1,7 @@
 {
   "name": "the-parlour",
   "version": "1.0.0",
-  "description": "The most secret magic society in the world .",
+  "description": "The most secret magic society in the world.",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -18,6 +18,10 @@
   "dependencies": {
     "@astrojs/react": "^4.2.1",
     "@astrojs/sitemap": "^3.7.2",
+    "@tsparticles/plugin-emitters": "^3.9.1",
+    "@tsparticles/plugin-emitters-shape-square": "^3.9.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
     "astro": "^5.15.8",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import EffectsTestbed from "../components/EffectsTestbed";
+---
+
+<Layout title="Effects Testbed — The Parlour" noindex={true}>
+  <section style="min-height: 100vh; background: #0a0a0a;">
+    <EffectsTestbed client:load />
+  </section>
+</Layout>

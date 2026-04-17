@@ -1,0 +1,36 @@
+installation:
+  version: 6.3.0
+  installDate: 2026-04-10T08:35:42.260Z
+  lastUpdated: 2026-04-10T08:35:42.260Z
+modules:
+  - name: core
+    version: 6.3.0
+    installDate: 2026-04-10T08:35:37.733Z
+    lastUpdated: 2026-04-10T08:35:42.214Z
+    source: built-in
+    npmPackage: null
+    repoUrl: null
+  - name: bmm
+    version: 6.3.0
+    installDate: 2026-04-10T08:35:37.855Z
+    lastUpdated: 2026-04-10T08:35:42.215Z
+    source: built-in
+    npmPackage: null
+    repoUrl: null
+  - name: bmb
+    version: 1.5.0
+    installDate: 2026-04-10T08:35:38.738Z
+    lastUpdated: 2026-04-10T08:35:42.237Z
+    source: external
+    npmPackage: bmad-builder
+    repoUrl: https://github.com/bmad-code-org/bmad-builder
+  - name: cis
+    version: 0.1.9
+    installDate: 2026-04-10T08:35:40.126Z
+    lastUpdated: 2026-04-10T08:35:42.260Z
+    source: external
+    npmPackage: bmad-creative-intelligence-suite
+    repoUrl: https://github.com/bmad-code-org/bmad-module-creative-intelligence-suite
+ides:
+  - opencode
+  - github-copilot
