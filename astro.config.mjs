@@ -3,6 +3,11 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes('/effects/'),
+    }),
+  ],
   site: 'https://www.parloursociety.org',
 });
