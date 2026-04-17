@@ -80,7 +80,7 @@
   {
     "Name": "Mac King",
     "Type": "Magician",
-    "LinkURL": "https://www.macking.com",
+    "LinkURL": "https://macking.com",
     "Description": "Las Vegas comedy magic legend at Harrah's for over 20 years"
   },
   {
@@ -146,14 +146,14 @@
   {
     "Name": "Garrett Thomas",
     "Type": "Magician",
-    "LinkURL": "https://www.garrettthomasmagic.com",
+    "LinkURL": "https://gtmagic.com",
     "Description": "Visionary creator of Ring Thing and influential close-up magic artist"
   },
   {
     "Name": "Dai Vernon Foundation",
     "Type": "Magician",
-    "LinkURL": "https://www.daivernon.com",
-    "Description": "Preserving the legacy of The Professor, the man who fooled Houdini"
+    "LinkURL": "https://daivernonfoundation.org",
+    "Description": "Supporting tomorrow's stars of magic and preserving the legacy of the man who fooled Houdini"
   },
   {
     "Name": "Harry Lorayne",
@@ -194,7 +194,7 @@
   {
     "Name": "Mahdi Gilbert",
     "Type": "Magician",
-    "LinkURL": "https://www.mahdigilbert.com",
+    "LinkURL": "https://mahdigilbert.com",
     "Description": "Extraordinary close-up artist performing stunning magic without hands"
   },
   {
@@ -312,15 +312,9 @@
     "Description": "Canada's leading magic retailer and performing arts organization"
   },
   {
-    "Name": "Wizard HQ",
-    "Type": "Vendor",
-    "LinkURL": "https://www.wizardhq.com",
-    "Description": "Online magic retailer with a wide range of professional magic products"
-  },
-  {
     "Name": "Magic Direct",
     "Type": "Vendor",
-    "LinkURL": "https://www.magicdirect.com",
+    "LinkURL": "https://magicdirect.com",
     "Description": "Direct-to-consumer magic retailer specializing in professional illusions"
   },
   {
@@ -328,12 +322,6 @@
     "Type": "Vendor",
     "LinkURL": "https://magicbybrad.com",
     "Description": "Long-running San Diego magic shop and online retailer"
-  },
-  {
-    "Name": "MagicianSupplies.com",
-    "Type": "Vendor",
-    "LinkURL": "https://www.magiciansupplies.com",
-    "Description": "Professional-grade magic supplies for working performers"
   },
   {
     "Name": "Misdirections Magic Shop",
@@ -368,13 +356,13 @@
   {
     "Name": "Viking Manufacturing",
     "Type": "Mfg",
-    "LinkURL": "https://www.vikingmfg.com",
-    "Description": "Custom-manufactured professional magic props for working magicians"
+    "LinkURL": "https://vikingmagic.com",
+    "Description": "Viking Mfg. & Collectors Workshop — custom-manufactured professional magic props for working magicians"
   },
   {
     "Name": "Abbott's Magic",
     "Type": "Mfg",
-    "LinkURL": "https://www.abbottsmagic.com",
+    "LinkURL": "https://www.abbottmagic.com",
     "Description": "Historic magic manufacturer in Colon, Michigan — the magic capital of the world"
   },
   {
@@ -386,26 +374,14 @@
   {
     "Name": "Bazar de Magia",
     "Type": "Mfg",
-    "LinkURL": "https://www.bazardemagia.com",
-    "Description": "Brazilian magic manufacturer producing professional-grade props and effects"
+    "LinkURL": "https://bazardemagia.com",
+    "Description": "Argentine magic manufacturer producing professional-grade props and effects since 1994"
   },
   {
     "Name": "Fantasma Magic",
     "Type": "Mfg",
-    "LinkURL": "https://www.fantasmamagic.com",
+    "LinkURL": "https://fantasmamagic.com",
     "Description": "New York-based manufacturer of magic kits and consumer magic products"
-  },
-  {
-    "Name": "Morrissey Magic",
-    "Type": "Mfg",
-    "LinkURL": "https://www.morrisseymagic.com",
-    "Description": "Canadian maker of innovative close-up magic and sleight-of-hand tools"
-  },
-  {
-    "Name": "Joe Porper Inc.",
-    "Type": "Mfg",
-    "LinkURL": "https://www.joeporper.com",
-    "Description": "Legendary craftsman; creator of the Porper Card Clip and precision tools"
   },
   {
     "Name": "Card-Shark",
@@ -488,7 +464,7 @@
   {
     "Name": "MagicStream",
     "Type": "Resource",
-    "LinkURL": "https://www.magicstream.com",
+    "LinkURL": "https://magicstream.com",
     "Description": "Online streaming platform for instructional magic videos"
   },
   {
@@ -506,32 +482,14 @@
   {
     "Name": "H&R Magic Books",
     "Type": "Resource",
-    "LinkURL": "https://www.hrmagicbooks.com",
+    "LinkURL": "https://hrmagicbooks.com",
     "Description": "Rare and out-of-print magic books and manuscripts for collectors"
-  },
-  {
-    "Name": "Magic History Podcast",
-    "Type": "Resource",
-    "LinkURL": "https://magichistory.net",
-    "Description": "Deep-dive podcast series exploring the rich history of conjuring"
   },
   {
     "Name": "Inside Magic",
     "Type": "Resource",
-    "LinkURL": "https://www.insidemagic.com",
+    "LinkURL": "https://insidemagic.com",
     "Description": "News, reviews, and coverage of the international magic community"
-  },
-  {
-    "Name": "Magicbasket",
-    "Type": "Resource",
-    "LinkURL": "https://magicbasket.com",
-    "Description": "Comprehensive directory of magicians, magic clubs, and resources"
-  },
-  {
-    "Name": "The Chamber of Wonder",
-    "Type": "Resource",
-    "LinkURL": "https://chamberofwonder.com",
-    "Description": "Online resource for collecting antique magic posters and ephemera"
   },
   {
     "Name": "Society of Young Magicians",
@@ -542,14 +500,8 @@
   {
     "Name": "Colon, Michigan — Magic Capital",
     "Type": "Other",
-    "LinkURL": "https://www.colonmichigan.com",
+    "LinkURL": "https://visitcolonmi.org",
     "Description": "The self-proclaimed magic capital of the world and home of Abbott's Magic"
-  },
-  {
-    "Name": "Magical Arts Publishing",
-    "Type": "Other",
-    "LinkURL": "https://www.magicalartspublishing.com",
-    "Description": "Publisher specializing in high-quality magic books and manuscripts"
   },
   {
     "Name": "Cardistry-Con",
@@ -566,7 +518,7 @@
   {
     "Name": "Magic Live Convention",
     "Type": "Other",
-    "LinkURL": "https://www.magiclive.com",
+    "LinkURL": "https://www.magicconvention.com",
     "Description": "Premier biennial magic convention in Las Vegas with world-class performers"
   },
   {
@@ -576,16 +528,10 @@
     "Description": "Annual magic convention in Columbus, Ohio featuring outstanding performers"
   },
   {
-    "Name": "Houdini — Official Estate",
+    "Name": "Wild About Houdini",
     "Type": "Other",
-    "LinkURL": "https://www.houdini.com",
-    "Description": "The official site of Harry Houdini's estate, history, and legacy"
-  },
-  {
-    "Name": "Magic Poster Archive",
-    "Type": "Other",
-    "LinkURL": "https://magicpostercollector.com",
-    "Description": "Archive of vintage and antique magic show posters from the golden age"
+    "LinkURL": "https://www.wildabouthoudini.com",
+    "Description": "The leading online resource for Harry Houdini's life, career, and ongoing cultural legacy"
   },
   {
     "Name": "Cardistry Touch",
@@ -600,9 +546,9 @@
     "Description": "British magic community and forum focused on intimate close-up performance"
   },
   {
-    "Name": "MagicApple",
+    "Name": "The Magic Apple",
     "Type": "Other",
-    "LinkURL": "https://www.magicapple.com",
-    "Description": "Online magic retailer based in Studio City, California"
+    "LinkURL": "https://www.themagicapple.com",
+    "Description": "L.A.'s iconic magic shop in Studio City, serving magicians since 1984"
   }
 ]

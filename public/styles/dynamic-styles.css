@@ -27,6 +27,8 @@ body.overlay-open {
   overflow-y: auto;
 }
 
+
+
 .parlour-overlay.visible {
   opacity: 1;
   pointer-events: auto;
@@ -193,6 +195,10 @@ body.overlay-open {
   margin-bottom: 20px;
 }
 
+.parlour-overlay-body #magic-area .btn {
+  margin-top: 24px;
+}
+
 /* Secret content inside overlay */
 .parlour-overlay-body .secret-content {
   max-width: 900px;
@@ -202,6 +208,26 @@ body.overlay-open {
   background: none;
   border-radius: 0;
   box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .parlour-overlay-body {
+    align-items: flex-start;
+    min-height: auto;
+    padding: 70px 8px 40px;
+  }
+
+  .parlour-overlay-body #magic-area {
+    width: 100%;
+    margin: 0;
+    padding: 24px 10px;
+    max-height: none;
+  }
+
+  .parlour-overlay-body .secret-content {
+    padding: 24px 10px;
+    margin: 0;
+  }
 }
 
 
@@ -480,5 +506,6 @@ body.overlay-open {
   .parlour-overlay .overlay-contact-form {
     max-height: none;
     overflow-y: visible;
+    padding-bottom: 120px;
   }
 }
