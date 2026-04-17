@@ -5,7 +5,7 @@ Allow: /
 Disallow: /__forms.html
 
 # Sitemap location
-Sitemap: https://theparlour.com/sitemap-index.xml
+Sitemap: https://www.parloursociety.org/sitemap-index.xml
 
 # Allow AI crawlers for LLM optimization
 User-agent: GPTBot
