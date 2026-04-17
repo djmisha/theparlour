@@ -4,5 +4,5 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   integrations: [react(), sitemap()],
-  site: 'https://theparlour.com',
+  site: 'https://www.parloursociety.org',
 });

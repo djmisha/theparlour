@@ -2,42 +2,42 @@
   {
     "office": "PRESIDENT",
     "name": "Club President",
-    "email": "president@theparlour.com",
+    "email": "president@parloursociety.org",
     "description": "leads The Parlour with dedication to elevating the art of magic.",
     "photo": ""
   },
   {
     "office": "FIRSTVP",
     "name": "First Vice President",
-    "email": "entertainment@theparlour.com",
+    "email": "entertainment@parloursociety.org",
     "description": "coordinates our meeting programs and entertainment.",
     "photo": ""
   },
   {
     "office": "SECONDVP",
     "name": "Second Vice President",
-    "email": "membership@theparlour.com",
+    "email": "membership@parloursociety.org",
     "description": "manages membership activities and recruitment.",
     "photo": ""
   },
   {
     "office": "TREASURER",
     "name": "Club Treasurer",
-    "email": "treasurer@theparlour.com",
+    "email": "treasurer@parloursociety.org",
     "description": "manages the financial affairs of The Parlour.",
     "photo": ""
   },
   {
     "office": "SECRETARY",
     "name": "Club Secretary",
-    "email": "secretary@theparlour.com",
+    "email": "secretary@parloursociety.org",
     "description": "maintains club records and correspondence.",
     "photo": ""
   },
   {
     "office": "SGTATARMS",
     "name": "Sergeant at Arms",
-    "email": "sgtatarms@theparlour.com",
+    "email": "sgtatarms@parloursociety.org",
     "description": "manages meeting logistics and member check-in.",
     "photo": ""
   },
