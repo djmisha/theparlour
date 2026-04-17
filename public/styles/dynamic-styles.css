@@ -27,11 +27,7 @@ body.overlay-open {
   overflow-y: auto;
 }
 
-@media (max-width: 768px) {
-  .parlour-overlay {
-    justify-content: flex-start;
-  }
-}
+
 
 .parlour-overlay.visible {
   opacity: 1;
@@ -216,6 +212,8 @@ body.overlay-open {
 
 @media (max-width: 768px) {
   .parlour-overlay-body {
+    align-items: flex-start;
+    min-height: auto;
     padding: 70px 8px 40px;
   }
 
