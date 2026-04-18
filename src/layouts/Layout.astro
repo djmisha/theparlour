@@ -204,6 +204,7 @@ const allStructuredData = [
                             <li><a href="/the-society">The Society</a></li>
                             <li><a href="/membership">Membership</a></li>
                             <li><a href="/gatherings">Gatherings</a></li>
+                            <li><a href="/learn">The Conservatory</a></li>
                         </ul>
                     </div>
                     
@@ -244,6 +245,14 @@ const allStructuredData = [
         <input type="text" name="bot-field" />
     </form>
 
+    <!-- Hidden form for Netlify enrollment form detection -->
+    <form name="enrollment" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" style="display:none">
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <input type="text" name="bot-field" />
+    </form>
+
     <main>
         <slot />
     </main>
@@ -257,6 +266,7 @@ const allStructuredData = [
                     <li><a href="/the-society">The Society</a></li>
                     <li><a href="/membership">Membership</a></li>
                     <li><a href="/gatherings">Gatherings</a></li>
+                    <li><a href="/learn">The Conservatory</a></li>
                 </ul>
             </div>
             <div class="footer-col">

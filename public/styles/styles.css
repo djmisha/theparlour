@@ -162,6 +162,10 @@ p {
   background-image: url('../image/hero-halloffame.jpg');
 }
 
+.content-hero-learn {
+  background-image: url('../image/library.jpg');
+}
+
 .hero-section:before {
     content: '';
     position: absolute;
