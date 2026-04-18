@@ -8,6 +8,11 @@ window.setupContactForm = function () {
   initContactForm();
 };
 
+// Initialize enrollment form (The Conservatory of Conjury)
+window.setupEnrollmentForm = function () {
+  initEnrollmentForm();
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   // This will run automatically when the DOM is loaded
   // But the actual form validation setup will happen in setupContactForm
@@ -259,6 +264,104 @@ function initContactForm() {
         formResponse.classList.remove("success");
         formResponse.querySelector("p").textContent =
           "Something went wrong. Please try again later.";
+      });
+  });
+}
+
+// Enrollment form validation and submission for The Conservatory of Conjury
+function initEnrollmentForm() {
+  var enrollForm = document.getElementById("enrollment-form");
+  if (!enrollForm) return;
+
+  var formResponse = document.getElementById("enrollment-form-response");
+  var submitButton = document.getElementById("enroll-submit-button");
+  var nameInput = document.getElementById("enroll-name");
+  var emailInput = document.getElementById("enroll-email");
+  var phoneInput = document.getElementById("enroll-phone");
+  var nameError = document.getElementById("enroll-name-error");
+  var emailError = document.getElementById("enroll-email-error");
+  var phoneError = document.getElementById("enroll-phone-error");
+
+  function validateName(name) {
+    return name.trim() ? "" : "Name is required";
+  }
+
+  function validateEmail(email) {
+    if (!email.trim()) return "Email is required";
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return "Please enter a valid email address";
+    if (email.toLowerCase().endsWith(".ru")) return "Sorry, emails from this domain are not accepted";
+    return "";
+  }
+
+  function validatePhone(phone) {
+    if (!phone.trim()) return "Phone number is required";
+    var phoneRegex = /^[0-9\-\(\)\s\+\.]+$/;
+    if (!phoneRegex.test(phone)) return "Please enter a valid phone number";
+    return "";
+  }
+
+  function setFieldError(input, errorEl, message) {
+    if (message) {
+      errorEl.textContent = message;
+      input.classList.add("error");
+      return true;
+    } else {
+      errorEl.textContent = "";
+      input.classList.remove("error");
+      return false;
+    }
+  }
+
+  enrollForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    enrollForm.querySelectorAll(".error-message").forEach(function (el) { el.textContent = ""; });
+    enrollForm.querySelectorAll("input").forEach(function (el) { el.classList.remove("error"); });
+
+    var hasError = false;
+    hasError = setFieldError(nameInput, nameError, validateName(nameInput.value)) || hasError;
+    hasError = setFieldError(emailInput, emailError, validateEmail(emailInput.value)) || hasError;
+    hasError = setFieldError(phoneInput, phoneError, validatePhone(phoneInput.value)) || hasError;
+
+    if (hasError) return;
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    var formData = new URLSearchParams(new FormData(enrollForm)).toString();
+
+    fetch("/__forms.html", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formData,
+    })
+      .then(function (response) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Declare My Intent";
+
+        formResponse.style.display = "block";
+        var responseParagraph = formResponse.querySelector("p");
+
+        if (response.ok) {
+          formResponse.classList.add("success");
+          formResponse.classList.remove("error");
+          responseParagraph.textContent =
+            "Your intent has been recorded. When a new session of The Conservatory opens, you will be among the first to receive word. The path awaits.";
+          enrollForm.reset();
+        } else {
+          formResponse.classList.add("error");
+          formResponse.classList.remove("success");
+          responseParagraph.textContent = "Something went wrong. Please try again later.";
+        }
+      })
+      .catch(function () {
+        submitButton.disabled = false;
+        submitButton.textContent = "Declare My Intent";
+        formResponse.style.display = "block";
+        formResponse.classList.add("error");
+        formResponse.classList.remove("success");
+        formResponse.querySelector("p").textContent = "Something went wrong. Please try again later.";
       });
   });
 }

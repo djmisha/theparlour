@@ -76,6 +76,56 @@ window.openContactForm = function () {
   window.setupContactForm();
 };
 
+// Enrollment form overlay (The Conservatory of Conjury)
+window.openEnrollmentForm = function () {
+  var html =
+    '<div class="overlay-contact-form">' +
+      '<h2>Declare Your Intent</h2>' +
+      '<p class="section-intro">We are seeking new enrollees for The Conservatory of Conjury. Sessions are limited and acceptance is not guaranteed — but those who declare their intent now will be first to receive word when a new session opens. Enter your information below and we will summon you when the time comes.</p>' +
+      '<div class="form-container">' +
+        '<form id="enrollment-form" class="contact-form" method="post" name="enrollment" novalidate>' +
+          '<input type="hidden" name="form-name" value="enrollment">' +
+          '<div class="form-group">' +
+            '<label for="enroll-name">Full Name</label>' +
+            '<input type="text" id="enroll-name" name="name" placeholder="Your full name" required>' +
+            '<span class="error-message" id="enroll-name-error"></span>' +
+          '</div>' +
+          '<div class="form-group">' +
+            '<label for="enroll-email">Email Address</label>' +
+            '<input type="email" id="enroll-email" name="email" placeholder="Your email address" required>' +
+            '<span class="error-message" id="enroll-email-error"></span>' +
+          '</div>' +
+          '<div class="form-group">' +
+            '<label for="enroll-phone">Phone Number</label>' +
+            '<input type="tel" id="enroll-phone" name="phone" placeholder="Your phone number" required>' +
+            '<span class="error-message" id="enroll-phone-error"></span>' +
+          '</div>' +
+          '<div class="form-group honeypot">' +
+            '<label for="enroll-bot-field">Bot Field</label>' +
+            '<input type="text" id="enroll-bot-field" name="bot-field" autocomplete="off">' +
+          '</div>' +
+          '<div class="form-submit">' +
+            '<button type="submit" class="btn" id="enroll-submit-button">Declare My Intent</button>' +
+          '</div>' +
+        '</form>' +
+        '<div id="enrollment-form-response" class="form-response"><p></p></div>' +
+      '</div>' +
+    '</div>';
+
+  window.ParlourOverlay.open(html);
+  window.setupEnrollmentForm();
+};
+
+// Delegated click handler for enrollment form triggers
+document.addEventListener('click', function (e) {
+  var trigger = e.target.closest('.open-enrollment-form');
+  if (trigger) {
+    e.preventDefault();
+    e.stopPropagation();
+    window.openEnrollmentForm();
+  }
+}, true);
+
 // Delegated click handler for contact form triggers
 document.addEventListener('click', function (e) {
   var trigger = e.target.closest('.open-contact-form');
