@@ -1,0 +1,221 @@
+<section id="inquire" class="contact-section">
+    <div class="container">
+        <h2>Summon a Performer for Your Event</h2>
+        <p class="section-intro">Share the details of your gathering below. Our booking concierge will review your event and connect you with the ideal San Diego magician.</p>
+
+        <div class="form-container">
+            <form
+                id="hire-magician-form"
+                class="contact-form"
+                method="POST"
+                name="hire-magician"
+                data-netlify="true"
+                data-netlify-honeypot="hire-bot-field"
+                novalidate
+            >
+                <input type="hidden" name="form-name" value="hire-magician">
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="hire-first-name">First Name</label>
+                        <input type="text" id="hire-first-name" name="firstName" placeholder="First name" required>
+                        <span class="error-message" id="hire-first-name-error"></span>
+                    </div>
+                    <div class="form-group half">
+                        <label for="hire-last-name">Last Name</label>
+                        <input type="text" id="hire-last-name" name="lastName" placeholder="Last name" required>
+                        <span class="error-message" id="hire-last-name-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="hire-email">Email</label>
+                        <input type="email" id="hire-email" name="email" placeholder="Your private email" required>
+                        <span class="error-message" id="hire-email-error"></span>
+                    </div>
+                    <div class="form-group half">
+                        <label for="hire-phone">Phone Number</label>
+                        <input type="tel" id="hire-phone" name="phone" placeholder="Your phone number" required>
+                        <span class="error-message" id="hire-phone-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="hire-event-date">Event Date</label>
+                        <input type="date" id="hire-event-date" name="eventDate" required>
+                        <span class="error-message" id="hire-event-date-error"></span>
+                    </div>
+                    <div class="form-group half">
+                        <label for="hire-venue">Venue</label>
+                        <input type="text" id="hire-venue" name="venue" placeholder="Venue name or neighborhood (e.g., La Jolla)" required>
+                        <span class="error-message" id="hire-venue-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="hire-budget">Budget</label>
+                    <select id="hire-budget" name="budget" required>
+                        <option value="">Select a budget</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $7,000">$5,000 - $7,000</option>
+                        <option value="$7,000+">$7,000+</option>
+                    </select>
+                    <span class="error-message" id="hire-budget-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="hire-message">Tell Us About Your Event</label>
+                    <textarea
+                        id="hire-message"
+                        name="message"
+                        placeholder="Share your guest count, event type, preferred style (close-up, roaming, stage), or any special requests."
+                        rows="5"
+                    ></textarea>
+                    <span class="error-message" id="hire-message-error"></span>
+                </div>
+
+                <div class="form-group honeypot">
+                    <label for="hire-bot-field">Website</label>
+                    <input type="text" id="hire-bot-field" name="hire-bot-field" autocomplete="off">
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="btn" id="hire-submit-button">Request a Performer</button>
+                </div>
+            </form>
+            <div id="hire-form-response" class="form-response">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<form name="hire-magician" method="POST" data-netlify="true" data-netlify-honeypot="hire-bot-field" style="display:none">
+    <input type="text" name="firstName">
+    <input type="text" name="lastName">
+    <input type="email" name="email">
+    <input type="tel" name="phone">
+    <input type="date" name="eventDate">
+    <input type="text" name="venue">
+    <select name="budget">
+        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+        <option value="$5,000 - $7,000">$5,000 - $7,000</option>
+        <option value="$7,000+">$7,000+</option>
+    </select>
+    <textarea name="message"></textarea>
+    <input type="text" name="hire-bot-field">
+</form>
+
+<script is:inline>
+    (function () {
+        var form = document.getElementById("hire-magician-form");
+        if (!form) return;
+
+        var dateInput = document.getElementById("hire-event-date");
+        var submitButton = document.getElementById("hire-submit-button");
+        var response = document.getElementById("hire-form-response");
+        var isSubmitting = false;
+
+        function getLocalToday() {
+            var today = new Date();
+            return new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split("T")[0];
+        }
+
+        var localToday = getLocalToday();
+        dateInput.min = localToday;
+
+        function setError(id, message) {
+            var input = document.getElementById(id);
+            var error = document.getElementById(id + "-error");
+            error.textContent = message;
+            input.classList.toggle("error", Boolean(message));
+            return Boolean(message);
+        }
+
+        function validEmail(value) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        }
+
+        function validPhone(value) {
+            var trimmed = value.trim();
+            return /\d/.test(trimmed) && /^[0-9\-\(\)\s\+\.]+$/.test(trimmed);
+        }
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (isSubmitting) return;
+
+            form.querySelectorAll(".error-message").forEach(function (error) {
+                error.textContent = "";
+            });
+            form.querySelectorAll("input, select, textarea").forEach(function (input) {
+                input.classList.remove("error");
+            });
+
+            var firstName = document.getElementById("hire-first-name");
+            var lastName = document.getElementById("hire-last-name");
+            var email = document.getElementById("hire-email");
+            var phone = document.getElementById("hire-phone");
+            var venue = document.getElementById("hire-venue");
+            var budget = document.getElementById("hire-budget");
+            localToday = getLocalToday();
+            dateInput.min = localToday;
+
+            var hasError = false;
+            hasError = setError("hire-first-name", firstName.value.trim() ? "" : "First name is required") || hasError;
+            hasError = setError("hire-last-name", lastName.value.trim() ? "" : "Last name is required") || hasError;
+            hasError = setError("hire-email", !email.value.trim() ? "Email is required" : (!validEmail(email.value) ? "Please enter a valid email address" : "")) || hasError;
+            hasError = setError("hire-phone", !phone.value.trim() ? "Phone number is required" : (!validPhone(phone.value) ? "Please enter a valid phone number" : "")) || hasError;
+            hasError = setError("hire-event-date", !dateInput.value ? "Event date is required" : (dateInput.value < localToday ? "Please choose today or a future date" : "")) || hasError;
+            hasError = setError("hire-venue", venue.value.trim() ? "" : "Venue is required") || hasError;
+            hasError = setError("hire-budget", budget.value ? "" : "Budget is required") || hasError;
+
+            if (hasError) return;
+
+            isSubmitting = true;
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
+            submitButton.classList.add("submitting");
+
+            var formData = new URLSearchParams(new FormData(form)).toString();
+
+            fetch("/__forms.html", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: formData
+            }).then(function (submitResponse) {
+                isSubmitting = false;
+                submitButton.disabled = false;
+                submitButton.textContent = "Request a Performer";
+                submitButton.classList.remove("submitting");
+
+                response.style.display = "block";
+                var paragraph = response.querySelector("p");
+                if (submitResponse.ok) {
+                    response.classList.add("success");
+                    response.classList.remove("error");
+                    paragraph.textContent = "Your inquiry has been received. Our booking concierge will review the details and respond in due course.";
+                    form.reset();
+                } else {
+                    response.classList.add("error");
+                    response.classList.remove("success");
+                    paragraph.textContent = "Something went wrong. Please try again later.";
+                }
+            }).catch(function () {
+                isSubmitting = false;
+                submitButton.disabled = false;
+                submitButton.textContent = "Request a Performer";
+                submitButton.classList.remove("submitting");
+                response.style.display = "block";
+                response.classList.add("error");
+                response.classList.remove("success");
+                response.querySelector("p").textContent = "Something went wrong. Please try again later.";
+            });
+        });
+    })();
+</script>

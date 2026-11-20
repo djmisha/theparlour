@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionDivider from "../components/SectionDivider.astro";
+import Icon from "../components/Icon.astro";
+import HireMagicianForm from "../components/HireMagicianForm.astro";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Service", "EntertainmentBusiness"],
+  "@id": "https://www.parloursociety.org/hire-magician",
+  "name": "Hire a Magician in San Diego",
+  "description": "Curated close-up, roaming, and stage magic performances by accomplished San Diego magicians.",
+  "url": "https://www.parloursociety.org/hire-magician",
+  "areaServed": [
+    { "@type": "City", "name": "San Diego" },
+    { "@type": "AdministrativeArea", "name": "San Diego County" }
+  ],
+  "provider": {
+    "@id": "https://www.parloursociety.org/#organization"
+  }
+};
+---
+
+<Layout
+  title="Hire a Magician in San Diego | The Parlour"
+  description="Looking to hire a magician in San Diego? The Parlour connects private hosts and corporate events with accomplished close-up, mentalism, and stage performers."
+  keywords="hire a magician in San Diego, San Diego magician, hire a San Diego magician, close-up magician San Diego, corporate magician San Diego, private party magician San Diego, roaming magician San Diego, stage magic show San Diego"
+  ogUrl="https://www.parloursociety.org/hire-magician"
+  ogImage="https://www.parloursociety.org/image/hero-membership.jpg"
+  structuredData={serviceSchema}
+>
+    <section class="hero-section content-hero content-hero-membership">
+        <div class="content-container">
+            <p class="lead">PRIVATE BOOKINGS &amp; CURATED PERFORMANCES</p>
+            <h1>Hire a Magician in San Diego</h1>
+            <p class="lead">Curated sleight-of-hand, psychological illusion, and theatrical parlor magic from San Diego's most elusive inner circle.</p>
+            <p class="content-mt-medium cta-mobile-center"><a href="#inquire" class="content-btn">Request a Performer</a></p>
+        </div>
+    </section>
+
+    <section class="content-info">
+        <div class="content-container">
+            <h2>San Diego's Inner Circle of Illusion</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <p>As a secret society, we are deeply connected to accomplished performers throughout San Diego. Behind closed doors, The Parlour gathers the region's most accomplished sleight-of-hand artists, mentalists, and theatrical illusionists—performers rarely found on public booking directories.</p>
+                        <p>Whether you are hosting an intimate estate dinner in La Jolla, a luxury wedding in Rancho Santa Fe, or an executive gathering downtown, we pair your occasion with the exact caliber of magic it deserves.</p>
+                        <p><em>The setting matters. The audience matters. The right performer changes everything.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="what-to-expect">
+        <div class="content-container">
+            <h2>Bespoke Magical Experiences</h2>
+            <p class="section-intro">Every gathering carries its own rhythm. When you hire a San Diego magician through The Parlour, performances are tailored to your venue, guest count, and atmosphere.</p>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="expectation-list">
+                        <div class="expectation-item">
+                            <span class="emoji-icon"><Icon name="spade" /></span>
+                            <div>
+                                <h4>Close-Up &amp; Table Magic</h4>
+                                <p>Intimate, impossible sleight-of-hand performed inches from your guests' eyes. Cards, coins, and borrowed objects defy logic around cocktail tables or seated dinners.</p>
+                            </div>
+                        </div>
+                        <div class="expectation-item">
+                            <span class="emoji-icon"><Icon name="masks" /></span>
+                            <div>
+                                <h4>Roaming &amp; Cocktail Hour Magic</h4>
+                                <p>Effortless, mobile mystery for receptions, galas, and networking events. Our performers mingle seamlessly through the room, breaking the ice and sparking conversation without interrupting its flow.</p>
+                            </div>
+                        </div>
+                        <div class="expectation-item">
+                            <span class="emoji-icon"><Icon name="stage" /></span>
+                            <div>
+                                <h4>Stage &amp; Parlor Shows</h4>
+                                <p>A commanding centerpiece for the entire room. Classic parlor theatrics, mind-reading, and psychological illusion captivate audiences from twenty to several hundred guests.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-details">
+        <div class="content-container">
+            <h2>Curated for Distinguished Occasions</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <h3>Private gatherings, elevated</h3>
+                        <p><strong>Corporate Galas &amp; Executive Retreats</strong> — Sophisticated entertainment that leaves clients and leadership talking long after the final toast.</p>
+                        <p><strong>Private Estates &amp; Milestone Celebrations</strong> — Salon-style parlor performances crafted for birthdays, anniversaries, and intimate dinner parties.</p>
+                        <p><strong>Luxury Weddings &amp; Rehearsal Dinners</strong> — Seamless cocktail-hour roaming magic that unites guests between ceremony and reception.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-info">
+        <div class="content-container">
+            <h2>Why Book Through The Parlour</h2>
+            <div class="content-row">
+                <div class="content-col content-col-full">
+                    <div class="content-details-card">
+                        <p><strong>Vetted Mastery</strong> — Only working professionals who meet our society's technical and theatrical standards take the stage.</p>
+                        <p><strong>Tailored Matchmaking</strong> — We match the performer’s style—refined mentalism, sharp card work, or charismatic showmanship—to your crowd.</p>
+                        <p><strong>Effortless Execution</strong> — Self-contained performances requiring minimal setup, adaptable to historic venues, private homes, and ballrooms across San Diego County.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="attending-info">
+        <div class="content-container">
+            <h2>Booking Inquiries &amp; Details</h2>
+            <div class="content-row content-align-center">
+                <div class="content-col content-col-full">
+                    <div class="attendance-info" style="text-align: left; max-width: 720px; margin: 0 auto;">
+                        <p><strong>How far in advance should we hire a magician in San Diego?</strong><br>We recommend 4–8 weeks for peak weekend dates. Last-minute private requests are accommodated when possible.</p>
+                        <p><strong>What areas of San Diego do your performers serve?</strong><br>All of San Diego County, including La Jolla, Del Mar, Coronado, Downtown and the Gaslamp Quarter, Rancho Santa Fe, and North County.</p>
+                        <p><strong>What does the venue need to provide?</strong><br>Close-up and roaming performances require little beyond a comfortable guest flow. Parlor and stage shows may require basic lighting, audio, and a clear performance area.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <HireMagicianForm />
+
+    <SectionDivider type="wave" />
+</Layout>
