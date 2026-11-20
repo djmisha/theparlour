@@ -9,6 +9,7 @@ interface Props {
   ogImage?: string;
   noindex?: boolean;
   structuredData?: object | object[];
+  hideFooter?: boolean;
 }
 
 const SITE_URL = "https://www.parloursociety.org";
@@ -24,6 +25,7 @@ const {
   ogImage = DEFAULT_OG_IMAGE,
   noindex = false,
   structuredData,
+  hideFooter = false,
 } = Astro.props;
 
 const currentYear = new Date().getFullYear();
@@ -225,6 +227,7 @@ const allStructuredData = [
                             <li><a href="/resources">The Collection</a></li>
                             <li><a href="#" class="do-magic" id="flip-trick">Conjure a Miracle</a></li>
                             <li><span class="tell-secret" id="secret-trick">Reveal the Method</span></li>
+                            <li><a href="/hire-magician">Hire a Magician</a></li>
                         </ul>
                     </div>
                 </div>
@@ -258,7 +261,7 @@ const allStructuredData = [
         <slot />
     </main>
 
-    <footer>
+    {!hideFooter && <footer>
         <div class="footer-nav-grid">
             <div class="footer-col">
                 <h3>The Inner Circle</h3>
@@ -285,6 +288,7 @@ const allStructuredData = [
                     <li><a href="/resources">The Collection</a></li>
                     <li><a href="#" class="do-magic" id="flip-trick-footer">Conjure a Miracle</a></li>
                     <li><span class="tell-secret" id="secret-trick-footer">Reveal the Method</span></li>
+                    <li><a href="/hire-magician">Hire a Magician</a></li>
                 </ul>
             </div>
         </div>
@@ -298,7 +302,7 @@ const allStructuredData = [
                 <a href="#" id="back-to-top-btn" class="footer-ascend">↑ Ascend</a>
             </div>
         </div>
-    </footer>
+    </footer>}
 
     <!-- jQuery -->
     <script is:inline src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
