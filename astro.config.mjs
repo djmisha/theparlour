@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
+  trailingSlash: 'never',
   integrations: [
     react(),
     sitemap({
